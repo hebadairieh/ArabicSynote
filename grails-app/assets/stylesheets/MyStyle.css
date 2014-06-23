@@ -1,0 +1,171 @@
+
+/*
+  @media (min-width: 768px) {
+
+      .navbar-header {
+
+          float: right;
+
+      }
+
+      @media (min-width: 768px) {
+
+          .navbar-right .dropdown-menu {
+
+              right: auto;
+
+              left: 0;
+
+          }
+
+      }
+
+      .navbar > .container-fluid > .collapse > .nav {
+
+          float:right!important;
+
+      }
+
+      .right {
+
+          float: right;
+
+      }
+
+      .form-control-rtl {
+
+          float: right;
+
+          display: block;
+
+          width: 100%;
+
+          height: 34px;
+
+          padding: 6px 12px;
+
+          font-size: 14px;
+
+          line-height: 1.42857143;
+
+          color: #555;
+
+          background-color: #fff;
+
+          background-image: none;
+
+          text-align: right;
+
+          border: 1px solid #ccc;
+
+          border-radius: 4px;
+
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
+          -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+      }
+*/
+
+body {
+
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.428571429;
+
+    color: #333333;
+
+    background-color: #ffffff;
+
+    direction: rtl;
+
+    padding-top: 70px;
+
+}
+
+#search_bar_div {
+
+    /*          padding-top:10px;
+*/
+
+    background: none repeat scroll 0 0 #F5F5F5;
+
+    border-bottom: 1px solid #DDDDDD;
+
+    width:100%;
+
+    min-width:940px;
+
+}
+
+footer {
+
+    background: none repeat scroll 0 0 #F5F5F5;
+
+    border-top: 1px solid #DDDDDD;
+
+    margin-top: 17px;
+
+    padding: 18px 20px;
+
+    /*text-align: center;*/
+
+}
+
+footer > .navbar>.container>.nav>li > a, img {
+
+    float: right;
+
+}
+
+footer > .navbar>.container>.nav>li > a > img {
+
+    float: right;
+
+}
+
+/*
+      #main_content {
+
+
+          margin-top:10px;
+
+
+          padding-left:10px;
+
+
+          min-width:950px;
+
+
+      }*/
+}
+.thumbnail-img {
+    width: 120px;
+    height: 90px;
+}
+.owner-info, .datetime-info, .views-info {
+    color: #999999;
+    white-space:nowrap;
+    word-wrap:normal;
+}
+.heading-inline {
+    display: inline;
+}
+.recording-row {
+    padding: 5px 0px;
+    border-top:1px solid #eeeeee;
+}
+.recording-description {
+    color: #666666
+}
+.align-lang
+ {
+    float: right;
+}
+

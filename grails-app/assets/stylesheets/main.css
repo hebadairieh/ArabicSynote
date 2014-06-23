@@ -1,0 +1,210 @@
+/*Hide the title in a accessibility and seo friendly way*/
+.hiding
+{
+	position: absolute;
+    left: -9999px;
+}
+/* a component on the page is a block */
+.block
+{
+	margin-top:10px;
+}
+
+.nodata
+{
+	color: #666666;
+    padding: 0.3em;
+}
+/*error in the form*/
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+.help-block
+{
+	color:#999;
+}
+
+/*narbar_div*/
+#navbar_div
+{
+	min-width:940px;
+}
+
+/* Search form */
+#search_bar_div
+{
+	padding-top:10px;
+	background: none repeat scroll 0 0 #F5F5F5; 
+	border-bottom: 1px solid #DDDDDD;
+	width:100%;
+	min-width:940px;
+}
+
+/*footer*/
+footer
+{	
+	background: none repeat scroll 0 0 #F5F5F5;
+    border-top: 1px solid #DDDDDD;
+    margin-top: 17px;
+    padding: 18px 20px;
+    text-align: center;	
+}
+
+#main_content
+{
+	margin-top:10px;
+	padding-left:10px;
+	min-width:950px;	
+}
+
+/*Costomise icons for bootstrap*/
+.icon-group-small {
+    background-image: url('../images/skin/user_group_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-user-profile-small {
+	background-image: url('../images/skin/user_profile_16.png');
+    background-position: center center;
+     margin-right:2px;
+}
+
+.icon-recordings-small {
+	background-image: url('../images/skin/recording_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-synmarks-small {
+	background-image: url('../images/skin/synmark_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-tag-c-small {
+	background-image: url('../images/skin/tag_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-transcripts-small
+{
+	background-image: url('../images/skin/transcript_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+.icon-twitter-small {
+	background-image: url('../images/skin/twitter_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-document-small {
+	background-image: url('../images/skin/document_16.png');
+    background-position: center center;
+    margin-right:2px;
+}
+
+.icon-link-small{
+	background-image: url('../images/skin/link_10.png');
+	background-position: center center;
+	margin-right:2px;
+}
+/* customise labels and badge for bootstrap */
+.label-tag, .badge-tag
+{
+	background-color: #CDE69C;
+	color: #3e501a;
+	font-weight: normal;
+}
+/* Recording, Synmark and Transcript Widget */
+.recording-row, .synmark-row, .cue-row
+{
+	padding:5px 0px;
+	border-top:1px solid #eeeeee;
+}
+
+.heading-inline
+{
+	display:inline;
+}
+
+.datetime-info, .owner-info, .views-info
+{
+	color: #999999;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.recording-description
+{
+	color: #666666;
+}
+
+.permission-info
+{
+	color: #666666;
+    display: block;
+    font-size: 0.9em;
+    margin-top: -0.2em;
+    padding: 0 0 5px 24px;
+}
+
+.metrics-item, .tag-item
+{
+	padding-right:5px;
+}
+
+.label-duration
+{
+	opacity:0.6;
+}
+
+.thumbnail-img
+{
+	width:120px;
+	height:90px;
+}
+
+/* My Synote */
+
+#my_synote_content a {
+	display: block;
+	width: 20%;
+	float: left;
+	text-align: center;
+	margin: 2%;
+	text-decoration:none;
+}
+
+#my_synote_content #mysynote_filter {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*dd and dt*/
+/*DL, DT, DD TAGS LIST DATA*/
+dl {
+    margin-bottom:20px;
+}
+ 
+dl dt {
+    background:#5f9be3;
+    color:#fff;
+    float:left; 
+    font-weight:bold; 
+    margin-right:10px; 
+    padding:5px;  
+    width:100px; 
+}
+ 
+dl dd {
+    margin:2px 0; 
+    padding:5px 0;
+}
