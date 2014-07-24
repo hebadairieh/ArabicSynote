@@ -85,7 +85,7 @@ body {
 
     direction: rtl;
 
-    padding-top: 70px;
+    padding-top: 50px;
 
 }
 
@@ -164,8 +164,6 @@ footer > .navbar>.container>.nav>li > a > img {
 .recording-description {
     color: #666666
 }
-.align-lang
- {
+.align-lang {
     float: right;
 }
-

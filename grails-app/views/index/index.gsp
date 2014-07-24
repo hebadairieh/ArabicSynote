@@ -11,8 +11,7 @@
   <div class="col-md-6 align-lang">
    <h2><g:message code="What.is.Synote"/></h2>
    <h2>
-%{--     <g:message code="default.paginate.prev" />
- --}%    <label>${params.lang}</label>
+     <label>${params.lang}</label>
    </h2>
    %{-- <h2>
     <g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
@@ -40,9 +39,10 @@
     </g:if>
    </h2> --}%
    <p>
-    Synote makes multimedia resources such as video and audio easier to access, search, manage, and exploit. Learners, teachers and other users can create notes, bookmarks, tags, links, images and text captions synchronised to any part of a recording, such as a lecture.
+   <g:message code="What.is.Synote.desc1"/>
    </p>
-   <p>Imagine how difficult it would be to use a textbook if it had no contents page, index or page numbers. Synote actually provides the way to find or associate notes with a particular part of a recording,i.e. the media fragments.
+   <p>
+   <g:message code="What.is.Synote.desc2"/>
    </p>
    <div>
     <g:link controller="user" action="help" fragment="step" title="5 steps quick start" class="btn btn-info">

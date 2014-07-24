@@ -65,7 +65,7 @@
 <body itemscope="itemscope" itemtype="http://schema.org/WebPage" itemref="bottomMainFooter">
 <meta itemprop="author" content="Yunjia Li"/>
  <!-- Top Navigation bar -->
- <nav id="navbar_div" class="navbar navbar-inverse" style="margin-bottom:0px !important;" itemscope="itemscope" itemtype="WPHeader">
+ <nav id="navbar_div" class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px !important;" itemscope="itemscope" itemtype="WPHeader">
    <div class="container">
     <!-- top menu -->
     <div class="nav-collapse">
@@ -115,10 +115,10 @@
      <syn:isNotLoggedIn>
      <div class="btn-group pull-right">
       <g:link controller="login" action="auth" title="Log in" elementId="main_login_a" class="btn btn-primary">
-        Login</g:link>
+       <g:message code="Login"/></g:link>
       <syn:allowRegistering>
        <g:link controller="register" action="index" title="Register" class="btn btn-success">
-         Register</g:link>
+         <g:message code="Register"/></g:link>
       </syn:allowRegistering>
      </div>
      </syn:isNotLoggedIn>
@@ -126,19 +126,19 @@
      <ul class="nav navbar-nav">
          <li>
           <a href="${resource(dir: '/')}" title="home">
-          <i class="icon-home icon-white"></i>Home </a>
+          <i class="icon-home icon-white"></i><g:message code="Home"/> </a>
          </li>
       <!-- Recordings -->
          <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings">
-          <i class="icon-film icon-white"></i>Browse</g:link>
+          <i class="icon-film icon-white"></i><g:message code="Browse"/></g:link>
          </li>
 
       <!-- Groups -->
          <li><g:link controller="userGroup" action="list" title="Groups list">
-       <i class="icon-user icon-white"/></i>Groups</g:link>
+       <i class="icon-user icon-white"/></i><g:message code="Groups"/></g:link>
       </li>
       <li><g:link controller="user" action="help" target="_blank" title="help">
-       <i class="icon-info-sign icon-white"/></i>Help</g:link>
+       <i class="icon-info-sign icon-white"/></i><g:message code="Help"/></g:link>
       </li>
      </ul>
      </div>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
@@ -7,13 +7,13 @@
 	<!-- Add description and long_val to configuration table. long_val is the longger version of the val, in case the val is not long enough -->
 	<changeSet id="v5_configuration_modify" author="Yunjia Li" context="v1">
 		<!-- check if the configuration table has description and long_val coloumn -->
-		<preConditions>
+		<!-- <preConditions>
 			<and>
 				<not>
 					<columnExists tableName="configuration" columnName="description" />
 				</not>
 			</and>
-		</preConditions>
+		</preConditions> -->
 		<addColumn tableName="configuration">
 			<column name="description" type="varchar(255)">
 				<constraints nullable="true" />
@@ -156,8 +156,8 @@
 		<dropView viewName="vw_multimedia_user_group_member_permission"/>
 		<createView viewName="vw_multimedia_user_group_member_permission">
 			SELECT DISTINCT p.resource_id as resource_id,r.title as title, u.id as user_id,u.user_name as user_name,g.id as group_id, g.name as group_name,pv.id as user_perm_id, pv.name as user_perm_name, pv.val as user_perm_val,r.date_created as date_created, r.last_updated as last_updated, p.date_created as perm_date_created, p.last_updated as perm_last_updated
-			FROM user u, user_group_member m, user_group g, resource r, permission p, permission_value pv 
-			WHERE r.class="org.synote.resource.compound.MultimediaResource" AND p.class="org.synote.permission.ResourcePermission" AND 
+			FROM user u, user_group_member m, user_group g, resource r, permission p, permission_value pv
+			WHERE r.class="org.synote.resource.compound.MultimediaResource" AND p.class="org.synote.permission.ResourcePermission" AND
 				u.id = m.user_id AND m.group_id = g.id AND g.id = p.group_id AND p.resource_id = r.id AND r.owner_id != u.id AND pv.id = p.perm_id;
 		</createView>
 	</changeSet>
@@ -188,7 +188,7 @@
 			</column>
 		</addColumn>
 	</changeSet>
-	
+
 	<!--THE CHANGES ABOVE ARE MADE BEFORE SYNOTE MOBILE PROJECT. THE FOLLOWING CHANGES ARE MADE AFTER SYNOTE MOBILE PROJECT -->
 	<changeSet id="v5_resource_add_columns_2" author="Yunjia Li" context="v0.1.1">
 		<!-- check if the configuration table has description and long_val coloumn -->
@@ -233,7 +233,7 @@
 			</column>
 		</addColumn>
 	</changeSet>
-	
+
 	<!-- Add uuid to each MultimediaResource -->
 	<changeSet id="v5_resource_update_uuid" author="Yunjia Li" context="v0.1.1">
 		<preConditions>
@@ -245,7 +245,7 @@
 			UPDATE resource SET uuid = UUID() where uuid IS NULL AND class="org.synote.resource.compound.MultimediaResource";
 		</sql>
 	</changeSet>
-	
+
 	<!--  Add more columns to vw vw_multimedia_user_permissionvalue_modify -->
 	<changeSet id="v5_vw_multimedia_user_permissionvalue_update_v0.1.1" author="Yunjia Li" context="v0.1.1">
 		<preConditions>
@@ -271,12 +271,12 @@
 		<dropView viewName="vw_multimedia_user_group_member_permission"/>
 		<createView viewName="vw_multimedia_user_group_member_permission">
 			SELECT DISTINCT p.resource_id as resource_id,r.title as title, u.id as user_id,u.user_name as user_name,g.id as group_id, g.name as group_name,pv.id as user_perm_id, pv.name as user_perm_name, pv.val as user_perm_val,r.date_created as date_created, r.last_updated as last_updated, p.date_created as perm_date_created, p.last_updated as perm_last_updated,r.real_starttime as real_starttime, r.real_endtime as real_endtime, r.thumbnail as thumbnail, r.duration as duration, r.uuid as uuid, r.is_video as is_video
-			FROM user u, user_group_member m, user_group g, resource r, permission p, permission_value pv 
-			WHERE r.class="org.synote.resource.compound.MultimediaResource" AND p.class="org.synote.permission.ResourcePermission" AND 
+			FROM user u, user_group_member m, user_group g, resource r, permission p, permission_value pv
+			WHERE r.class="org.synote.resource.compound.MultimediaResource" AND p.class="org.synote.permission.ResourcePermission" AND
 				u.id = m.user_id AND m.group_id = g.id AND g.id = p.group_id AND p.resource_id = r.id AND r.owner_id != u.id AND pv.id = p.perm_id;
 		</createView>
 	</changeSet>
-	
+
 	<!-- Add xywh field for Synpoint -->
 	<changeSet id="v5_synpoint_add_columns" author="Yunjia Li" context="v0.1.1">
 		<!-- check if the synpoint has target_xywh coloumn -->
