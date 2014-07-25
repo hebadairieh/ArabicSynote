@@ -79,18 +79,18 @@
        <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-          <li><g:link controller="user" action="showUserProfile" title="Show user profile">My Profile</g:link></li>
+          <li><g:link controller="user" action="showUserProfile" title="Show user profile"><g:message code="My.Profile" /></g:link></li>
           <syn:isAdminLoggedIn>
-       <li><g:link controller="admin" action="index" title="Administration">Administration</g:link></li>
+       <li><g:link controller="admin" action="index" title="Administration"><g:message code="Administration" /></g:link></li>
        </syn:isAdminLoggedIn>
              <li class="divider"></li>
-             <li><g:link controller="logout" action="index" title="Log out">Log out</g:link></li>
+             <li><g:link controller="logout" action="index" title="Log out"><g:message code="Log.out" /></g:link></li>
                </ul>
      </div>
      <div class="btn-group pull-right">
       <g:link class="btn" controller="multimediaResource" action="create" title="create a recording">
        <i class="icon-plus-sign"></i>
-       Create
+       <g:message code="Create" />
       </g:link>
       <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
        <span class="caret"></span>
@@ -98,18 +98,18 @@
       <ul class="dropdown-menu">
           <li>
            <g:link controller="multimediaResource" action="create" title="create a recording">
-           Create a recording </g:link>
+         <g:message code="Create.a.recording" /> </g:link>
           </li>
           <li>
            <g:link controller="user" action="createGroup" title="create a group">
-            Create a group </g:link>
+            <g:message code="Create.a.group" /> </g:link>
           </li>
                </ul>
      </div>
      <div class="btn-group pull-right">
       <g:link controller="user" action="index" title="Edit my profile" class="btn">
       <i class="icon-briefcase"></i>
-      My Synote</g:link>
+      <g:message code="org.synote.user.index.title" /></g:link>
      </div>
      </syn:isLoggedIn>
      <syn:isNotLoggedIn>

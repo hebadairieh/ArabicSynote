@@ -360,7 +360,9 @@ class MultimediaResourceController {
 
 			//multimediaResource.index()
 
-			if(params.useIBMTrans && securityService.isAllowedIPAddress(request.remoteAddr) && IBMTransJobService.getIBMTransJobEnabled()== "true" && IBMTransJobService.getConnected() && IBMTransJobService.getAllowAddingJobs())
+			if(params.useIBMTrans && securityService.isAllowedIPAddress(request.remoteAddr)
+				&& IBMTransJobService.getIBMTransJobEnabled()== "true" && IBMTransJobService.getConnected()
+				& IBMTransJobService.getAllowAddingJobs())
 			{
 				IBMTransJobService.addJob(multimediaResource, title, url.trim())
 			}
@@ -368,6 +370,7 @@ class MultimediaResourceController {
 			if(rlocation == "youtube" && params.cc == "true")
 			{
 				def videoid = regExService.getVideoIDfromYouTubeURL(url)
+				log.info videoid
 				if(videoid != null)
 				{
 					def srt = resourceService.getSRTfromYouTube(videoid,null)

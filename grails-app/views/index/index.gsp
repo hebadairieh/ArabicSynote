@@ -46,9 +46,9 @@
    </p>
    <div>
     <g:link controller="user" action="help" fragment="step" title="5 steps quick start" class="btn btn-info">
-      5 Steps quick start</g:link>
+      <g:message code="5.steps.quick.start" /></g:link>
     <g:link controller="register" action="index" title="Register" class="btn btn-success">
-      Get a free account</g:link>
+    <g:message code="get.a.free.account" /></g:link>
    </div>
   </div>
   <div class="col-md-6">
@@ -83,19 +83,27 @@
                    <ol class="carousel-indicators">
                        <li data-target="#carousel-home" data-slide-to="0" class="active"></li>
                        <li data-target="#carousel-home" data-slide-to="1"></li>
+                      <li data-target="#carousel-home" data-slide-to="2"></li>
+
                    </ol>
 
                    <div class="carousel-inner">
                        <div class="item active">
                            <img src="${resource(dir:'images',file:'test/web_design.jpg')}" alt="seo">
                            <div class="carousel-caption slider-caption">
-                               <h4>ﻣﺤﺮﻙ اﻟﺒﺤﺚ اﻷﻣﺜﻞ ﻟﺸﻈﺎﻳﺎ ﻭﺳﺎﺋﻞ اﻹﻋﻼﻡ</h4>
+                               <h4><g:message code="Share.your.annotations.on.the.Web" /></h4>
                            </div>
                        </div>
                        <div class="item">
                            <img src="${resource(dir:'images',file:'test/varioggetti.jpg')}" alt="seo">
                            <div class="carousel-caption slider-caption">
-                               <h4>ﻣﺸﺎﺭﻛﺔ اﻟﺸﺮﻭﺡ اﻟﺨﺎﺻﺔ ﺑﻚ ﻋﻠﻰ اﻹﻧﺘﺮﻧﺖ</h4>
+                               <h4><g:message code="Working.on.desktop.and.mobile.devices" /></h4>
+                           </div>
+                       </div>
+                       <div class="item">
+                           <img src="${resource(dir:'images',file:'test/seo.jpg')}" alt="seo">
+                           <div class="carousel-caption slider-caption">
+                               <h4><g:message code="Search.engine.optimisation.for.media.fragments" /></h4>
                            </div>
                        </div>
                    </div>
@@ -126,8 +134,8 @@
      <img src="${resource(dir:'images',file:"multimedia_48.png")}" title="annotation multimedia online"/>
     </div>
     <div class="col-md-8">
-     <h3>Multimedia Online</h3>
-     <p>Annotate most audio and video resources online as long as they are accessible through URLs, including YouTube video.</p>
+     <h3><g:message code="Multimedia.Online" /></h3>
+     <p><g:message code="Multimedia.Online.desc" /></p>
     </div>
    </div>
    <div class="col-md-4">
@@ -135,8 +143,8 @@
      <img src="${resource(dir:'images',file:"sync_48.png")}" title="synchronised"/>
     </div>
     <div class="col-md-8">
-     <h3>Synchronised</h3>
-     <p>Listen to recordings whilst viewing the transcript and slides and making synchronised notes.</p>
+     <h3><g:message code="Synchronised" /></h3>
+     <p><g:message code="Synchronised.desc" /></p>
     </div>
    </div>
    <div class="col-md-4">
@@ -144,8 +152,8 @@
      <img src="${resource(dir:'images',file:"media_fragment_48.png")}" title="media fragment"/>
     </div>
     <div class="col-md-8">
-     <h3>Media Fragments</h3>
-     <p>Annotate only a certain part of audio-visual resources from all over the Web and share them online. </p>
+     <h3><g:message code="Media.Fragments" /></h3>
+     <p><g:message code="Media.Fragments.desc" /> </p>
     </div>
    </div>
    </div>
@@ -155,9 +163,9 @@
      <img src="${resource(dir:'images',file:"linkeddata_48.png")}" title="linked data"/>
     </div>
     <div class="col-md-8">
-     <h3>Linked Data</h3>
-     <p>Automatically publish media fragments and annotations using Linked Data and they are searchable by Google.
-     <g:link controller="user" action="help" fragment="linkeddata">Learn more...</g:link></p>
+     <h3><g:message code="Linked.Data" /></h3>
+     <p><g:message code="Linked.Data.desc" />
+     <g:link controller="user" action="help" fragment="linkeddata"><g:message code="Learn.more" />...</g:link></p>
     </div>
     </div>
     <div class="col-md-4">
@@ -165,8 +173,8 @@
      <img src="${resource(dir:'images',file:"speech_recognition_48.png")}" title="speech recognition"/>
     </div>
     <div class="col-md-8">
-     <h3>Speech Recognition</h3>
-     <p>Transcripts can be automatically uploaded via speech recognition if linked to this type of service.</p>
+     <h3><g:message code="Speech.Recognition"/></h3>
+     <p><g:message code="Speech.Recognition.desc"/></p>
     </div>
     </div>
     <div class="col-md-4">
@@ -174,9 +182,9 @@
      <img src="${resource(dir:'images',file:"pda_48.png")}" title="mobile access"/>
     </div>
     <div class="col-md-8">
-     <h3>Mobile Access</h3>
-     <p>Check your annotations and transcript on mobile devices, such as iPhone, iPad and Android tablet.
-      <a href="http://users.ecs.soton.ac.uk/wj1e11/synotemobile/" target="_blank">Go to the demo</a></p>
+     <h3><g:message code="Mobile.Access"/></h3>
+     <p><g:message code="Mobile.Access.desc"/>
+      <a href="http://users.ecs.soton.ac.uk/wj1e11/synotemobile/" target="_blank"><g:message code="Go.to.the.demo"/></a></p>
     </div>
     </div>
    </div>

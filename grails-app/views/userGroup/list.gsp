@@ -16,12 +16,12 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Owner</th>
-						<th>Members</th>
-						<th>Recordings</th>
-						<th>Created At</th>
-						<th>Public</th>
+						<th><g:message code="Name" /></th>
+						<th><g:message code="Owner" /></th>
+						<th><g:message code="Members" /></th>
+						<th><g:message code="Recordings" /></th>
+						<th><g:message code="Created.At" /></th>
+						<th><g:message code="Public" /></th>
 						<th></th>
 					</tr>
 				</thead>
@@ -33,13 +33,13 @@
 						<td>${group.recording_count}</td>
 						<td>${group.date_created.format("dd-mm-yyyy")}</td>
 						<td>${group.shared}</td>
-						<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail">Detail</g:link></td>
+						<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail"><g:message code="Detail" /></g:link></td>
 					</tr>
 				</g:each>
 			</table>
 			</g:if>
 			<g:else>
-			<div class="nodata">No groups have been found.</div>
+			<div class="nodata"><g:message code="No.groups.have.been.found" /></div>
 			</g:else>
 		</div>
 	</div>
