@@ -34,9 +34,9 @@
 </g:else>
 
 <div class="recording-row row">
-	<div class="span2">	
-		<div style="position:relative">	
-			<g:link controller='recording' action='replay' id="${row.id}" title="play ${row.title}">				
+	<div class="col-md-2">
+		<div style="position:relative">
+			<g:link controller='recording' action='replay' id="${row.id}" title="play ${row.title}">
 			<img class="thumbnail-img" src="${thumbnail_src}" alt="Play recording"/>
 			<div style="position:absolute;z-index:1;left:0;bottom:0">
 				<span class="label label-inverse label-duration"><syn:printTime time="${duration}"/></span>
@@ -44,7 +44,7 @@
 			</g:link>
 		</div>
 	</div>
-	<div class="span8">
+	<div class="col-md-10">
 	  	<h3 class="heading-inline"><g:link controller="recording" action="replay" id="${row.id}">${title}</g:link></h3>
 	  	<div style="display:inline">
 	  		<g:if test="${row.isVideo}">
@@ -60,7 +60,7 @@
 	  	<g:if test="${row.cc == true}">
 	  	<div class="pull-right">
 	  		<span class="badge" style="margin-right: 5px;">cc</span>
-	  	</div>	
+	  	</div>
 	 	</g:if>
 	  	<div>
 	  		<p class="recording-description">${note}</p>
@@ -77,11 +77,11 @@
 	  		<span class="datetime-info">Created at ${row.date_created}</span>
 	  	</div>
 	  	<div class="row" style="padding: 5px 0px;">
-	  		<div class="span1">
+	  		<div class="col-md-1">
 	  			<span title="number of views"><i class="icon-signal metrics-item"></i>${row.views}</span></div>
-	  		<div class="span1">
+	  		<div class="col-md-1">
 	  			<span title="number of synmarks"><i class="icon-comment metrics-item"></i>${row.synmarks_count}</span></div>
-	  		<div class="span1"><span title="number of slides"><i class="icon-picture metrics-item"></i>${row.slides_count}</span>
+	  		<div class="col-md-1"><span title="number of slides"><i class="icon-picture metrics-item"></i>${row.slides_count}</span>
 	  		</div>
 	  	</div>
 	  	<g:if test="${actionEnabled}">

@@ -18,7 +18,7 @@ environments {
 			//dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 			dialect = "org.hibernate.dialect.H2Dialect"
-			url = "jdbc:mysql://localhost/synote"
+			url = "jdbc:mysql://localhost/zft"
 			//url= ApplicationHolder.application.metadata['app.database.development.url']
 		}
 	}

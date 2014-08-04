@@ -27,10 +27,10 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<g:render template="/common/userNav" model="['active':'tags']"/>
 		</div>
-		<div class="span10" id="user_content_div">
+		<div class="col-md-10" id="user_content_div">
 			<h2 class="heading-inline">My Tags</h2>
 			<span id="recording_count_span" style="padding:5px" class="pull-right label label-info">${tags.size()} Tags</span>
 			<hr/>

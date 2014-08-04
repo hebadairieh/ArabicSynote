@@ -8,7 +8,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="author" content="Yunjia Li"/>
 	<g:urlMappings/>
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'bootstrap', file: 'css/bootstrap.min.css')}" />
+	<asset:javascript src="bootstrap.js"/>
+
+	 <g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
+	 	<g:if test="${params.lang == 'ar'}">
+	 		<asset:stylesheet src="application-ar.css"/>
+	     <asset:stylesheet src="MyStyle.css"/>
+	 	</g:if>
+	 	<g:if test="${params.lang == 'en'}">
+	 		<asset:stylesheet src="application.css"/>
+	     <asset:stylesheet src="main.css"/>
+
+	 	</g:if>
+	 	<g:if test="${params.lang == null }">
+	 		<asset:stylesheet src="application-ar.css"/>
+	     <asset:stylesheet src="MyStyle.css"/>
+	 	</g:if>
+	 </g:if>
+
+	 <g:if test="${java.util.Locale.getDefault().getLanguage() == 'en'}">
+	 	<g:if test="${params.lang == 'ar'}">
+	 		<asset:stylesheet src="application-ar.css"/>
+	     <asset:stylesheet src="MyStyle.css"/>
+	 	</g:if>
+	 	<g:if test="${params.lang == 'en'}">
+	 		<asset:stylesheet src="application.css"/>
+	     <asset:stylesheet src="main.css"/>
+	 	</g:if>
+	 	<g:if test="${params.lang == null }">
+	 		<asset:stylesheet src="application.css"/>
+	     <asset:stylesheet src="main.css"/>
+	 	</g:if>
+	 </g:if>
+
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'player.css')}" />
 	<style type="text/css">
 		body {
@@ -21,7 +53,7 @@
 	<link rel="stylesheet" type="text/css" href="${resource(dir: 'smfplayer', file: 'mediaelementplayer.min.css')}" />
 	<link rel="stylesheet" type="text/css" href="${resource(dir: 'smfplayer', file: 'smfplayer.css')}"  />
 	<link rel="shortcut icon" href="${resource(dir: 'images', file: 'synote_icon.ico')}" type="image/x-icon" />
-	
+
 	<script type="text/javascript" src="${resource(dir: 'js/jquery', file: 'jquery-1.7.1.min.js')}"></script>
 	<script type="text/javascript" src="${resource(dir: 'bootstrap', file: 'js/bootstrap.min.js')}"></script>
 	<script type="text/javascript" src="${resource(dir: 'bootstrap', file: 'js/bootstrap-tagmanager.js')}"></script>
@@ -84,11 +116,11 @@
 	{
 		if(recordingURLStr.indexOf('#') == -1)
 			recordingURLStr+='#';
-			
+
 		recordingURLStr +=currentURL.attr('fragment');
 		//console.log(recordingURLStr);
 	}
-	
+
 	recording = new Object();
 	recording.id = "${recording.id}";
 	//Removed recording.title = "{recording.title?.encodeAsHTML()}";
@@ -117,9 +149,9 @@
 	var SynotePlayer = function()
 	{
 		this.options = {
-			mfURI:recording.url, 
-			autoStart:isiPad()?false:true, 
-			height: 320, 
+			mfURI:recording.url,
+			autoStart:isiPad()?false:true,
+			height: 320,
 			width:480,
 			audioWidth:480,
 			audioHeight:320,
@@ -139,7 +171,7 @@
 			}
 		};
 		this.init=function(player_div, callback)
-		{	
+		{
 			var p = player_div.smfplayer(this.options);
 			if(p === undefined)
 			{
@@ -152,7 +184,7 @@
 				var transcript_track = $("<track/>").attr("kind","subtitles").attr("src","../downloadTranscript?type=webvtt&multimediaId="+recording.id).attr("srclang","en");
 				transcript_track.appendTo(player_div.find("video,audio"));
 			}
-			
+
 			transcript = new Transcript(recording,$("transcripts_div"),$("#transcripts_content_div"));
 			transcript.initTranscript();
 			synmark = new Synmark(recording,$("#synmarks_div"),$("#synmark_list_div"));
@@ -165,7 +197,7 @@
 			return callback(null, p);
 		};
 	}
-	
+
 	$(document).ready(function(){
 		//set no cache for ipad
 		if(isiPad())
@@ -197,7 +229,7 @@
 
 			if(recording.isVideo != 'true')
 				$("#mf_info_div").removeClass("mf-info-video").addClass("mf-info-audio");
-			
+
 			//init control buttons
 			$("#control_goto_tb").mask("99:99:99");
 			$("#control_goto").click(function()
@@ -206,7 +238,7 @@
 				//console.log("pos:"+pos);
 				player.setPosition(pos);
 			});
-			
+
 			$("#control_goto_tb").keyup(function(event){
 			//Yunjia: here is a bug for IE (and Safari maybe). Keyup event is not captured by IE, so when you click "enter", you just open
 				//the settings dropdownmenu
@@ -238,7 +270,7 @@
 
 			var mf_json = player.getMFJson();
 			if($.isEmptyObject(mf_json.hash) && $.isEmptyObject(mf_json.query)) //the fragment is not valid, so we will ignore it.
-			{	
+			{
 				$("#control_mf").click(function(){
 					alert("No media fragment is defined.");
 				});
@@ -248,7 +280,7 @@
 				var st = mf_json.hash.t[0].start?mf_json.hash.t[0].start:0;
 				var et = mf_json.hash.t[0].end?mf_json.hash.t[0].end:-1;
 				var old_text = $("#control_mf").text();
-				
+
 				if(st === 0 || st === undefined || st==="0" || st==="00.000" || st==="00:00.000" ||st === "00:00:00.000")
 				{
 					old_text+=" the beginning";
@@ -257,7 +289,7 @@
 				{
 					old_text+=" "+st;
 				}
-				
+
 				if(et === -1 || et === null)
 				{
 					old_text+=" to the end";
@@ -340,15 +372,15 @@
 					    	<a href="${resource(dir: '/')}" title="home">
 					    	Home</a>
 					    </li>
-						<!-- Recordings -->   
+						<!-- Recordings -->
 					    <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings">
 					    	Browse</g:link>
 					    </li>
-					    
-						<!-- Groups -->    
+
+						<!-- Groups -->
 					    <li><g:link controller="userGroup" action="list" title="Groups list">
 							Groups</g:link>
-						</li> 
+						</li>
 						<li><g:link action="help" target="_blank" title="help">
 							Help</g:link>
 						</li>
@@ -357,7 +389,7 @@
 			</div>
 		</div>
     </div><!-- /nav-bar -->
-	
+
 	<div class="container" id="content">
 		<!-- Recording title -->
 		<div id="multimedia_title_div">
@@ -407,7 +439,7 @@
 					<button id="control_pause" title="Pause" class="btn"><i class="icon-pause"></i></button>
 					<button id="control_rewind" title="Rewind" class="btn"><i class="icon-backward"></i></button>
 					<button id="control_forward" title="Forward" class="btn"><i class="icon-forward"></i></button>
-				</div>	
+				</div>
 				<div id="control_pace_div" style="display:inline;">
 					Pace:
 					<select name="control_pace_select" class="span1" style="margin-top:9px;" id="control_pace_select">
@@ -502,13 +534,13 @@
 				</div>
 			</div><!-- end transcript -->
 		</div>
-	
+
 		<!-- synmarks and slide -->
 		<div id="col_right_div" class="span-fluid-right tabbable">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<!-- description and tags -->
-					<div id="tags_description_div" class="span12 hidden-phone description-brief"><!-- description -->	
+					<div id="tags_description_div" class="span12 hidden-phone description-brief"><!-- description -->
 						<div>
 							<b>Tags</b><br/>
 							<g:if test="${recording.tags?.size() >0}">
@@ -523,12 +555,12 @@
 					  	<div id="description_div">
 							<b>Description</b>
 							<g:if test="${recording.note?.content?.size() >0}">
-							<p>${recording.note?.content}</p>	
+							<p>${recording.note?.content}</p>
 							</g:if>
 							<g:else>
 								<br/>No description
 							</g:else>
-						</div>				
+						</div>
 					</div><!-- end description -->
 					<div id="description_show_div" class="span12 hidden-phone">
 						<button id="description_show_btn" class="btn btn-mini">more</button>
@@ -577,8 +609,8 @@
 							<div id="synmark_create_div" class="well" style="display:none;">
 								<form id="synmark_form" method="post" class="form-vertical">
 									<fieldset>
-										<input type="hidden" name="synmark_id" id="synmark_id"/> 
-										<input type="hidden" name="synmark_thumbnail" id="synmark_thumbnail"/> 
+										<input type="hidden" name="synmark_id" id="synmark_id"/>
+										<input type="hidden" name="synmark_thumbnail" id="synmark_thumbnail"/>
 										<div class="control-group">
 											<label for="synmark_st" class="control-label"><b><em>*</em>Start:</b></label>
 											<div class="controls">
@@ -636,10 +668,10 @@
 									<button class="btn" title="Add a new transcript block" id="slides_add_btn">
 										<img src="${resource(dir:'images/player',file:"slides_add_22.png")}"  id="slides_add_img" alt="Add new slide"/>
 									</button>
-									<button class="btn" title="Edit the selected transcript block" id="slides_edit_btn">	
+									<button class="btn" title="Edit the selected transcript block" id="slides_edit_btn">
 										<img src="${resource(dir:'images/player',file:"slides_edit_22.png")}"  id="slides_edit_img" alt="Edit slides"/>
 									</button>
-									<button class="btn" title="Delete the selected transcript block" id="slides_delete_btn">	
+									<button class="btn" title="Delete the selected transcript block" id="slides_delete_btn">
 										<img src="${resource(dir:'images/player',file:"edit_transcript_clear_22.png")}"  id="slides_delete_img" alt="Remove all slide"/>
 									</button>
 								</div>
@@ -651,8 +683,8 @@
 							<div id="presentation_edit_div" class="well" style="display:none;">
 								<form id="presentation_edit_form" method="post" class="form-vertical">
 									<fieldset>
-										<input type="hidden" name="slide_id" id="slide_id"/> 
-										<input type="hidden" name="old_index" id="old_index"/> 
+										<input type="hidden" name="slide_id" id="slide_id"/>
+										<input type="hidden" name="old_index" id="old_index"/>
 										<div class="control-group">
 											<label for="slide_st" class="control-label"><b><em>*</em>Start:</b></label>
 											<div class="input-append">
@@ -689,7 +721,7 @@
 							</g:if>
 							<div id="slides_loading_div" style="display:none;"><img id="slides_loading_img" src="${resource(dir:'images/skin',file:'loading_64.gif')}" alt="loading"/></div>
 							<div id="image_container_div">
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
@@ -703,11 +735,11 @@
 		    <h4 id="share_url_title_h4"></h4>
 		</div>
 		<div class='modal-body'>
-		    
+
 		</div>
 		<div class='modal-footer'>
 		    <a href='#' class='btn' data-dismiss='modal'>Close</a>
-		    <!--  
+		    <!--
 		    <a href='#' class='btn btn-primary'>Copy to Clipboard</a>-->
 		</div>
 	</div> <!-- /share url dialog -->

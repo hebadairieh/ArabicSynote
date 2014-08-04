@@ -22,10 +22,10 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<g:render template="/common/userNav" model="['active':'group']"/>
 		</div>
-		<div class="span10" id="user_content_div">
+		<div class="col-md-10" id="user_content_div">
 			<h2 class="heading-inline"><g:message code="org.synote.user.createGroup.title" /></h2>
 			<hr/>
 			<g:render template="/common/message" model="[bean: userGroup]" />
@@ -48,7 +48,7 @@
 								<g:else>
 									<input type='checkbox' name='shared' id='shared'/>
 								</g:else>
-								This is a public group 
+								This is a public group
 							</label>
 							<span class="help-block">Users can search both public or private groups, but you need a passphrase to join the private group.</span>
 				      	</div>

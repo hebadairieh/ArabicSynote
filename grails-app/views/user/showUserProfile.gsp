@@ -9,15 +9,15 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<syn:isLoggedIn>
 				<g:render template="/common/userNav" model="['active':'user_profile']"/>
 			</syn:isLoggedIn>
 		</div>
-		<div class="span10" itemscope="itemscope" itemtype="http://schema.org/Table">
+		<div class="col-md-10" itemscope="itemscope" itemtype="http://schema.org/Table">
 			<h1>${userInstance.userName}'s Profile</h1>
 			<g:render template="/common/message" model="[bean: userInstance]" />
-			
+
 			<dl class="dl-horizontal well" itemscope="itemscope" itemtype="http://schema.org/Person">
 				<dt><g:message code="user.userName.label" default="User Name" /></dt>
 				<dd>${fieldValue(bean: userInstance, field: "userName")}</dd>
@@ -27,7 +27,7 @@
 				<dd itemprop="familyName">${fieldValue(bean: userInstance, field: "lastName")}</dd>
 				<dt><g:message code="user.email.label" default="Email" /></dt>
 				<dd itemprop="email">${fieldValue(bean: userInstance, field: "email")}</dd>
-				
+
 				<dt><g:message code="user.enabled.label" default="Enabled" /></dt>
 				<dd><g:formatBoolean boolean="${userInstance?.enabled}" /></dd>
 				<dt><g:message code="user.dateCreated.label" default="Date Created" /></dt>
@@ -46,7 +46,7 @@
 						No groups
 					</g:else>
 				</dd>
-	
+
 				<dt><g:message code="user.lastUpdated.label" default="Last Updated" /></dd>
 				<dd><g:formatDate date="${userInstance?.lastUpdated}" /></dt>
 				<dt><g:message code="user.lastLogin.label" default="Last Login" /></dd>

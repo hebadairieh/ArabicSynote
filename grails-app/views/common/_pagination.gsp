@@ -2,8 +2,8 @@
 	<g:set var="page_prev" value="${currentPage>1?currentPage-1:currentPage}"/>
 	<g:set var="page_next" value="${currentPage<total?currentPage+1:currentPage}"/>
 	<g:set var="cPage" value="${currentPage>total?total:(currentPage <=0?1:currentPage)}"/>
-	<div class="pagination pagination-centered">
-		<ul>
+	<div class="pagination-centered">
+		<ul class="pagination">
 			<g:if test="${cPage==1?'disabled':''}">
 				<li class='disabled'><g:link url="#" title="previous page">Prev</g:link>
 				</li>
@@ -30,7 +30,7 @@
 				</g:else>
 			</g:else>
 			<g:each var="i" in="${pages}">
-				<li class="${cPage==i?'active':''}"><g:link controller="${ctrl}" action="${act}" id="${id}" 
+				<li class="${cPage==i?'active':''}"><g:link controller="${ctrl}" action="${act}" id="${id}"
 					params="[page:i,query:query,rows:rows,sidx:sidx,sord:sord]" title="page ${i}">${i}</g:link>
 				</li>
 			</g:each>
@@ -39,7 +39,7 @@
 				</li>
 			</g:if>
 			<g:else>
-				<li><g:link controller="${ctrl}" action="${act}" id="${id}" 
+				<li><g:link controller="${ctrl}" action="${act}" id="${id}"
 					params="[page:page_next,query:query,rows:rows,sidx:sidx,sord:sord]" title="next page">Next</g:link>
 				</li>
 			</g:else>

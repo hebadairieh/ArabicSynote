@@ -109,7 +109,7 @@ class MultimediaResourceController {
 		{
 			def multimediaList = resourceService.getMultimediaAsJSON(params) as Map
 			def viewList = resourceService.getMostViewedMultimedia(5) as Map
-			println multimediaList.total
+			// println multimediaList.total
 			//println resourceService.getMultimediaAsJSON(params) as JSON
 			return [multimediaList:multimediaList, viewList:viewList, params:params]
 		}

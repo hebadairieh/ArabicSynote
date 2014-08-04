@@ -167,3 +167,8 @@ footer > .navbar>.container>.nav>li > a > img {
 .align-lang {
     float: right;
 }
+
+.pagination-centered{
+  text-align: center;
+}
+

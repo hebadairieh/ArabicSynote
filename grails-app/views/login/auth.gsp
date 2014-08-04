@@ -18,7 +18,7 @@
 <h1 class="hiding"><g:message code="org.synote.user.login.title" /></h1>
 <div class="container">
 	<div class="row">
-		<div class="span6">
+		<div class="col-md-6">
 			<h2><g:message code="sign.in.to.synote" /></h2>
 			<p><b><g:message code="With.a.Synote.account.you.can" /></b></p>
 			<ul>
@@ -39,26 +39,26 @@
 			</ul>
 		</div>
 		<!-- login form -->
-		<div class="span4 offset1 well">
+		<div class="col-md-4 col-md-offset-1 well">
 			<h3><g:message code="Login" /></h3>
 			<hr/>
 			<g:render template="/common/message"/>
 			<form action='${postUrl}' method='POST' name='loginForm'>
 			  <fieldset>
-			    <div class="control-group">
+			    <div class="form-group">
 			     	<label for="j_username" class="control-label"><b><em>*</em><g:message code="user.name" /></b></label>
 			      	<div class="controls">
-			        	<input type='text' autocomplete="off" class="required" name='j_username' id='j_username' value='${request.remoteUser}'
+			        	<input type='text' autocomplete="off" class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}'
 			        		placeholder="Synote user name"/>
 			      	</div>
 			    </div>
-			    <div class="control-group">
+			    <div class="form-group">
 			     	<label for="j_password" class="control-label"><b><em>*</em><g:message code="password" /></b></label>
 			      	<div class="controls">
-						<input type='password' name='j_password' class="required" id='j_password' placeholder="password"/>
+						<input type='password' name='j_password' class="form-control required" id='j_password' placeholder="password"/>
 			      	</div>
 			    </div>
-			    <div class="control-group">
+			    <div class="form-group">
 			    	<label class="checkbox" for="_spring_security_remember_me">
 			    		<input type="checkbox" name="_acegi_security_remember_me" id="_acegi_security_remember_me" /><g:message code="Keep.me.signed.in" />
 			    	</label>
@@ -70,7 +70,9 @@
 				</syn:forgetPasswordEnabled>
 
 			    <div class="form-actions">
-		            <input class="btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>" />
+		         %{--    <input class="btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>" /> --}%
+		         <button class="btn btn-large btn-primary" id="loginForm_submit" type="submit"><g:message code="Login"/></button>
+
 		        </div>
 			  </fieldset>
 			</form>

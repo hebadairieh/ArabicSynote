@@ -7,10 +7,10 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<g:render template="/common/userNav" model="['active':'group']"/>
 		</div>
-		<div class="span10" id="user_content_div">
+		<div class="col-md-10" id="user_content_div">
 			<h2 class="heading-inline"><g:message code="org.synote.user.listGroups.title" /></h2>
 			<hr/>
 			<g:render template="/common/message"/>
@@ -57,7 +57,7 @@
 						</div>
 					</g:else>
 					<div class="row" id="group_owned_pagination">
-						<g:render template="/common/pagination" 
+						<g:render template="/common/pagination"
 							model="['currentPage':groupListOwner.page,'rows':params.rows, 'sidx':params.sidx, 'query':params.text,
 								'sord':params.sord,'ctrl':'user', 'act':'listGroups', 'total':groupListOwner.total]"/>
 					</div>
@@ -97,7 +97,7 @@
 						</div>
 					</g:else>
 					<div class="row" id="group_joined_pagination">
-						<g:render template="/common/pagination" 
+						<g:render template="/common/pagination"
 							model="['currentPage':groupListJoined.page,'rows':params.rows, 'sidx':params.sidx, 'query':params.text,
 								'sord':params.sord,'ctrl':'user', 'act':'listGroups', 'total':groupListJoined.total]"/>
 					</div>

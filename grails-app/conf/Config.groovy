@@ -223,7 +223,7 @@ grails.plugins.springsecurity.successHandler.defaultTargetUrl='/login/authSucces
 grails.plugins.springsecurity.successHandler.alwaysUseDefaultTargetUrl=true
 grails.plugins.springsecurity.logout.afterLogoutUrl='/login/index'
 grails.assets.bundle=true
-grails.assets.less.compiler = 'less4j'
+grails.assets.less.compiler = 'standard'
 
 
 

@@ -9,12 +9,12 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<syn:isLoggedIn>
 				<g:render template="/common/userNav" model="['active':'user_profile']"/>
 			</syn:isLoggedIn>
 		</div>
-		<div class="span10" itemscope="itemscope" itemtype="http://schema.org/Table">
+		<div class="col-md-10" itemscope="itemscope" itemtype="http://schema.org/Table">
 			<h1><g:message code="org.synote.user.showUserProfile.title" /></h1>
 			<g:render template="/common/message" model="[bean: userInstance]" />
 

@@ -7,10 +7,10 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<g:render template="/common/userNav" model="['active':'group']"/>
 		</div>
-		<div class="span10" id="user_content_div">
+		<div class="col-md-10" id="user_content_div">
 			<h2 class="heading-inline"><g:message code="org.synote.user.addRecordingPermission" /></h2>
 			<hr/>
 			<g:render template="/common/message" />
@@ -47,7 +47,7 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link class="btn btn-success add-btn" controller="user" action="saveRecordingPermission" id="${multimedia.id}" params="[groupId:group.id]" title="add">Add</g:link></td>								
+								<td><g:link class="btn btn-success add-btn" controller="user" action="saveRecordingPermission" id="${multimedia.id}" params="[groupId:group.id]" title="add">Add</g:link></td>
 							</tr>
 						</g:each>
 					</table>
@@ -58,7 +58,7 @@
 					</div>
 				</g:else>
 				<div class="row" id="group_pagination">
-					<g:render template="/common/pagination" 
+					<g:render template="/common/pagination"
 						model="['currentPage':groupList.page,'rows':params.rows, 'sidx':params.sidx, 'query':params.text,
 							'sord':params.sord,'ctrl':'user', 'act':'listGroups', 'total':groupList.total]"/>
 				</div>
