@@ -17,7 +17,7 @@
     display: none;
     position: relative;
     .carousel-transition(.6s ease-in-out);
-    
+
     // Account for jankitude on images
     > img,
     > a > img {
@@ -80,12 +80,12 @@
 
   // Set gradients for backgrounds
   &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
   &.right {
     .left(auto);
     .right(0);
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
 
   // Hover/focus state
@@ -106,6 +106,12 @@
     .left(50%);
     z-index: 5;
     display: inline-block;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
   }
   .icon-prev,
   .icon-next {

@@ -31,7 +31,7 @@
 				<dt><g:message code="user.enabled.label" default="Enabled" /></dt>
 				<dd><g:formatBoolean boolean="${userInstance?.enabled}" /></dd>
 				<dt><g:message code="user.dateCreated.label" default="Date Created" /></dt>
-				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" /></dd>
+				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" style="LONG" type="date"/></dd>
 				<dt><g:message code="user.groups.label" default="Groups" /></dt>
 				<dd valign="top" style="text-align: left;" class="value">
 					<g:if test="${userInstance?.groups?.size() > 0 }">

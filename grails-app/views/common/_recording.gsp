@@ -75,6 +75,7 @@
 	  			<span class="owner-info">by ${row.owner_name} |</span>
 	  		</g:if>
 	  		<span class="datetime-info">Created at ${row.date_created}</span>
+
 	  	</div>
 	  	<div class="row" style="padding: 5px 0px;">
 	  		<div class="col-md-1">

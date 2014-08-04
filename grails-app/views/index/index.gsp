@@ -89,19 +89,19 @@
 
                    <div class="carousel-inner">
                        <div class="item active">
-                           <img src="${resource(dir:'images',file:'test/web_design.jpg')}" alt="seo">
+                           <img src="${resource(dir:'images',file:'test/web_design.jpg')}" alt="seo" style="margin:0 auto;display: block;">
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Share.your.annotations.on.the.Web" /></h4>
                            </div>
                        </div>
                        <div class="item">
-                           <img src="${resource(dir:'images',file:'test/varioggetti.jpg')}" alt="seo">
+                           <img src="${resource(dir:'images',file:'test/varioggetti.jpg')}" alt="seo" style="margin:0 auto;display: block;">
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Working.on.desktop.and.mobile.devices" /></h4>
                            </div>
                        </div>
                        <div class="item">
-                           <img src="${resource(dir:'images',file:'test/seo.jpg')}" alt="seo">
+                           <img src="${resource(dir:'images',file:'test/seo.jpg')}" alt="seo" style="margin:0 auto;display: block;">
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Search.engine.optimisation.for.media.fragments" /></h4>
                            </div>

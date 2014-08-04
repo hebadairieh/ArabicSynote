@@ -31,13 +31,13 @@
 @text-color:            @gray-dark;
 
 
-// Bi App 
+// Bi App
 // -------------------------
 
 // ltr or rtl
 @text-direction:        rtl;
 
-@bi-app-left            : ~`"@{text-direction}" === 'ltr' ? 'left'  : 'right'`;
+@bi-app-left            : ~`"@{text-direction}" === 'ltr' ? 'right'  : 'right'`;
 @bi-app-right           : ~`"@{text-direction}" === 'ltr' ? 'right' : 'left'`;
 @bi-app-direction       : @text-direction;
 @bi-app-invert-direction: ~`"@{text-direction}" === 'ltr' ? 'rtl' : 'ltr'`;
