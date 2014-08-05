@@ -125,11 +125,14 @@
      <div class="collapse navbar-collapse" id="collap">
      <ul class="nav navbar-nav">
          <li>
-          <a href="${resource(dir: '/')}" title="home">
-          <i class="icon-home icon-white"></i><g:message code="Home"/> </a>
+          <a href="${resource(dir: '/')}" title="home" >
+          %{-- <g:link controller="IndexController" action="index" title="home"> --}%
+          <i class="icon-home icon-white"></i><g:message code="Home"/>
+          %{-- </g:link> --}%
+           </a>
          </li>
       <!-- Recordings -->
-         <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings">
+         <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings" params="[lang: params.lang]">
           <i class="icon-film icon-white"></i><g:message code="Browse"/></g:link>
          </li>
 

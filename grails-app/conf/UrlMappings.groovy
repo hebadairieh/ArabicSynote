@@ -3,6 +3,7 @@ class UrlMappings {
 		"/sparql"{
 			controller="linkedData"
 			action="sparql"
+
 		}
 		"/resources/$id"{
 			controller="linkedData"
