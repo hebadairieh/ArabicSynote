@@ -7,19 +7,19 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span2" id="user_nav_div">
+		<div class="col-md-2" id="user_nav_div">
 			<g:render template="/common/userNav" model="['active':'recordings']"/>
 		</div>
-		<div class="span10" id="user_content_div">
+		<div class="col-md-10" id="user_content_div">
 			<h2><g:message code="org.synote.resource.compound.multimediaResource.create.title" /></h2>
 			<br/>
 			<br/>
 			<div id="my_synote_content">
-			
+
 			<g:link class="user" action="createinet" title="internet">
 				<img src="${resource(dir: 'images/skin', file: 'network_64.png')}" alt="internet"/><br />Internet
 			</g:link>
-			
+
 			<g:link class="user" action="createyt" title="Youtube">
 				<img src="${resource(dir: 'images/skin', file: 'youtube_64.png')}" alt="youtube"/><br />YouTube
 			</g:link>

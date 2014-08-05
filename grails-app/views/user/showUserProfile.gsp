@@ -33,7 +33,7 @@
 				<dt><g:message code="user.dateCreated.label" default="Date Created" /></dt>
 				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" style="LONG" type="date"/></dd>
 				<dt><g:message code="user.groups.label" default="Groups" /></dt>
-				<dd valign="top" style="text-align: left;" class="value">
+				<dd valign="top"  class="value">
 					<g:if test="${userInstance?.groups?.size() > 0 }">
 						<g:each in="${userInstance?.groups}" var="g">
 						<span><g:link controller="userGroup" action="show" id="${g?.id}">

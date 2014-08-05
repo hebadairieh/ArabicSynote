@@ -20,7 +20,7 @@
 <h2 id="step"><g:message code="Step.by.Step.to.Synote.Researcher" /></h2>
 <hr/>
 <g:message code="This.is.an.easy.guide.to.working.with.your.research.media.and.annotations" />
-<div class="col-md-12">
+<div class="row">
 <h3 id="step1"><g:message code="Step.1" /></h3>
 	<ul>
 		<li><b><g:message code="Register" /></b> <g:message code="as.a.first.time.user.or" /></li>
@@ -30,7 +30,7 @@
 	</ul>
 	<img src="${resource(dir:'images',file:"Step1small.jpg")}" alt="Step 1" class="img-responsive" />
 </div>
-<div class="col-md-12">
+<div class="row">
 <h3 id="step2"><g:message code="Step.2" /></h3>
 	<ul>
 		<li><g:message code="Just.want.to.listen.or.annotate.a.recording.Select.the" /> <b><g:message code="Recordings" /></b> <g:message code="button.to.view.a.list.of.public.recordings.and" /> <b>'<g:message code="Play" />'</b> ,
@@ -40,7 +40,7 @@
 	</ul>
 	<img src="${resource(dir:'images',file:"Step2small.jpg")}" alt="Step 2" class="img-responsive" />
 	</div>
-	<div class="col-md-12">
+	<div class="row">
 <h3 id="step3"><g:message code="step.3" /></h3>
 	<ul>
 		<li><g:message code="step3.1" />.</li>
@@ -49,7 +49,7 @@
 	</ul>
 	<img src="${resource(dir:'images',file:"Step3small.jpg")}" alt="Step 3" class="img-responsive" />
 	</div>
-	<div class="col-md-12">
+	<div class="row">
 <h3 id="step4"><g:message code="step.4" /></h3>
 	<ul>
 		<li> <g:message code="step4.1" /> .</li>
@@ -59,7 +59,7 @@
 	</ul>
 	<img src="${resource(dir:'images',file:"Step4small.jpg")}" alt="Step 4" class="img-responsive"/>
 	</div>
-	<div class="col-md-12">
+	<div class="row">
 <h3 id="step5"><g:message code="step.5" /></h3>
 	<ul>
 		<li><g:message code="step5.1" /> </li>

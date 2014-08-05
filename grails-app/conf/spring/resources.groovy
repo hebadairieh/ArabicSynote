@@ -43,7 +43,7 @@ beans = {
 	webVTTCueConverter(WebVTTCueConverter)
 	permissionValueConverter(PermissionValueConverter)
 	localeResolver(org.springframework.web.servlet.i18n.SessionLocaleResolver) {
-        defaultLocale = new Locale("en","AR")
+        defaultLocale = new Locale("en","english")
         java.util.Locale.setDefault(defaultLocale)
   }
 }

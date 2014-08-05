@@ -24,6 +24,7 @@
 			</syn:allowRegistering>
 			<g:link class="user" action="listGroups" title="My Groups"><img src="${resource(dir: 'images/mysynote', file: 'user-group-properties.png')}" /><br />My Groups</g:link>
 
+
 			<g:link class="user" action="listRecordings" title="My Recordings"><img src="${resource(dir: 'images/mysynote', file: 'recording_64.png')}" /><br />My Recordings</g:link>
 			<g:link class="user" action="listSynmarks" title="My Synmarks"><img src="${resource(dir: 'images/mysynote', file: 'synmark_64.png')}" /><br />My Synmarks</g:link>
 			<g:link class="user" action="listTranscripts" title="My Transcripts"><img src="${resource(dir: 'images/mysynote', file: 'transcript_64.png')}" /><br />My Transcripts</g:link>
