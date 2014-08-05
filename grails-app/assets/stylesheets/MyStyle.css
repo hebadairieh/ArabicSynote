@@ -196,3 +196,48 @@ dl dd {
     padding:5px 0;
 }
 
+.icon-group-small {
+    content: url('../images/skin/user_group_16.png');
+    background-position: center center;
+    margin-right:2px;
+
+
+}
+
+.icon-user-profile-small {
+  content: url('../images/skin/user_profile_16.png');
+    background-position: center center;
+     margin-right:2px;
+}
+
+.icon-recordings-small {
+   background-position: center center;
+    margin-right:2px;
+      content: url('../images/skin/recording_16.png');
+
+}
+
+.icon-synmarks-small {
+  background-position: center center;
+    margin-right:2px;
+          content: url('../images/skin/synmark_16.png');
+
+}
+
+.icon-tag-c-small {
+/*  background-image: url('../images/skin/tag_16.png');
+*/    background-position: center center;
+    margin-right:2px;
+          content: url('../images/skin/tag_16.png');
+
+}
+
+.icon-transcripts-small
+{
+/*  background-image: url('../images/skin/transcript_16.png');
+*/    background-position: center center;
+    margin-right:2px;
+              content: url('../images/skin/transcript_16.png');
+
+}
+

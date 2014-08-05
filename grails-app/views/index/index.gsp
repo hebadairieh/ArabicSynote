@@ -101,7 +101,8 @@
                            </div>
                        </div>
                        <div class="item">
-                           <img src="${resource(dir:'images',file:'test/seo.jpg')}" alt="seo" style="margin:0 auto;display: block;">
+                            <asset:image src="seo.jpg" alt="seo" style="margin:0 auto;display: block;"/>
+                           %{-- <img src="${resource(dir:'images',file:'test/seo.jpg')}" alt="seo" style="margin:0 auto;display: block;"> --}%
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Search.engine.optimisation.for.media.fragments" /></h4>
                            </div>
