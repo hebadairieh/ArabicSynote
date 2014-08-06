@@ -42,7 +42,7 @@ $(document).ready(function(){
 		},
 	});
 
-	
+
 	$("#transcriptUploadingForm").submit(function(){
 		$("#transcriptUploadingForm").ajaxSubmit({
 			url:g.createLink({controller:"transcriptResource",action:"handleUpload"}),
@@ -63,7 +63,7 @@ $(document).ready(function(){
 				{
 					$("#transcriptUploadingForm_div").remove();
 					//var mmid = data.success.mmid;
-					//var edit_recording_url = $('#edit_recording_span a').attr('href')+"/"+mmid; 
+					//var edit_recording_url = $('#edit_recording_span a').attr('href')+"/"+mmid;
 					//$('#edit_recording_span a').attr('href',edit_recording_url);
 					//var play_recording_url = $('#play_recording_span a').attr('href')+"/"+mmid;
 					//$('#play_recording_span a').attr('href',play_recording_url);
@@ -78,7 +78,7 @@ $(document).ready(function(){
 			},
 			error:function(jqXHR,textStatus,errorThrown)
 			{
-				
+
 				var resp =$.parseJSON(jqXHR.responseText);
 				showMsg(resp.error.descrption,"error");
 				alert("error!");
@@ -87,7 +87,7 @@ $(document).ready(function(){
 			{
 				$("#form_loading_div").hide();
 				$("#transcriptUploadingForm_submit").button("reset");
-				
+
 			}
 		});
 		//Don't forget return false
@@ -103,7 +103,7 @@ $(document).ready(function(){
 			<g:render template="/common/userNav" model="['active':'transcripts']"/>
 		</div>
 		<div class="span10" id="user_content_div">
-			<h2 class="heading-inline"><g:link controller="reocording" action="replay" id="${multimedia.id}">${multimedia.title }</g:link>
+			<h2 class="heading-inline"><g:link controller="reocording" action="replay" id="${multimedia.id}" params="[lang: params.lang]">${multimedia.title }</g:link>
 			</h2>
 			<hr/>
 			<div id="warning_div" class="alert">
@@ -115,11 +115,11 @@ $(document).ready(function(){
 			<div id="error_msg_div"></div>
 			<div id="after_save_div" style="display:none;">
 				<span id="edit_recording_span">
-					<g:link controller="multimediaResource" action="edit" id="${multimedia.id}" title="edit recording">Edit this recording's detail</g:link>
+					<g:link controller="multimediaResource" action="edit" id="${multimedia.id}" title="edit recording" params="[lang: params.lang]">Edit this recording's detail</g:link>
 				</span>
 				<br/>
 				<span id="play_recording_span">
-					<g:link controller="recording" id="${multimedia.id}" action="replay" title="play recording">Play this recording</g:link>
+					<g:link controller="recording" id="${multimedia.id}" action="replay" title="play recording" params="[lang: params.lang]">Play this recording</g:link>
 				</span>
 			</div>
 			<div id="transcriptUploadingForm_div">

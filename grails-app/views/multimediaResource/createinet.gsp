@@ -71,13 +71,13 @@ $(document).ready(function(){
 	});
 
 	$("#duration_span").mask("?99:99:99");
-	
+
 	$("#multimediaCreateForm").submit(function(){
 		if($("#duration").val() == "" && $("#duration_span").val() != "")
 		{
 			$("#duration").val(stringToMilisec($("#duration_span").val()));
 		}
-		
+
 		$("#multimediaCreateForm").ajaxSubmit({
 			url:g.createLink({controller:"multimediaResource",action:"saveAjax"}),
 			//resetForm:true,
@@ -98,7 +98,7 @@ $(document).ready(function(){
 				{
 					$("#multimediaCreateForm_div").remove();
 					var mmid = data.success.mmid;
-					var edit_recording_url = $('#edit_recording_span a').attr('href')+"/"+mmid; 
+					var edit_recording_url = $('#edit_recording_span a').attr('href')+"/"+mmid;
 					$('#edit_recording_span a').attr('href',edit_recording_url);
 					var play_recording_url = $('#play_recording_span a').attr('href')+"/"+mmid;
 					$('#play_recording_span a').attr('href',play_recording_url);
@@ -112,7 +112,7 @@ $(document).ready(function(){
 			},
 			error:function(jqXHR,textStatus,errorThrown)
 			{
-				
+
 				var resp =$.parseJSON(jqXHR.responseText);
 				showMsg(resp.error.descrption,"error");
 				alert("error!");
@@ -127,10 +127,10 @@ $(document).ready(function(){
 		//Don't forget return false
 		return false;
 	});
-	
-	
+
+
 	$("#url_submit_btn").click(function(){
-		
+
 		var url = $.trim($("#url").val()).replace("/\s/g","%20");
 		if(!isValidURL(url))
 		{
@@ -139,7 +139,7 @@ $(document).ready(function(){
 		}
 
 		resetForm();
-		
+
 		$("#url_submit_btn").button('loading');
 		$("#form_loading_div").show();
 		client.getMetadata(url, function(data, errMsg){
@@ -178,7 +178,7 @@ $(document).ready(function(){
 					//$("#isVideo_true").attr("disabled","disabled");
 					$("#isVideo_false").attr("checked","checked");//.attr("disabled","disabled");
 				}
-					
+
 				//Add title if exists
 				if(data.title !== undefined && data.title != null)
 				{
@@ -207,7 +207,7 @@ $(document).ready(function(){
 		//trigger click
 		$("#url_submit_btn").trigger('click');
 	}
-	
+
 });
 </script>
 </head>
@@ -228,15 +228,15 @@ $(document).ready(function(){
 			<div id="error_msg_div"></div>
 			<div id="after_save_div" style="display:none;">
 				<span id="edit_recording_span">
-					<g:link controller="multimediaResource" action="edit" title="edit recording">Edit this recording's detail</g:link>
+					<g:link controller="multimediaResource" action="edit" title="edit recording" params="[lang: params.lang]">Edit this recording's detail</g:link>
 				</span>
 				<br/>
 				<span id="play_recording_span">
-					<g:link controller="recording" action="replay" title="play recording">Play this recording</g:link>
+					<g:link controller="recording" action="replay" title="play recording" params="[lang: params.lang]">Play this recording</g:link>
 				</span>
 				<br/>
 				<span>
-					<g:link controller="user" action="index" title="My synote">Go to My Synote</g:link>
+					<g:link controller="user" action="index" title="My synote" params="[lang: params.lang]">Go to My Synote</g:link>
 				</span>
 			</div>
 			<div id="form_loading_div" style="display:none;">
@@ -284,12 +284,12 @@ $(document).ready(function(){
 					      	</div>
 				      	</div>
 				      	<!-- Add later -->
-				      	<!--  
+				      	<!--
 				      	<div class="span4">
 				      		<div class="control-group">
 							<label for="realStarttime" class="control-label"><b>Recording Start Time</b></label>
 					      	<div class="controls">
-					      		
+
 					      	</div>
 				      	</div>
 				      	<div class="control-group">

@@ -13,7 +13,7 @@
 <body>
 
 <!-- Get multimedia type, audio or video -->
-<img src="${resource(dir:'images/skin', file:'pdf_24.png') }"/> <g:link action="handlePrint" id="${ recording.id}" params="[fmt:'pdf']" target="_blank">Download as PDF</g:link>
+<img src="${resource(dir:'images/skin', file:'pdf_24.png') }"/> <g:link action="handlePrint" id="${ recording.id}" params="[fmt:'pdf']" target="_blank" params="[lang: params.lang]">Download as PDF</g:link>
 
 <g:set var="mmType" value="${recording.isVideo?'http://schema.org/VideoObject':'http://schema.org/AudioObject'}"/>
 <div id="recording_content_div" class="mediaObject">
@@ -62,7 +62,7 @@
 			<div class="title">
 				<g:if test="${settings.timing}">
 					<a href="${resourceURI}" target="_blank"><syn:formatTime startTime="${synpoint.targetStart}" endTime="${synpoint.targetEnd}" /></a>
-				</g:if> 
+				</g:if>
 				<g:if test="${settings.title}">
 					<g:if test="${synmark.title}">
 						<span>${synmark.title}</span>
@@ -76,7 +76,7 @@
 				<div class="note">
 					${synmark.note?.content?.encodeAsHTML()}
 				</div>
-			</g:if> 
+			</g:if>
 			<g:if test="${settings.tags}">
 				<div class="tags">
 					<g:each var="tag" in="${synmark.tags}">
@@ -86,7 +86,7 @@
 			</g:if>
 			<g:if test="${settings.owner}">
 				<div class="owner">
-					by <g:link controller="user" action="show" id="${recording.owner?.id}">
+					by <g:link controller="user" action="show" id="${recording.owner?.id}" params="[lang: params.lang]">
 						${synmark.owner?.userName}</g:link>
 				</div>
 			</g:if>

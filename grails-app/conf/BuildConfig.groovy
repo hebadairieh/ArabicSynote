@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
 		build ":tomcat:$grailsVersion"
     compile ':asset-pipeline:1.8.3'
     compile ":less-asset-pipeline:1.10.0"
+    compile ':locale-configuration:1.0'
 	}
 
 }

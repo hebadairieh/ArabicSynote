@@ -241,3 +241,13 @@ dl dd {
 
 }
 
+/*.icon-number-of-views {
+  content: url('../images/skin/user_profile_16.png');
+    background-position: center center;
+     margin-right:2px;
+}*/
+
+.metrics-item, .tag-item
+{
+  padding-left:5px;
+}

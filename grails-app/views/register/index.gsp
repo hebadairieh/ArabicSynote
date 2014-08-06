@@ -87,7 +87,7 @@
 					<div class="checkbox">
 			    		<label for="termsAndConditions">
 			    			<input type="checkbox" name="termsAndConditions" id="termsAndConditions" class="required"/>
-						<g:message code="I.have.read.and.agreed.the" /> <g:link controller="user" action="termsAndConditions"><g:message code="Synote.Terms.and.Conditions" /></g:link>
+						<g:message code="I.have.read.and.agreed.the" /> <g:link controller="user" action="termsAndConditions" params="[lang: params.lang]"><g:message code="Synote.Terms.and.Conditions" /></g:link>
 			    		</label>
 			   		</div>
 				    <div class="form-actions">

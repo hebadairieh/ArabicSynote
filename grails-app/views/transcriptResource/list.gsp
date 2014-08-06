@@ -12,7 +12,7 @@
 		</div>
 		<div class="span10" id="user_content_div">
 			<h2 class="heading-inline">Transcript for
-				<g:link controller="reocording" action="replay" id="${multimedia.id}">${multimedia.title }</g:link>
+				<g:link controller="reocording" action="replay" id="${multimedia.id}" params="[lang: params.lang]">${multimedia.title }</g:link>
 			</h2>
 			<div class="row">
 				<span id="recording_count_span" style="padding:5px" class="pull-right label label-info">${cueList.records} Transcript Blocks</span>
@@ -27,13 +27,13 @@
 					</g:each>
 				</div>
 			</div>
-			
+
 			<div class="row" id="recording_pagination">
-				<g:render template="/common/pagination" 
+				<g:render template="/common/pagination"
 					model="['currentPage':cueList.page,'rows':params.rows, 'sidx':params.sidx, 'text':params.text,
 						'sord':params.sord,'ctrl':'transcriptResource', 'act':'list', 'id':multimedia.id,'total':cueList.total]"/>
 			</div>
-			
+
 		</div>
 	</div>
 </div>

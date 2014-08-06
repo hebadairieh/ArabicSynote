@@ -6,21 +6,21 @@
 			</span>|
 			<span>
 				<g:link controller="user" action="contact"
-					target="_blank" title="Contact Us">Contact Us</g:link>
+					target="_blank" title="Contact Us" params="[lang: params.lang]">Contact Us</g:link>
 			</span>|
 			<span>
 				<g:link
 			action="termsAndConditions" controller="user" title="Legal"
-			target="_blank">Legal</g:link>
+			target="_blank" params="[lang: params.lang]">Legal</g:link>
 			</span>|
 			<span>
 				<g:link
 			action="accessibility" controller="user" title="Accessibility"
-			target="_blank">Accessibility</g:link>
+			target="_blank" params="[lang: params.lang]">Accessibility</g:link>
 			</span>|
 			<span>
 				<a href="http://www.synote.ecs.soton.ac.uk" target="_blank"
-			title="About synote">About Synote</a>
+			title="About synote" >About Synote</a>
 			</span>|
 			<span>
 				<a href="http://blog.lsl.ecs.soton.ac.uk/synote/" target="_blank"
@@ -37,7 +37,7 @@
 			</span>
 			<g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
 				<g:if test="${params.lang == 'ar'}">
-					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'en']" class="menuButton">English</g:link>
+					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'en']" class="menuButton" >English</g:link>
 				</g:if>
 				<g:if test="${params.lang == 'en'}">
 					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'ar']" class="menuButton">Arabic</g:link>

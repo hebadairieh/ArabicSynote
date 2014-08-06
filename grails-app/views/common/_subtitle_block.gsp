@@ -12,7 +12,7 @@
 <div class="cue-row row">
 	<div class="span2">
 		<div style="position:relative;">
-			<g:link controller='recording' action='replay' id="${row.rid}" fragment="${row.mf}" title="play transcript block">			
+			<g:link controller='recording' action='replay' id="${row.rid}" fragment="${row.mf}" title="play transcript block" params="[lang: params.lang]">
 				<img class="thumbnail-img" src="${thumbnail_src}"/>
 				<div style="position:absolute;z-index:1;left:0;bottom:0">
 					<span class="label label-inverse label-duration">${row.start} to ${row.end}</span>
@@ -33,8 +33,8 @@
 	 		<a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
 	  			Actions<span class="caret"></span></a>
 	  		<ul class="dropdown-menu">
-	  				<li><g:link controller="recording" action="replay" id="${row.rid}" fragment="${row.mf}">Play it in Synote Player</g:link></li>
-	  				<li><g:link controller="recording" action="print" id="${row.rid}" fragment="${row.mf}">Print Friendly Version</g:link></li>
+	  				<li><g:link controller="recording" action="replay" id="${row.rid}" fragment="${row.mf}" params="[lang: params.lang]">Play it in Synote Player</g:link></li>
+	  				<li><g:link controller="recording" action="print" id="${row.rid}" fragment="${row.mf}" params="[lang: params.lang]">Print Friendly Version</g:link></li>
 	 		</ul>
 	 	</div>
 	</div>

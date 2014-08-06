@@ -36,7 +36,7 @@
 				<dd valign="top"  class="value">
 					<g:if test="${userInstance?.groups?.size() > 0 }">
 						<g:each in="${userInstance?.groups}" var="g">
-						<span><g:link controller="userGroup" action="show" id="${g?.id}">
+						<span><g:link controller="userGroup" action="show" id="${g?.id}" params="[lang: params.lang]">
 								${g?.encodeAsHTML()}
 							</g:link></span>
 							<br/>
@@ -54,10 +54,10 @@
 			</dl>
 			<div class="row">
 				<div class="span6 offset1">
-					<g:link class="btn" controller='user' action='editUserProfile' elementId="user_profile_edit">
+					<g:link class="btn" controller='user' action='editUserProfile' elementId="user_profile_edit" params="[lang: params.lang]">
 					Edit your profile</g:link>
 					<syn:allowRegistering>
-						<g:link class="btn btn-warning" controller='user' action='changePassword' elementId="user_profile_change_password">
+						<g:link class="btn btn-warning" controller='user' action='changePassword' elementId="user_profile_change_password" params="[lang: params.lang]">
 						Change password</g:link>
 					</syn:allowRegistering>
 				</div>

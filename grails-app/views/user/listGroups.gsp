@@ -21,7 +21,7 @@
 			<div class="tab-content">
 				<div class="tab-pane active" id="group_owner">
 					<div>
-						<g:link class="btn btn-primary btn-large" action="createGroup" title="Create a new group"><i class="icon-plus icon-white"></i>Create a new group</g:link>
+						<g:link class="btn btn-primary btn-large" action="createGroup" title="Create a new group" params="[lang: params.lang]"><i class="icon-plus icon-white"></i>Create a new group</g:link>
 					</div>
 					<div>
 						<span id="group_owned_count_span" style="padding:5px" class="pull-right label label-info">${groupListOwner.records} Groups</span>
@@ -46,7 +46,7 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail">Detail</g:link></td>
+								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]">Detail</g:link></td>
 							</tr>
 						</g:each>
 					</table>
@@ -86,7 +86,7 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail">Detail</g:link></td>
+								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]">Detail</g:link></td>
 							</tr>
 						</g:each>
 					</table>

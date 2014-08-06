@@ -27,7 +27,7 @@
 
 <div style="margin-top:20px;">
 	<div style="position:relative;">
-		<g:link controller='recording' action='replay' id="${preview_row.id}" title="play ${preview_row.title}">			
+		<g:link controller='recording' action='replay' id="${preview_row.id}" title="play ${preview_row.title}" params="[lang: params.lang]">
 			<img class="thumbnail-img" src="${preview_thumbnail_src}"/>
 			<div style="position:absolute;z-index:1;left:0;bottom:0">
 				<span class="label label-inverse label-duration"><syn:printTime time="${preview_duration}"/></span>
@@ -38,10 +38,10 @@
 		<span><b>${preview_title}</b></span>
 	</div>
 	<div>
-		<span class="owner-info">by ${preview_row.owner_name}</span>
+		<span class="owner-info"><g:message code="by" /> ${preview_row.owner_name}</span>
 		<br/>
 	  	<span class="datetime-info">${preview_row.date_created}</span>
 	  	<br/>
-	  	<span class="views-info">${preview_row.views} Views</span>
+	  	<span class="views-info">${preview_row.views} <g:message code="Views" /></span>
 	</div>
 </div>

@@ -14,7 +14,7 @@ var Synmark = Base.extend({
 	scrollOffset:-100,
 	mySynmarksOnly:false,
 	myTagsOnly:false,
-	
+
 	constructor:function(recording, outer_container, inner_container)
 	{
 		this.recording = recording;
@@ -38,11 +38,11 @@ var Synmark = Base.extend({
 		//Yunjia: don't need to do that if it's read only and we have to remove the form if it's readonly
 		if(recording.canCreateSynmark === "true")
 		{
-			
+
 			//$("#synmark_create_div").hide();
 			$("#synmark_st").mask("?99:99:99");
 			$("#synmark_et").mask("?99:99:99");
-			
+
 			$("#synmark_st_time").click(function(){
 				var currentPosition = player.getPosition();
 				//console.log("curpo:"+currentPosition);
@@ -103,39 +103,39 @@ var Synmark = Base.extend({
 					return false;
 				}
 			});*/
-			
+
 			$(".tm-input").tagsManager({
 				hiddenTagListName:'synmark_tags'
 				//hiddenTagListId:'synmark_tags'
 			});
-			
+
 			//Init tinyMCE
 			$('#synmark_note').tinymce({
 				script_url:g.resource({dir:'js/tiny_mce',file:'tiny_mce.js'}),
 				mode : "textareas",
 				width:"100%",
-				plugins:"xhtmlxtras",
-				//plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,rdfa",
+				plugins: "xhtmlxtras,directionality",
+				// plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,rdfa",
 				valid_elements : "*[*]",
 				theme:"advanced",
-				theme_advanced_buttons1 : "bold,italic,underline,forecolor,backcolor",//,|,namespace,about,property,rdfGraph,rdfEnrich,stat,setting",
+				theme_advanced_buttons1 : "bold,italic,underline,forecolor,backcolor,|,ltr,rtl",//,|,namespace,about,property,rdfGraph,rdfEnrich,stat,setting",
 				theme_advanced_buttons2 : "",
-		        theme_advanced_buttons3 : "",
-		        theme_advanced_toolbar_location : "top",
-		        theme_advanced_toolbar_align : "left",
-		        theme_advanced_statusbar_location : "bottom",
-		        theme_advanced_resizing : true,
-		        theme_advanced_path : false,
-		        force_p_newlines : false,
-		        force_br_newlines : true,
-		        forced_root_block : ''
+        theme_advanced_buttons3 : "",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        theme_advanced_resizing : true,
+        theme_advanced_path : false,
+        force_p_newlines : false,
+        force_br_newlines : true,
+        forced_root_block : ''
 			});
 
 			//Init the ajax submitting of forms
 			$('#synmark_form').submit(function(){
 				var synmark_st = stringToMilisec($("#synmark_st").val());
 				var synmark_et = stringToMilisec($("#synmark_et").val());
-				if($("#synmark_id").val() != null && $("#synmark_id").val() !== undefined && $.trim($("#synmark_id").val()).length>0) //if id is not null, it means synmark updates 
+				if($("#synmark_id").val() != null && $("#synmark_id").val() !== undefined && $.trim($("#synmark_id").val()).length>0) //if id is not null, it means synmark updates
 				{
 					var url = g.createLink({controller:"recording",action:"updateSynmarkAjax"});//, params:{synmark_id:$.trim($("#synmark_id").val())}});
 					var synmarkData = synmark.getSynmarkData($("#synmark_id").val());
@@ -156,7 +156,7 @@ var Synmark = Base.extend({
 				else
 				{
 					var url = g.createLink({controller:"recording",action:"saveSynmarkAjax",params:{multimedia_id:recording.id}});
-					
+
 					synmark.updateSynmarkAjax(url, function(msg,error){
 						if(error == null)
 						{
@@ -169,7 +169,7 @@ var Synmark = Base.extend({
 							synmark.showMsg(msg,"error");
 						}
 					});
-					
+
 				}
 				return false;
 			});
@@ -177,13 +177,13 @@ var Synmark = Base.extend({
 				$("#synmark_create_div").hide(400);
 				//console.log("note:"+$("#synmark_note").val());
 			});
-			
+
 			$("#add_synmark_btn").click(function(){
 				var newTime = player.getPosition();
 				synmark.fillSynmarkForm(milisecToString(newTime),"","","","","","");
 				$("#synmark_create_div").show(400);
 			});
-			
+
 			$("#synmark_form").validate(
 			{
 				rules: {
@@ -271,10 +271,10 @@ var Synmark = Base.extend({
 		{
 			var currentSynmark = this.getSynmark(currentPosition)
 			//console.log("selectedSynmark:"+this.selectedSynmark);
-			
+
 			if(currentSynmark == null)
 				return;
-				
+
 			if(this.selectedSynmark == null || currentSynmark.attr('id') != this.selectedSynmark.attr('id'))
 			{
 				this.setSynmarkSelected(currentSynmark);
@@ -291,7 +291,7 @@ var Synmark = Base.extend({
 			{
 				//if(cs==null)
 					//cs = $(this.synmarks[i]);
-				
+
 				break;
 			}
 			else
@@ -362,7 +362,7 @@ var Synmark = Base.extend({
 	{
 		//This is the actual URI, but we need to write some code to redirect it to the player
 		//return getHostLocation()+"/"+appPath+"/resource/synmark/"+synmark_id;
-		
+
 		//This is the playing URI, which could be shared easily.
 		//console.log("getURI:"+resourceBaseURI+synmark_id);
 		return resourceBaseURI+synmark_id;
@@ -376,10 +376,10 @@ var Synmark = Base.extend({
 	empty:function()
 	{
 		//empty the data
-		this.synmarks = null; 
+		this.synmarks = null;
 		this.synmarksData = null;
 		this.synmarkTags = null;
-		this.selectedSynmark = null; 
+		this.selectedSynmark = null;
 		//empty the inner container
 		this.inner_container.empty();
 	},
@@ -406,7 +406,7 @@ var Synmark = Base.extend({
 					   synmark_list_div.html("No Synmarks");
 					   return;
 				   }
-				   
+
 				   data = $(data).sort(sortSynmarkByStartTime);
 				   $("#synmark_count_span").text("("+data.length+")");
 				   synmark.synmarksData = data;
@@ -431,32 +431,32 @@ var Synmark = Base.extend({
 					   }
 					   else
 						   single_synmark_div.addClass("synmark_other");
-					   
+
 					   var synmark_title_span = $("<div/>",{
 						   text:s.title?s.title:"No title"
 					   }).addClass("synmark_title").appendTo(single_synmark_div);
-					   
+
 					   //MicroData: add synmark title
 					   if(s.title !== undefined)
 						   mdHelper.setItemprop(synmark_title_span,"name");
-					  
+
 					   var synmark_owner_span = $("<span/>",{
 						   //Yunjia: We have to update UserData and add userName instead of firstName and lastName
 						   text:"by "+s.owner.firstName
 					   }).addClass("owner-info pull-right").insertAfter(synmark_title_span);
-					   
+
 					   //MicroData: set owner span
 					   mdHelper.setItemprop(synmark_owner_span,"creator");
 					   mdHelper.createItem(synmark_owner_span,"http://schema.org/Person");
 					   mdHelper.setItemid(synmark_owner_span,userBaseURI+s.owner.id);
 					   mdHelper.setMetaTag(mdHelper.createMetaTag(),"familyName",s.owner.lastName).appendTo(synmark_owner_span);
 					   mdHelper.setMetaTag(mdHelper.createMetaTag(),"givenName",s.owner.firstName).appendTo(synmark_owner_span);
-					   
+
 					   var synmark_1_br = $("<br/>").insertAfter(synmark_owner_span);
 					   var synmark_time_span = $("<span/>",{
 						   text: milisecToString(s.start)+(s.end?(" to "+milisecToString(s.end)):"")
 					   }).addClass("synmark_time").insertAfter(synmark_1_br);
-					   
+
 					   var synmark_btn_span = $("<span/>").insertAfter(synmark_time_span);
 					   //Get synmark link button
 					   var link_synmark_btn = $("<button/>",{
@@ -468,7 +468,7 @@ var Synmark = Base.extend({
 						   $("#share_url_dialog").modal('show');
 					   });
 					   link_synmark_btn.appendTo(synmark_btn_span);
-					   
+
 					   //Edit and Delete synmark button
 					   if(isMySynmark == true)
 					   {
@@ -485,14 +485,14 @@ var Synmark = Base.extend({
 										return;
 									}
 								})
-								
+
 								//Open the edit widget
 								if(synmarkData!=null)
 								{
 									var tags = "";
 									if(synmarkData.tags && synmarkData.tags.length >0)
 									{
-										
+
 										var separator ="";
 										$.each(synmarkData.tags,function(j,t){
 											tags+=separator+$.trim(t);
@@ -502,13 +502,13 @@ var Synmark = Base.extend({
 									synmark.fillSynmarkForm(milisecToString(synmarkData.start),
 											milisecToString(synmarkData.end),synmarkData.title,tags,synmarkData.note,synmarkData.id,
 											synmarkData.thumbnail);
-									
+
 									$("html,body").animate({scrollTop:$("#synmarks_div").offset().top},200);
 									$("#synmark_create_div").show(200);
 								}
 						   });
 						   edit_synmark_btn.appendTo(synmark_btn_span);
-						   
+
 						   var delete_synmark_btn = $("<button/>",{
 								  html: "<i class='icon-trash'></i>"
 						   }).attr("title","Delete this synmark").attr("type","button").addClass("btn btn-mini");
@@ -520,8 +520,8 @@ var Synmark = Base.extend({
 							   }
 						   });
 						   delete_synmark_btn.appendTo(synmark_btn_span);
-					   } 
-					   
+					   }
+
 					   if(s.note)
 					   {
 						   var synmark_note_p = $("<p/>",{
@@ -530,7 +530,7 @@ var Synmark = Base.extend({
 						   //MicroData: add synmark note
 						   mdHelper.setItemprop(synmark_note_p,"description");
 					   }
-					   
+
 					   if(s.tags.length>0)
 					   {
 						   var synmark_tags_div = $("<div/>").addClass("synmark_tags_div").insertAfter(synmark_time_span);
@@ -545,7 +545,7 @@ var Synmark = Base.extend({
 							  //MicroData: add keyword
 							  mdHelper.setItemprop(synmark_tag_span,"keywords");
 						   });
-						   
+
 						   //Init the tags, think about the tags of owner's only!
 						   if((!synmark.myTagsOnly) || (synmark.myTagsOnly && user.id == s.owner.id))
 						   {
@@ -560,9 +560,9 @@ var Synmark = Base.extend({
 				   //Yunjia: we can setup a mode to float display the slides
 				   //$("#slides_div").aqFloater({attach:"s", duration:0, opacity:.9,offsetX:0,offsetY:0});
 				   //Init click menu
-				  
+
 				   synmark.synmarks = $(".single_synmark_div");
-				   
+
 				   //synmark.synmarks = new Array();
 				   /*$.each(unsortedSynmarks,function(idx,itm)
 				   {

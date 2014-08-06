@@ -17,23 +17,23 @@
 			<div id="my_synote_content">
 
 			<syn:allowRegistering>
-				<g:link class="user" action="showUserProfile" title="Show user profile"><img src="${resource(dir: 'images/mysynote', file: 'view-pim-contacts.png')}" /><br />User Profile</g:link>
+				<g:link class="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'view-pim-contacts.png')}" /><br />User Profile</g:link>
 
 				<!-- <g:link class="user" action="changePassword" title="Change password"><img src="${resource(dir: 'images/mysynote', file: 'edit-rename.png')}" /><br />Change password</g:link>
 				-->
 			</syn:allowRegistering>
-			<g:link class="user" action="listGroups" title="My Groups"><img src="${resource(dir: 'images/mysynote', file: 'user-group-properties.png')}" /><br />My Groups</g:link>
+			<g:link class="user" action="listGroups" title="My Groups" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'user-group-properties.png')}" /><br />My Groups</g:link>
 
 
-			<g:link class="user" action="listRecordings" title="My Recordings"><img src="${resource(dir: 'images/mysynote', file: 'recording_64.png')}" /><br />My Recordings</g:link>
-			<g:link class="user" action="listSynmarks" title="My Synmarks"><img src="${resource(dir: 'images/mysynote', file: 'synmark_64.png')}" /><br />My Synmarks</g:link>
-			<g:link class="user" action="listTranscripts" title="My Transcripts"><img src="${resource(dir: 'images/mysynote', file: 'transcript_64.png')}" /><br />My Transcripts</g:link>
-			<g:link class="user" action="listTags" title="My Tags"><img src="${resource(dir: 'images/mysynote', file: 'tag_64.png')}" /><br />My Tags</g:link>
+			<g:link class="user" action="listRecordings" title="My Recordings" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'recording_64.png')}" /><br />My Recordings</g:link>
+			<g:link class="user" action="listSynmarks" title="My Synmarks" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'synmark_64.png')}" /><br />My Synmarks</g:link>
+			<g:link class="user" action="listTranscripts" title="My Transcripts" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'transcript_64.png')}" /><br />My Transcripts</g:link>
+			<g:link class="user" action="listTags" title="My Tags" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'tag_64.png')}" /><br />My Tags</g:link>
 			<syn:twitterEnabled>
-			<g:link class="user" controller="twitter" action="index" title="Upload Tweets"><img src="${resource(dir: 'images/mysynote', file: 'twitter.png')}" /><br />Upload Tweets</g:link>
+			<g:link class="user" controller="twitter" action="index" title="Upload Tweets" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'twitter.png')}" /><br />Upload Tweets</g:link>
 			</syn:twitterEnabled>
 			<syn:ibmhtsEnabled>
-			<g:link class="user" controller="IBMTransJob" action="list" title="IBM Transcript Service"><img src="${resource(dir: 'images/mysynote', file: 'view-media-playlist-4.png')}" /><br />Transcript Jobs</g:link>
+			<g:link class="user" controller="IBMTransJob" action="list" title="IBM Transcript Service" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'view-media-playlist-4.png')}" /><br />Transcript Jobs</g:link>
 			</syn:ibmhtsEnabled>
 			<!-- <g:link class="user" controller="logout" action="index" title="Log out"><img src="${resource(dir: 'images/mysynote', file: 'application-exit-2.png')}" /><br />Log out</g:link>-->
 

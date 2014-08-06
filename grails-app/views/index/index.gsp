@@ -45,9 +45,9 @@
    <g:message code="What.is.Synote.desc2"/>
    </p>
    <div>
-    <g:link controller="user" action="help" fragment="step" title="5 steps quick start" class="btn btn-info">
+    <g:link controller="user" action="help" fragment="step" title="5 steps quick start" class="btn btn-info" params="[lang: params.lang]">
       <g:message code="5.steps.quick.start" /></g:link>
-    <g:link controller="register" action="index" title="Register" class="btn btn-success">
+    <g:link controller="register" action="index" title="Register" class="btn btn-success" params="[lang: params.lang]">
     <g:message code="get.a.free.account" /></g:link>
    </div>
   </div>
@@ -166,7 +166,7 @@
     <div class="col-md-8">
      <h3><g:message code="Linked.Data" /></h3>
      <p><g:message code="Linked.Data.desc" />
-     <g:link controller="user" action="help" fragment="linkeddata"><g:message code="Learn.more" />...</g:link></p>
+     <g:link controller="user" action="help" fragment="linkeddata" params="[lang: params.lang]"><g:message code="Learn.more" />...</g:link></p>
     </div>
     </div>
     <div class="col-md-4">

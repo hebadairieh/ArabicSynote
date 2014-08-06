@@ -3,12 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional with HTML5 microdata//EN" "xhtml1-transitional-with-html5-microdata.dtd">
 <html lang="en">
 <head>
-	<title>Synote Player</title>
+	<title><g:message code="org.synote.player.server.recording.replay.title" /></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="author" content="Yunjia Li"/>
 	<g:urlMappings/>
-	<asset:javascript src="bootstrap.js"/>
+	%{-- <asset:javascript src="bootstrap.js"/> --}%
 
 	 <g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
 	 	<g:if test="${params.lang == 'ar'}">
@@ -320,10 +320,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Synote Player</a>
+          <a class="brand" href="#"><g:message code="org.synote.player.server.recording.replay.title" /></a>
 				<syn:isLoggedIn>
 				<div class="btn-group pull-right">
-					<g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile">
+					<g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
 						<i class="icon-user icon-white"></i>
 						<syn:loggedInUsername />
 					</g:link>
@@ -331,32 +331,33 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-				    	<li><g:link controller="user" action="showUserProfile" title="Show user profile">My Profile</g:link></li>
-				    	<li><g:link controller="user" action="index" title="Edit my profile">My Synote</g:link></li>
+				    	<li><g:link controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]"><g:message code="My.Profile" /></g:link></li>
+
+				    	<li><g:link controller="user" action="index" title="Edit my profile" params="[lang: params.lang]"><g:message code="org.synote.user.index.title" /></g:link></li>
 				    	<syn:isAdminLoggedIn>
-						<li><g:link controller="admin" action="index" title="Administration">Administration</g:link></li>
+						<li><g:link controller="admin" action="index" title="Administration" params="[lang: params.lang]">Administration</g:link></li>
 						</syn:isAdminLoggedIn>
 				    	<li class="divider"></li>
 				    	<li>
-		    				<g:link controller="multimediaResource" action="create" title="create a recording">
-		    				Create a recording </g:link>
+		    				<g:link controller="multimediaResource" action="create" title="create a recording" params="[lang: params.lang]">
+		    				<g:message code="Create.a.recording" /> </g:link>
 			    		</li>
 			    		<li>
-			    			<g:link controller="userGroup" action="create" title="create a group">
-			    			 Create a group </g:link>
+			    			<g:link controller="userGroup" action="create" title="create a group" params="[lang: params.lang]">
+			    			<g:message code="Create.a.group" params="[lang: params.lang]"/> </g:link>
 			    		</li>
 				        <li class="divider"></li>
-				        <li><g:link controller="logout" action="index" title="Log out">Log out</g:link></li>
+				        <li><g:link controller="logout" action="index" title="Log out" params="[lang: params.lang]"><g:message code="Log.out" /></g:link></li>
            			</ul>
 				</div>
 				</syn:isLoggedIn>
 				<syn:isNotLoggedIn>
 				<div class="btn-group pull-right">
-					<g:link controller="login" action="auth" title="Log in" elementId="main_login_a" class="btn btn-primary">
-							Login</g:link>
+					<g:link controller="login" action="auth" title="Log in" elementId="main_login_a" class="btn btn-primary" params="[lang: params.lang]">
+							<g:message code="Login"/></g:link>
 					<syn:allowRegistering>
-						<g:link controller="register" action="index" title="Register" class="btn btn-success hidden-phone">
-							 Register</g:link>
+						<g:link controller="register" action="index" title="Register" class="btn btn-success hidden-phone" params="[lang: params.lang]">
+							 <g:message code="Register"/></g:link>
 					</syn:allowRegistering>
 				</div>
 				</syn:isNotLoggedIn>
@@ -373,15 +374,15 @@
 					    	Home</a>
 					    </li>
 						<!-- Recordings -->
-					    <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings">
+					    <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings" params="[lang: params.lang]">
 					    	Browse</g:link>
 					    </li>
 
 						<!-- Groups -->
-					    <li><g:link controller="userGroup" action="list" title="Groups list">
+					    <li><g:link controller="userGroup" action="list" title="Groups list" params="[lang: params.lang]">
 							Groups</g:link>
 						</li>
-						<li><g:link action="help" target="_blank" title="help">
+						<li><g:link action="help" target="_blank" title="help" params="[lang: params.lang]">
 							Help</g:link>
 						</li>
 					</ul>
@@ -399,12 +400,12 @@
 					<meta itemprop="familyName" content="${recording.owner?.firstName}"/>
 					<meta itemprop="givenName" content="${recording.owner?.lastName}"/>
 					<meta itemprop="email" content="${recording.owner?.email}"/>
-					<span class="owner-info">by <g:link controller="user" action="show" id="${recording.owner?.id}" elementId="recording_owner_a" itemprop="name">
+					<span class="owner-info">by <g:link controller="user" action="show" id="${recording.owner?.id}" elementId="recording_owner_a" itemprop="name" params="[lang: params.lang]">
 						${recording.owner?.userName}</g:link> |</span>
 	  				<span class="datetime-info" itemprop="dateCreated">Created at <syn:printSQLTime datetime="${recording.dateCreated}"/> |</span>
 	  				<span class="datetime-info">${views} Views</span>
 	  				<span class="pull-right">
-	  					<g:link class="btn btn-warning" action="handlePrint" id="${recording.id}" target="_blank"><i class="icon-print icon-white"></i>Print Friendly</g:link>
+	  					<g:link class="btn btn-warning" action="handlePrint" id="${recording.id}" target="_blank" params="[lang: params.lang]"><i class="icon-print icon-white"></i>Print Friendly</g:link>
 	  				</span>
 				</div>
 			</div>
@@ -473,13 +474,13 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<g:link controller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"text"]' target="_blank" title="download transcript as plain text format">Plain text</g:link>
+									<g:link controller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"text"]' target="_blank" title="download transcript as plain text format" params="[lang: params.lang]">Plain text</g:link>
 								</li>
 								<li>
-									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"srt"]' target="_blank" title="download transcript as srt format">SRT Format</g:link>
+									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"srt"]' target="_blank" title="download transcript as srt format" params="[lang: params.lang]">SRT Format</g:link>
 								</li>
 								<li>
-									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"webvtt"]' target="_blank" title="download transcript as webvtt format">WebVTT Format</g:link>
+									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"webvtt"]' target="_blank" title="download transcript as webvtt format" params="[lang: params.lang]">WebVTT Format</g:link>
 								</li>
 							</ul>
 						</div>
@@ -598,7 +599,7 @@
 										<li class="divider"></li>
 										</g:if>
 										<li>
-											<g:link controller="recording" action="exportSynmarks">Export Synmarks</g:link>
+											<g:link controller="recording" action="exportSynmarks" params="[lang: params.lang]">Export Synmarks</g:link>
 										</li>
 									</ul>
 								</div>

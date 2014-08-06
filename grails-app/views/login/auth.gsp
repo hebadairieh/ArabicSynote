@@ -30,7 +30,7 @@
 
 			</ul>
 			<p><b><g:message code="Do.not.have.an.account?" /></b></p>
-			<g:link controller="register" action="index" title="Register" class="btn btn-success">
+			<g:link controller="register" action="index" title="Register" class="btn btn-success" params="[lang: params.lang]">
 					<g:message code="Get.a.free.account" /></g:link><br/><br/>
 			<p><b><g:message code="Or.you.can.still.enjoy.Synote" /></b></p>
 			<ul>
@@ -43,7 +43,7 @@
 			<h3><g:message code="Login" /></h3>
 			<hr/>
 			<g:render template="/common/message"/>
-			<form action='${postUrl}' method='POST' name='loginForm'>
+			<form action='${postUrl}' method='POST' name='loginForm' params="[lang: params.lang]">
 			  <fieldset>
 			    <div class="form-group">
 			     	<label for="j_username" class="control-label"><b><em>*</em><g:message code="user.name" /></b></label>
@@ -70,8 +70,8 @@
 				</syn:forgetPasswordEnabled>
 
 			    <div class="form-actions">
-		         %{--    <input class="btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>" /> --}%
-		         <button class="btn btn-large btn-primary" id="loginForm_submit" type="submit"><g:message code="Login"/></button>
+		            <input class="btn btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>" />
+		       %{--   <button class="btn btn-large btn-primary" id="loginForm_submit" type="submit"><g:message code="Login"/></button> --}%
 
 		        </div>
 			  </fieldset>

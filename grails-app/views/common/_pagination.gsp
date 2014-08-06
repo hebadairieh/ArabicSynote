@@ -5,12 +5,12 @@
 	<div class="pagination-centered">
 		<ul class="pagination">
 			<g:if test="${cPage==1?'disabled':''}">
-				<li class='disabled'><g:link url="#" title="previous page">Prev</g:link>
+				<li class='disabled'><g:link url="#" title="previous page" params="[lang: params.lang]">Prev</g:link>
 				</li>
 			</g:if>
 			<g:else>
 				<li><g:link controller="${ctrl}" action="${act}" id="${id}"
-					params="[page:page_prev,query:query,rows:rows,sidx:sidx,sord:sord]" title="previous page">Prev</g:link>
+					params="[page:page_prev,query:query,rows:rows,sidx:sidx,sord:sord,lang: params.lang]" title="previous page">Prev</g:link>
 			</li>
 			</g:else>
 			<g:if test="${total<=7}">
@@ -29,13 +29,14 @@
 					<g:set var="pages" value="${(startPage..endPage)}"/>
 				</g:else>
 			</g:else>
+
 			<g:each var="i" in="${pages}">
 				<li class="${cPage==i?'active':''}"><g:link controller="${ctrl}" action="${act}" id="${id}"
-					params="[page:i,query:query,rows:rows,sidx:sidx,sord:sord]" title="page ${i}">${i}</g:link>
+					params="[page:i,query:query,rows:rows,sidx:sidx,sord:sord,lang: params.lang]" title="page ${i}">${i}</g:link>
 				</li>
 			</g:each>
 			<g:if test="${cPage==total}">
-				<li class='disabled'><g:link url="#" title="next page">Next</g:link>
+				<li class='disabled'><g:link url="#" title="next page" params="[lang: params.lang]">Next</g:link>
 				</li>
 			</g:if>
 			<g:else>

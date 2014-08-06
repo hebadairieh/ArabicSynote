@@ -71,7 +71,7 @@
     <div class="nav-collapse">
      <syn:isLoggedIn>
      <div class="btn-group pull-right">
-      <g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile">
+      <g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
        <i class="icon-user icon-white"></i>
        <syn:loggedInUsername />
       </g:link>
@@ -79,16 +79,16 @@
        <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-          <li><g:link controller="user" action="showUserProfile" title="Show user profile"><g:message code="My.Profile" /></g:link></li>
+          <li><g:link controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]"><g:message code="My.Profile" /></g:link></li>
           <syn:isAdminLoggedIn>
-       <li><g:link controller="admin" action="index" title="Administration"><g:message code="Administration" /></g:link></li>
+       <li><g:link controller="admin" action="index" title="Administration" params="[lang: params.lang]"><g:message code="Administration" /></g:link></li>
        </syn:isAdminLoggedIn>
              <li class="divider"></li>
-             <li><g:link controller="logout" action="index" title="Log out"><g:message code="Log.out" /></g:link></li>
+             <li><g:link controller="logout" action="index" title="Log out" params="[lang: params.lang]"><g:message code="Log.out" /></g:link></li>
                </ul>
      </div>
      <div class="btn-group pull-right">
-      <g:link class="btn" controller="multimediaResource" action="create" title="create a recording">
+      <g:link class="btn" controller="multimediaResource" action="create" title="create a recording" params="[lang: params.lang]">
        <i class="icon-plus-sign"></i>
        <g:message code="Create" />
       </g:link>
@@ -97,27 +97,27 @@
       </a>
       <ul class="dropdown-menu">
           <li>
-           <g:link controller="multimediaResource" action="create" title="create a recording">
+           <g:link controller="multimediaResource" action="create" title="create a recording" params="[lang: params.lang]">
          <g:message code="Create.a.recording" /> </g:link>
           </li>
           <li>
-           <g:link controller="user" action="createGroup" title="create a group">
-            <g:message code="Create.a.group" /> </g:link>
+           <g:link controller="user" action="createGroup" title="create a group" params="[lang: params.lang]">
+            <g:message code="Create.a.group" params="[lang: params.lang]"/> </g:link>
           </li>
                </ul>
      </div>
      <div class="btn-group pull-right">
-      <g:link controller="user" action="index" title="Edit my profile" class="btn">
+      <g:link controller="user" action="index" title="Edit my profile" class="btn" params="[lang: params.lang]">
       <i class="icon-briefcase"></i>
       <g:message code="org.synote.user.index.title" /></g:link>
      </div>
      </syn:isLoggedIn>
      <syn:isNotLoggedIn>
      <div class="btn-group pull-right">
-      <g:link controller="login" action="auth" title="Log in" elementId="main_login_a" class="btn btn-primary">
+      <g:link controller="login" action="auth" title="Log in" elementId="main_login_a" class="btn btn-primary" params="[lang: params.lang]">
        <g:message code="Login"/></g:link>
       <syn:allowRegistering>
-       <g:link controller="register" action="index" title="Register" class="btn btn-success">
+       <g:link controller="register" action="index" title="Register" class="btn btn-success" params="[lang: params.lang]">
          <g:message code="Register"/></g:link>
       </syn:allowRegistering>
      </div>
@@ -125,22 +125,22 @@
      <div class="collapse navbar-collapse" id="collap">
      <ul class="nav navbar-nav">
          <li>
-          <a href="${resource(dir: '/')}" title="home" >
-          %{-- <g:link controller="IndexController" action="index" title="home"> --}%
+%{--           <a href="${resource(dir: '/',params:"[lang: params.lang]")}" title="home" >
+ --}%          <g:link url="/synote/?lang=${params.lang}" title="home" params="[lang: params.lang]">
           <i class="icon-home icon-white"></i><g:message code="Home"/>
-          %{-- </g:link> --}%
-           </a>
-         </li>
+          </g:link>
+%{--            </a>
+ --}%         </li>
       <!-- Recordings -->
          <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings" params="[lang: params.lang]">
           <i class="icon-film icon-white"></i><g:message code="Browse"/></g:link>
          </li>
 
       <!-- Groups -->
-         <li><g:link controller="userGroup" action="list" title="Groups list">
+         <li><g:link controller="userGroup" action="list" title="Groups list" params="[lang: params.lang]">
        <i class="icon-user icon-white"/></i><g:message code="Groups"/></g:link>
       </li>
-      <li><g:link controller="user" action="help" target="_blank" title="help">
+      <li><g:link controller="user" action="help" target="_blank" title="help" params="[lang: params.lang]">
        <i class="icon-info-sign icon-white"/></i><g:message code="Help"/></g:link>
       </li>
      </ul>

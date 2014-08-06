@@ -7,7 +7,7 @@
 <body>
 <div class="nav"><span class="menuButton"><a class="home"
 	href="${createLink(uri: '/')}">Home</a></span> <span class="menuButton"><g:link
-	class="list" action="list">
+	class="list" action="list" params="[lang: params.lang]">
 	<g:message code="default.list.label" args="[entityName]" />
 </g:link></span></div>
 <div class="body">

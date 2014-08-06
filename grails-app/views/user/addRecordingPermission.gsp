@@ -47,7 +47,8 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link class="btn btn-success add-btn" controller="user" action="saveRecordingPermission" id="${multimedia.id}" params="[groupId:group.id]" title="add">Add</g:link></td>
+								<td><g:link class="btn btn-success add-btn" controller="user" action="saveRecordingPermission" id="${multimedia.id}" params="[groupId:group.id,lang: params.lang]" title="add">Add</g:link></td>
+
 							</tr>
 						</g:each>
 					</table>

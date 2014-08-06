@@ -16,22 +16,22 @@
 			<br/>
 			<div id="my_synote_content">
 
-			<g:link class="user" action="createinet" title="internet">
+			<g:link class="user" action="createinet" title="internet" params="[lang: params.lang]">
 				<img src="${resource(dir: 'images/skin', file: 'network_64.png')}" alt="internet"/><br />Internet
 			</g:link>
 
-			<g:link class="user" action="createyt" title="Youtube">
+			<g:link class="user" action="createyt" title="Youtube" params="[lang: params.lang]">
 				<img src="${resource(dir: 'images/skin', file: 'youtube_64.png')}" alt="youtube"/><br />YouTube
 			</g:link>
-			<g:link class="user" action="createdm" title="DailyMotion">
+			<g:link class="user" action="createdm" title="DailyMotion" params="[lang: params.lang]">
 				<img src="${resource(dir: 'images/skin', file: 'dailymotion_64.png')}" alt="dailymotion"/><br />DailyMotion
 			</g:link>
 			<syn:fileUploadEnabled>
-			<g:link class="user" action="createlocal" title="Upload from local disk">
+			<g:link class="user" action="createlocal" title="Upload from local disk" params="[lang: params.lang]">
 				<img src="${resource(dir: 'images/skin', file: 'harddisk_64.png')}" alt="upload"/><br />Local Disk</g:link>
 			</syn:fileUploadEnabled>
 			<syn:viascribeXmlUploadEnabled>
-			<g:link class="user" action="createxml" title="Synchronised XML">
+			<g:link class="user" action="createxml" title="Synchronised XML" params="[lang: params.lang]">
 				<img src="${resource(dir: 'images/skin', file: 'xml_64.png')}" alt="synchronised xml"/><br />Synchronised XML</g:link>
 			</syn:viascribeXmlUploadEnabled>
 			</div>

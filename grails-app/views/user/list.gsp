@@ -8,7 +8,7 @@
 <div class="nav"><span class="menuButton"><a class="home"
 	href="${createLink(uri: '/')}">Home</a></span> <g:ifAllGranted
 	role="ROLE_ADMIN">
-	<span class="menuButton"><g:link class="create" action="create">Create User</g:link></span>
+	<span class="menuButton"><g:link class="create" action="create" params="[lang: params.lang]">Create User</g:link></span>
 </g:ifAllGranted></div>
 <div class="body">
 <h1><g:message code="org.synote.user.list.title" /></h1>

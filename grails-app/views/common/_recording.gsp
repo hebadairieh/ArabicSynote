@@ -36,7 +36,7 @@
 <div class="recording-row row">
 	<div class="col-md-2">
 		<div style="position:relative">
-			<g:link controller='recording' action='replay' id="${row.id}" title="play ${row.title}">
+			<g:link controller='recording' action='replay' id="${row.id}" title="play ${row.title}" params="[lang: params.lang]">
 			<img class="thumbnail-img" src="${thumbnail_src}" alt="Play recording"/>
 			<div style="position:absolute;z-index:1;left:0;bottom:0">
 				<span class="label label-inverse label-duration"><syn:printTime time="${duration}"/></span>
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<div class="col-md-10">
-	  	<h3 class="heading-inline"><g:link controller="recording" action="replay" id="${row.id}">${title}</g:link></h3>
+	  	<h3 class="heading-inline"><g:link controller="recording" action="replay" id="${row.id}" params="[lang: params.lang]">${title}</g:link></h3>
 	  	<div style="display:inline">
 	  		<g:if test="${row.isVideo}">
 	  			<img src="${resource(dir: 'images/skin', file: 'video_16.png')}" alt="This is a video" title="This is a video"/>
@@ -72,39 +72,45 @@
 	  	</div>
 	  	<div style="padding-top:10px">
 	  		<g:if test="${row.owner_name != null}">
-	  			<span class="owner-info">by ${row.owner_name} |</span>
+	  			<span class="owner-info">
+	  			<g:message code= "by" /> ${row.owner_name} |</span>
 	  		</g:if>
-	  		<span class="datetime-info">Created at ${row.date_created}</span>
+	  		%{-- <span class="datetime-info"><g:message code="Created.At" /> ${row.date_created}</span> --}%
+
+%{-- 	  		<span class="datetime-info"><g:message code="Created.At" /> <g:formatDate date="${row.date_created}" style="LONG" type="date"/>
+</span> --}%
+	  		<span class="datetime-info"><g:message code="Created.At" /><g:formatDate date="${row.dateCreated}" format="dd-MMMMM-yyyy hh:mm aaa"/> </span>
+
 
 	  	</div>
 	  	<div class="row" style="padding: 5px 0px;">
 	  		<div class="col-md-1">
-	  			<span title="number of views"><i class="icon-signal metrics-item"></i>${row.views}</span></div>
+	  			<span title="number of views"><i class="fa fa-signal metrics-item"></i>${row.views}</span></div>
 	  		<div class="col-md-1">
-	  			<span title="number of synmarks"><i class="icon-comment metrics-item"></i>${row.synmarks_count}</span></div>
-	  		<div class="col-md-1"><span title="number of slides"><i class="icon-picture metrics-item"></i>${row.slides_count}</span>
+	  			<span title="number of synmarks"><i class="fa fa-comment metrics-item"></i>${row.synmarks_count}</span></div>
+	  		<div class="col-md-2"><span title="number of slides"><i class="fa fa-image metrics-item"></i>${row.slides_count}</span>
 	  		</div>
 	  	</div>
 	  	<g:if test="${actionEnabled}">
 	  	<div class="btn-group pull-right">
 	 		<a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
-	  			Actions<span class="caret"></span></a>
+	  			<g:message code="actions" /><span class="caret"></span></a>
 	  		<ul class="dropdown-menu">
 	  				<g:if test="${editable}">
-	  				<li><g:link controller="multimediaResource" action="edit" id="${row.id}">Edit</g:link></li>
+	  				<li><g:link controller="multimediaResource" action="edit" id="${row.id}" params="[lang: params.lang]"><g:message code="Edit" /></g:link></li>
 	  				<li class="divider"></li>
 	  				</g:if>
 	  				<g:if test="${editable}">
-	  				<li><g:link controller="transcriptResource" action="upload" id="${row.id}">Upload Transcript</g:link></li>
+	  				<li><g:link controller="transcriptResource" action="upload" id="${row.id}" params="[lang: params.lang]"><g:message code="Upload.Transcript" /></g:link></li>
 	  				</g:if>
-	  				<li><g:link controller="recording" action="replay" id="${row.id}">Play it in Synote Player</g:link></li>
-	  				<li><g:link controller="recording" action="handlePrint" id="${row.id}">Print Friendly Version</g:link></li>
+	  				<li><g:link controller="recording" action="replay" id="${row.id}" params="[lang: params.lang]"><g:message code="Play.it.in.Synote.Player" /></g:link></li>
+	  				<li><g:link controller="recording" action="handlePrint" id="${row.id}" params="[lang: params.lang]"><g:message code="Print.Friendly.Version" /></g:link></li>
 	 		</ul>
 	 	</div>
 	 	</g:if>
 	 	<g:if test="${isOwnerOrAdmin}">
 	 	<div class="pull-right" style="margin-right:10px;">
-	 		<g:link class="btn btn-success pull-right" controller="user" action="addRecordingPermission" id="${row.id}"><i class="icon-plus icon-white"></i>Add to Group</g:link>
+	 		<g:link class="btn btn-success pull-right" controller="user" action="addRecordingPermission" id="${row.id}" params="[lang: params.lang]"><i class="icon-plus icon-white"></i><g:message code="Add.to.Group" /></g:link>
 	 	</div>
 	 	</g:if>
 	</div>

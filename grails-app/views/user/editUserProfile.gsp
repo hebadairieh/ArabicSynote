@@ -55,7 +55,7 @@
 					<div class="form-actions">
 						<div class="pull-left">
 							<input class="btn btn-primary" id="userProfileEditForm_submit" type="submit" value="Save" />
-							<g:link class="btn" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel">Cancel</g:link>
+							<g:link class="btn" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel" params="[lang: params.lang]">Cancel</g:link>
 						</div>
 					</div>
 				</g:form>

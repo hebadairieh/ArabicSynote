@@ -31,7 +31,7 @@
 						<td>${group.owner_name}</td>
 						<td>${group.member_count}</td>
 						<td>${group.recording_count}</td>
-						<td>${group.date_created.format("dd-mm-yyyy")}</td>
+						<td><g:formatDate date="${group.date_created}" format="dd-MMMMM-yyyy" /></td>
 						<td>${group.shared}</td>
 						<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail"><g:message code="Detail" /></g:link></td>
 					</tr>

@@ -15,7 +15,7 @@
 	recording.url = "${multimedia.url?.url}";
 	recording.isVideo = "${multimedia.isVideo}".toLowerCase();
 	recording.uuid = "${multimedia.uuid}";
-	
+
 	$(document).ready(function(){
 		$("#multimediaEditForm").validate(
 		{
@@ -179,12 +179,12 @@
 					      	</div>
 				      	</div>
 				      	<!-- Add later -->
-				      	<!--  
+				      	<!--
 				      	<div class="span4">
 				      		<div class="control-group">
 							<label for="realStarttime" class="control-label"><b>Recording Start Time</b></label>
 					      	<div class="controls">
-					      		
+
 					      	</div>
 				      	</div>
 				      	<div class="control-group">
@@ -213,7 +213,7 @@
 						      	</div>
 						      	<input type='hidden' class="required" name='isVideo' id='isVideo' value="${multimedia.isVideo}" />
 					      	</div>
-					      	
+
 					      	<div class="control-group">
 								<label class="control-label"><b>Thumbnail Picture</b></label>
 						      	<div class="controls">
@@ -232,7 +232,7 @@
 			            	<input class="btn" id="multimediaEditForm_reset" type="reset" value="Reset"/>
 			            </div>
 			          	<div class="pull-right">
-			          		<g:link class="btn btn-danger" onclick="alert('Are you sure?');" controller="multimediaResource" action="delete" elementId="multimediaEditForm_delete" id="${multimedia.id}" >Delete</g:link>
+			          		<g:link class="btn btn-danger" onclick="alert('Are you sure?');" controller="multimediaResource" action="delete" elementId="multimediaEditForm_delete" id="${multimedia.id}"  params="[lang: params.lang]">Delete</g:link>
 			          	</div>
 			        </div>
 				</g:form>

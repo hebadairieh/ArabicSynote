@@ -31,7 +31,7 @@
 				}
 			});
 		}
-		
+
 	});
 </script>
 </head>
@@ -84,7 +84,7 @@
 					<td class="name" style="vertical-align: top;">Group Permissions:</td>
 					<td>
 						<g:each status="i" var="resourcePermission" in="${resourcePermissionList.sort {it.group?.name}}">
-							<g:link controller="userGroup" action="show" id="${resourcePermission?.group?.id}">
+							<g:link controller="userGroup" action="show" id="${resourcePermission?.group?.id}" params="[lang: params.lang]">
 								${resourcePermission?.group?.name} (${resourcePermission?.perm})
 							</g:link>
 							<br/>
@@ -96,25 +96,25 @@
 	</table>
 	<div class="prepend-top append-bottom">
 	<div class="span-20">
-		<g:link class="replay" controller="recording" action="replay_old" id="${multimediaResource?.id}" elementId="recording_replay" title="Replay recording">Replay</g:link>
-		<g:link class="print" controller="recording" action="print" id="${multimediaResource?.id}" elementId="recording_print" title="Display the recording in accessible style">Print Friendly</g:link>
+		<g:link class="replay" controller="recording" action="replay_old" id="${multimediaResource?.id}" elementId="recording_replay" title="Replay recording" params="[lang: params.lang]">Replay</g:link>
+		<g:link class="print" controller="recording" action="print" id="${multimediaResource?.id}" elementId="recording_print" title="Display the recording in accessible style" params="[lang: params.lang]">Print Friendly</g:link>
 		<syn:isOwnerOrAdmin owner="${multimediaResource?.owner?.id}">
-			<g:link controller="multimediaResource" action="edit" id="${multimediaResource?.id}" elementId="recording_edit" title="Edit recording">Edit</g:link>
-			<g:link controller="multimediaResource" action="delete" id="${multimediaResource?.id}" elementId="recording_delete" onclick="return confirm('Are you sure?');" title="Delete recording">Delete</g:link>
+			<g:link controller="multimediaResource" action="edit" id="${multimediaResource?.id}" elementId="recording_edit" title="Edit recording" params="[lang: params.lang]">Edit</g:link>
+			<g:link controller="multimediaResource" action="delete" id="${multimediaResource?.id}" elementId="recording_delete" onclick="return confirm('Are you sure?');" title="Delete recording" params="[lang: params.lang]">Delete</g:link>
 		</syn:isOwnerOrAdmin>
 	</div>
 	<div class="span-4 right" id="more_action_tab">
 		<!-- More action list -->
 		<g:if test="${multimediaResource.perm?.val >= org.synote.permission.PermissionValue.findByName('ANNOTATE').val}">
 			<syn:twitterEnabled>
-				<g:link class="tweetUpload" elementId="recording_twitter" controller="twitter" action="create" id="${multimediaResource?.id}" title="Upload the Tweets as Synmarks">Upload Tweets</g:link></span>
+				<g:link class="tweetUpload" elementId="recording_twitter" controller="twitter" action="create" id="${multimediaResource?.id}" title="Upload the Tweets as Synmarks" params="[lang: params.lang]">Upload Tweets</g:link></span>
 			</syn:twitterEnabled>
 		</g:if>
 		<syn:isOwnerOrAdmin owner="${multimediaResource?.owner?.id}">
 			<syn:ibmhtsEnabled>
 				<syn:ibmhtsAddingJobEnabled>
 					<g:link class="generateTranscript" action="generateTranscript" id="${multimediaResource?.id}"
-							title="Generate transcript using IBM Transcript service">Generate Transcript</g:link>
+							title="Generate transcript using IBM Transcript service" params="[lang: params.lang]">Generate Transcript</g:link>
 				</syn:ibmhtsAddingJobEnabled>
 			</syn:ibmhtsEnabled>
 		</syn:isOwnerOrAdmin>
