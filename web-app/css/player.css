@@ -16,7 +16,7 @@
 }
 #description_div
 {
-		
+
 }
 
 #description_show_div
@@ -38,7 +38,7 @@
 }
 
 /* mf-info-video and mf-info-audio is specifically designed for mediaElementJS
-   for audio, the player will overlap on mediafragment button, so we need to set the margin-bottom larger	
+   for audio, the player will overlap on mediafragment button, so we need to set the margin-bottom larger
 */
 .mf-info-video
 {
@@ -72,7 +72,7 @@
 
 .transcript-line
 {
-	margin-top: 10px;	
+	margin-top: 10px;
 }
 
 .transcript-line-time {
@@ -82,8 +82,8 @@
 .transcript-line-speaker {
 	font-weight:bold;
 	display:inline;
-	float left;
-	padding:0;	
+	float: left;
+	padding:0;
 }
 .transcript-highlight
 {
@@ -250,23 +250,23 @@
 		margin-left: 30px;
 		width: 660px;
 	}
-	
-	.row-fluid .span-middle { 
+
+	.row-fluid .span-middle {
    	 	width: 99.999999993% !important;
     	*width: 99.9468085036383% !important;
     	float: left;
 		margin-left: 30px;
   	}
-  	
+
   	.row-fluid .span-right{
   		width: 99.999999993% !important;
     	*width: 99.9468085036383% !important;
     	float: left;
-		
+
   	}
   	.span-fluid-right .tab-content .tab-pane {display:none;}
     .span-fluid-right .tab-content .active {display:block;}
-  	
+
 	 /*#tab_right
 	 {
 	 	display:none;
@@ -293,13 +293,13 @@
     	float: left;
   		margin-left: 20px;
   	}
-  	
+
   	.row-fluid .span-right{
   		width: 99.999999993% !important;
     	*width: 99.9468085036383% !important;
     	float: left;
   	}
-  	
+
   	.span-fluid-right .tab-content .tab-pane {display:none;}
     .span-fluid-right .tab-content .active {display:block;}
 }
@@ -326,7 +326,7 @@
     	float: left;
   		margin-left: 10px;
     }
-    
+
     .row-fluid .span-right{
     	width: 99.999999993% !important;
     	*width: 99.9468085036383% !important;
@@ -335,12 +335,12 @@
     }
     .span-fluid-right .tab-content .tab-pane {display:none;}
     .span-fluid-right .tab-content .active {display:block;}
-    
+
     #control_pace_select,#control_goto_tb
     {
     	width:auto;
     }
-    
+
     #image_container_div .span-thumbnail
 	{
 		margin-left:0 !important;
@@ -367,66 +367,66 @@
 		width: auto;
 		margin-left:0;
 	}
-	
+
 	.row-fluid .span-middle,.row-fluid .span-right, .row-fluid .span-left{
 		width: 99.999999993% !important;
     	*width: 99.9468085036383% !important;
     	float: none;
 		margin-left:0;
     }
-    
+
     .span-fluid-right .tab-content .tab-pane {display:none;}
     .span-fluid-right .tab-content .active {display:block;}
-    
+
     #control_pace_div select, #control_pace_div input{
     	width:auto;
     	display:inline;
     }
-    
+
     /*hide all h3 in smaller screen*/
     h3
     {
     	position: absolute;
    		left: -9999px;
     }
-    
+
     #synmark_list_div
 	{
 		margin-top:20px;
 	}
-	
+
 	#synmark_create_div,#synmark_msg_div
 	{
 		margin-top:20px;
 	}
-	
+
 	/*On a narrower tablet, it's not a good idea to have div scrollable, because it will be overlapped by the screen scroll*/
 	#transcripts_content_div[style],#synmark_list_div[style],#image_container_div[style]
 	{
 		max-height:none !important;
 	}
-	
+
 	#transcripts_content_div
 	{
 		width:100%;
 		min-height:100px;
 		margin-top:20px;
 	}
-	
+
 	#synmark_list_div
 	{
 		width:100%;
 		min-height:100px;
 		margin-top:20px;
 	}
-	
+
 	#image_container_div
 	{
 		width:100%;
 		min-height:100px;
 		margin-top:20px;
 	}
-	
+
 	#image_container_div .span-thumbnail
 	{
 		margin-left:0 !important;

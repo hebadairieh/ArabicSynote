@@ -1,0 +1,435 @@
+/* override bootstrap */
+.modal, .modal.fade.in {
+    top: 50; /* was 10% */
+}
+
+/* New Player */
+#col_left_div .span-left
+{
+  margin:0;
+  float:none;
+}
+
+#col_right_div .span-right, #col_right_div .span-left
+{
+  margin:0;
+}
+#description_div
+{
+
+}
+
+#description_show_div
+{
+  text-align:center;
+  border-top:2px solid #e6e6e6;
+  margin-left:0px;
+}
+.description-brief
+{
+  max-height:100px;
+  overflow:hidden;
+}
+
+.description-full
+{
+  height:auto;
+  overflow:hidden;
+}
+
+/* mf-info-video and mf-info-audio is specifically designed for mediaElementJS
+   for audio, the player will overlap on mediafragment button, so we need to set the margin-bottom larger
+*/
+.mf-info-video
+{
+  margin-bottom:30px;
+}
+
+.mf-info-audio
+{
+  margin-bottom:60px;
+}
+/*###############transcript########################*/
+/*when mouseover a transcript div*/
+#transcripts_content_div
+{
+  width:100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  min-height:100px;
+  margin-top:20px;
+}
+#transcript_edit_div, #transcript_msg_div
+{
+  width:91.5%;
+  margin-top:20px;
+}
+#transcripts_content_div ol
+{
+  margin:0px;
+  list-style:none;
+}
+
+.transcript-line
+{
+  margin-top: 10px;
+}
+
+.transcript-line-time {
+    color: #97A500;
+}
+
+.transcript-line-speaker {
+  font-weight:bold;
+  display:inline;
+  float left;
+  padding:0;
+}
+.transcript-highlight
+{
+  background-color:#ffff66 !important;
+  background-image:url(../images/skin/play_16.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  cursor:pointer;
+}
+/*when a transcript is selected and playing*/
+.transcript-selected
+{
+  background-color:#ffff66 !important;
+  cursor:pointer;
+}
+/*when a transcript has just been added*/
+.transcript-edited
+{
+  background-color:#c8ffbf;
+}
+/*when a transcript has something wrong*/
+.transcript-error
+{
+  background-color:#ffdfdf;
+}
+
+/*###############synmarks########################*/
+#synmark_list_div
+{
+  overflow-x:hidden;
+  overflow-y:scroll;
+  width:100%;
+  min-height:100px;
+  margin-top:50px;
+}
+
+#synmark_create_div,#synmark_msg_div
+{
+  margin-top:50px;
+}
+.single_synmark_div
+{
+  margin:2px;
+  padding:5px;
+}
+
+/*when mouseover a synmark*/
+.synmark_highlight
+{
+  background-color:#d1e1fa;
+  background-image:url(../images/skin/play_32.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  cursor:pointer;
+}
+
+/*when a synmark is selected and playing*/
+.synmark_selected
+{
+  background-color:#d1e1fa;
+  cursor:pointer;
+}
+
+.synmark_title
+{
+  color:#1259c7;
+  font-weight:bold;
+}
+.synmark_owner
+{
+  font-size:1em;
+  font-style:italic;
+  padding-left:5px;
+}
+.synmark_time
+{
+  color:#97a500;
+  font-size:1em;
+}
+.synmark_note
+{
+  font-size:1em;
+  margin:0.2em !important;
+}
+
+.synmark_title_span
+{
+  display:inline-block;
+}
+.synmark_tags_div
+{
+  margin:2px 0px !important;
+  padding-left:2px;
+  display:block;
+  text-align:right;
+}
+
+.synmark_tag_title_span
+{
+  font-size:1em;
+  padding-right:5px;
+  display:inline-block;
+  padding:3px;
+}
+
+.synmark_tags_div .tag
+{
+  display:inline-block;
+  padding:2px;
+  border: 1px solid #A5D24A;
+  background: #CDE69C;
+  color: #638421;
+  font-size:1em;
+  -moz-border-radius:2px;
+  -webkit-border-radius: 2px;
+  border-radius:2px;
+  float:right;
+}
+
+
+.synmark_mine
+{
+  /*empty*/
+}
+
+.synmark_other
+{
+  /*empty*/
+}
+
+/*###############slides########################*/
+#image_container_div
+{
+  overflow-x:hidden;
+  overflow-y:scroll;
+  width:100%;
+  min-height:100px;
+  margin-top:50px;
+}
+
+#image_container_div .span-thumbnail
+{
+  margin-left:0 !important;
+  width:48.7179%;
+}
+.slide_hover,.slide_selected
+{
+  -moz-box-shadow: 0 0 4px 4px yellow;
+  -webkit-box-shadow: 0 0 4px 4px yellow;
+  box-shadow: 0 0 4px 4px yellow;
+}
+@media (min-width: 1200px) /* span-fluid-right + 480px = 1140px*/
+{
+  .player-fixed-width
+  {
+    padding: 10px 0;
+      width:480px;
+      float: right;
+    margin-left: 30px;
+  }
+  .row .span-fluid-right {
+      padding:10px 0;
+      float: right;
+    margin-right: 30px;
+    width: 660px;
+  }
+
+  .row-fluid .span-middle {
+      width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+    margin-left: 30px;
+    }
+
+    .row-fluid .span-right{
+      width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+
+    }
+    .span-fluid-right .tab-content .tab-pane {display:none;}
+    .span-fluid-right .tab-content .active {display:block;}
+
+   /*#tab_right
+   {
+    display:none;
+   }*/
+}
+@media (min-width: 980px) and (max-width:1199px) /* span-fluid-right + 480px = 920px*/
+{
+  .player-fixed-width
+  {
+    padding: 10px 0;
+      width:480px;
+      float: left;
+      margin-left: 20px;
+  }
+  .row .span-fluid-right {
+      padding:10px 0;
+      float: left;
+      margin-left: 20px;
+    width: 440px;
+  }
+  .row-fluid .span-middle {
+      width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+      margin-left: 20px;
+    }
+
+    .row-fluid .span-right{
+      width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+    }
+
+    .span-fluid-right .tab-content .tab-pane {display:none;}
+    .span-fluid-right .tab-content .active {display:block;}
+}
+/* span-fluid-right + 480px = 704px*/
+
+@media (min-width: 768px) and (max-width: 979px)
+{
+  .player-fixed-width
+  {
+    padding: 10px 0;
+      width:480px;
+      float: left;
+      margin-left: 20px;
+  }
+  .row .span-fluid-right {
+      padding:10px 0;
+      float: left;
+      margin-left: 10px;
+    width: 234px;
+  }
+  .row-fluid .span-middle{
+    width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+      margin-left: 10px;
+    }
+
+    .row-fluid .span-right{
+      width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: left;
+      margin-left: 0px;
+    }
+    .span-fluid-right .tab-content .tab-pane {display:none;}
+    .span-fluid-right .tab-content .active {display:block;}
+
+    #control_pace_select,#control_goto_tb
+    {
+      width:auto;
+    }
+
+    #image_container_div .span-thumbnail
+  {
+    margin-left:0 !important;
+    width:100%;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) /* span-fluid-right width auto*/
+{
+  fieldset
+  {
+    width:100%;
+  }
+  .player-fixed-width
+  {
+    display:block;
+    padding: 10px 0;
+      width:auto;
+      margin-left:0;
+      float:none;
+  }
+  .row .span-fluid-right {
+      padding:10px 0;
+      float: none;
+    width: auto;
+    margin-left:0;
+  }
+
+  .row-fluid .span-middle,.row-fluid .span-right, .row-fluid .span-left{
+    width: 99.999999993% !important;
+      *width: 99.9468085036383% !important;
+      float: none;
+    margin-left:0;
+    }
+
+    .span-fluid-right .tab-content .tab-pane {display:none;}
+    .span-fluid-right .tab-content .active {display:block;}
+
+    #control_pace_div select, #control_pace_div input{
+      width:auto;
+      display:inline;
+    }
+
+    /*hide all h3 in smaller screen*/
+    h3
+    {
+      position: absolute;
+      left: -9999px;
+    }
+
+    #synmark_list_div
+  {
+    margin-top:20px;
+  }
+
+  #synmark_create_div,#synmark_msg_div
+  {
+    margin-top:20px;
+  }
+
+  /*On a narrower tablet, it's not a good idea to have div scrollable, because it will be overlapped by the screen scroll*/
+  #transcripts_content_div[style],#synmark_list_div[style],#image_container_div[style]
+  {
+    max-height:none !important;
+  }
+
+  #transcripts_content_div
+  {
+    width:100%;
+    min-height:100px;
+    margin-top:20px;
+  }
+
+  #synmark_list_div
+  {
+    width:100%;
+    min-height:100px;
+    margin-top:20px;
+  }
+
+  #image_container_div
+  {
+    width:100%;
+    min-height:100px;
+    margin-top:20px;
+  }
+
+  #image_container_div .span-thumbnail
+  {
+    margin-left:0 !important;
+    width:100%;
+  }
+}

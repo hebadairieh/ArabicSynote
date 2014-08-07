@@ -72,7 +72,7 @@
      <syn:isLoggedIn>
      <div class="btn-group pull-right">
       <g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
-       <i class="icon-user icon-white"></i>
+       <i class="fa fa-user"></i>
        <syn:loggedInUsername />
       </g:link>
       <a href="#" class="btn dropdown-toggle btn-success" data-toggle="dropdown">

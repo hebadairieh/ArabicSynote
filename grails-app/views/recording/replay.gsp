@@ -9,77 +9,119 @@
 	<meta name="author" content="Yunjia Li"/>
 	<g:urlMappings/>
 	%{-- <asset:javascript src="bootstrap.js"/> --}%
+		 <asset:javascript src="application.js"/>
+		 <!-- <asset:stylesheet src="application-ar.css"/> -->
 
+%{-- 	Assets (style sheets + Java scripts)************************************************
+ --}%
+
+
+		 <asset:stylesheet src="main.css"/>
+	   <asset:stylesheet src="mediaelementplayer.min.css"/>
+     <asset:stylesheet src="smfplayer.css"/>
+     <asset:stylesheet src="bootstrap-tagmanager.css"/>
+
+	<link rel="shortcut icon" href="${resource(dir: 'images', file: 'synote_icon.ico')}" type="image/x-icon" />
+
+     <asset:javascript src="jquery/jquery-1.7.1.min.js"/>
+      <asset:javascript src="bootstrap.js"/>
+      <asset:javascript src="Base.js"/>
+      <asset:javascript src="jquery/jquery.form.js"/>
+      <asset:javascript src="jquery/jquery.validate-1.9.1.min.js"/>
+      <asset:javascript src="bootstrap-tagmanager.js"/>
+     <asset:javascript src="player/player.responsive.js"/>
+
+	<!-- Other jquery libraries  -->
+      <asset:javascript src="jquery/jquery.maskedinput-1.3.min.js"/>
+      <asset:javascript src="jquery/jquery.url.js"/>
+      <asset:javascript src="jquery/jquery.timers.js"/>
+      <asset:javascript src="jquery/jquery.field_selection.js"/>
+      <asset:javascript src="jquery/jquery.scrollTo-1.4.2-min.js"/>
+      <asset:javascript src="jquery/jquery.okShortcut.min.js"/>
+      <asset:javascript src="jquery/microdataHelper.js"/>
+
+
+	<!-- Player settings -->
+	    <asset:javascript src="jquery/microdataHelper.js"/>
+      <asset:javascript src="tiny_mce/jquery.tinymce.js"/>
+      <asset:javascript src="player/webvtt.parser.js"/>
+      <asset:javascript src="util.js"/>
+
+		<!-- For player -->
+		 <asset:javascript src="player/webvtt.parser.js"/>
+     <asset:javascript src="smfplayer/mediaelement-and-player.min.js"/>
+     <asset:javascript src="smfplayer/smfplayer.js"/>
+
+     <asset:javascript src="player/player.transcript.js"/>
+     <asset:javascript src="player/player.synmark.js"/>
+     <!-- <asset:javascript src="player/smfplayer.js"/> -->
+     <asset:javascript src="player/player.presentation.js"/>
+
+
+%{-- 	// <script type="text/javascript" src="${resource(dir:'js/player',file:"player.textselector.js")}"></script> --}%
+
+
+%{-- 	If conditionss************************************************
+ --}%
 	 <g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
 	 	<g:if test="${params.lang == 'ar'}">
 	 		<asset:stylesheet src="application-ar.css"/>
 	     <asset:stylesheet src="MyStyle.css"/>
+	     <asset:stylesheet src="player-ar.css"/>
+
+
 	 	</g:if>
 	 	<g:if test="${params.lang == 'en'}">
 	 		<asset:stylesheet src="application.css"/>
 	     <asset:stylesheet src="main.css"/>
+	     <asset:stylesheet src="player.css"/>
+
 
 	 	</g:if>
 	 	<g:if test="${params.lang == null }">
 	 		<asset:stylesheet src="application-ar.css"/>
 	     <asset:stylesheet src="MyStyle.css"/>
+	     	     <asset:stylesheet src="player-ar.css"/>
+
+
 	 	</g:if>
 	 </g:if>
+
 
 	 <g:if test="${java.util.Locale.getDefault().getLanguage() == 'en'}">
 	 	<g:if test="${params.lang == 'ar'}">
 	 		<asset:stylesheet src="application-ar.css"/>
-	     <asset:stylesheet src="MyStyle.css"/>
+	     <asset:stylesheet src="MyStyle.less"/>
+	     	<asset:stylesheet src="player-ar.css"/>
+
+
 	 	</g:if>
 	 	<g:if test="${params.lang == 'en'}">
 	 		<asset:stylesheet src="application.css"/>
 	     <asset:stylesheet src="main.css"/>
+	     <asset:stylesheet src="player.css"/>
+	     <asset:stylesheet src="smfplayer.css"/>
+
+
 	 	</g:if>
 	 	<g:if test="${params.lang == null }">
 	 		<asset:stylesheet src="application.css"/>
 	     <asset:stylesheet src="main.css"/>
+	     <asset:stylesheet src="player.css"/>
+	     <asset:stylesheet src="smfplayer.css"/>
+
+
 	 	</g:if>
 	 </g:if>
 
-	<link rel="stylesheet" href="${resource(dir: 'css', file: 'player.css')}" />
+%{-- 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'player.css')}" />
+ --}%
 	<style type="text/css">
 		body {
 	        padding-top: 60px;
 	    }
 	</style>
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'bootstrap', file: 'css/bootstrap-responsive.min.css')}" />
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'bootstrap', file: 'css/bootstrap-tagmanager.css')}" />
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'main.css')}" />
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'smfplayer', file: 'mediaelementplayer.min.css')}" />
-	<link rel="stylesheet" type="text/css" href="${resource(dir: 'smfplayer', file: 'smfplayer.css')}"  />
-	<link rel="shortcut icon" href="${resource(dir: 'images', file: 'synote_icon.ico')}" type="image/x-icon" />
 
-	<script type="text/javascript" src="${resource(dir: 'js/jquery', file: 'jquery-1.7.1.min.js')}"></script>
-	<script type="text/javascript" src="${resource(dir: 'bootstrap', file: 'js/bootstrap.min.js')}"></script>
-	<script type="text/javascript" src="${resource(dir: 'bootstrap', file: 'js/bootstrap-tagmanager.js')}"></script>
-	<script type="text/javascript" src="${resource(dir: 'js', file: 'player/player.responsive.js')}"></script>
-	<script type="text/javascript" src="${resource(dir:'js',file:"Base.js")}"></script>
-	<script type="text/javascript" src="${resource(dir: 'js/jquery', file: 'jquery.form.js')}"></script>
-	<script type="text/javascript" src="${resource(dir: 'js/jquery', file: 'jquery.validate-1.9.1.min.js')}"></script>
-	<!-- Other jquery libraries  -->
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.maskedinput-1.3.min.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.url.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.timers.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.field_selection.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.scrollTo-1.4.2-min.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"jquery.okShortcut.min.js")}"></script>
-	<!-- Player settings -->
-	<script type="text/javascript" src="${resource(dir:'js/jquery',file:"microdataHelper.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/tiny_mce',file:"jquery.tinymce.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/player',file:"webvtt.parser.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js',file:"util.js")}"></script>
-	<!-- For player -->
-	<script type="text/javascript" src="${resource(dir:'smfplayer',file:"mediaelement-and-player.min.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'smfplayer',file:"smfplayer.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/player',file:"player.transcript.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/player',file:"player.synmark.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/player',file:"player.presentation.js")}"></script>
-	<script type="text/javascript" src="${resource(dir:'js/player',file:"player.textselector.js")}"></script>
 	<!--  -->
 	<script id="scriptInit" type="text/javascript">
 		//In case I forget to remove console.log in IE
@@ -312,15 +354,14 @@
 <body itemscope="itemscope" itemtype="http://schema.org/WebPage" itemref="bottomMainFooter">
 <meta itemprop="author" content="Yunjia Li"/>
 	<!-- Top Navigation bar -->
-	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
+ <nav id="navbar_div" class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px !important;" itemscope="itemscope" itemtype="WPHeader">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><g:message code="org.synote.player.server.recording.replay.title" /></a>
+          <a class="navbar-brand" href="#"><g:message code="org.synote.player.server.recording.replay.title" /></a>
 				<syn:isLoggedIn>
 				<div class="btn-group pull-right">
 					<g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
@@ -357,64 +398,65 @@
 							<g:message code="Login"/></g:link>
 					<syn:allowRegistering>
 						<g:link controller="register" action="index" title="Register" class="btn btn-success hidden-phone" params="[lang: params.lang]">
-							 <g:message code="Register"/></g:link>
+							 <g:message code="Login"/></g:link>
 					</syn:allowRegistering>
 				</div>
 				</syn:isNotLoggedIn>
 				<div class="btn-group nav pull-right">
-					<button id="nav_play_btn" class="btn" title="play"><i class="icon-play"></i></button>
-					<button id="nav_pause_btn" class="btn" title="pause"><i class="icon-pause"></i></button>
-					<button id="nav_rewind_btn" class="btn" title="rewind"><i class="icon-backward"></i></button>
-					<button id="nav_forward_btn" class="btn" title="rewind"><i class="icon-forward"></i></button>
+					<button id="nav_play_btn" class="btn" title="play"><i class="fa fa-play"></i></button>
+					<button id="nav_pause_btn" class="btn" title="pause"><i class="fa fa-pause"></i></button>
+					<button id="nav_rewind_btn" class="btn" title="rewind"><i class="fa fa-backward"></i></button>
+					<button id="nav_forward_btn" class="btn" title="forward"><i class="fa fa-forward"></i></button>
 				</div>
 				<div class="nav-collapse pull-left">
-				   <ul class="nav">
+				   <ul class="nav navbar-nav">
 					    <li>
 					    	<a href="${resource(dir: '/')}" title="home">
-					    	Home</a>
+					    	<g:message code="Home"/></a>
 					    </li>
 						<!-- Recordings -->
 					    <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings" params="[lang: params.lang]">
-					    	Browse</g:link>
+					    	<g:message code="Browse"/></g:link>
 					    </li>
 
 						<!-- Groups -->
 					    <li><g:link controller="userGroup" action="list" title="Groups list" params="[lang: params.lang]">
-							Groups</g:link>
+							</i><g:message code="Groups"/></g:link>
 						</li>
 						<li><g:link action="help" target="_blank" title="help" params="[lang: params.lang]">
-							Help</g:link>
+							<g:message code="Help"/></g:link>
 						</li>
 					</ul>
 				</div>
 			</div>
-		</div>
+		</nav>
     </div><!-- /nav-bar -->
 
 	<div class="container" id="content">
 		<!-- Recording title -->
 		<div id="multimedia_title_div">
-			<div>
+			<div >
 				<h2 id="recording_title_h2" itemprop="name">${recording.title}</h2>
 				<div id="recording_owner_div" itemprop="creator" itemscope="itemscope" itemtype="http://schema.org/Person" itemid="${syn.getUserURI([userId:recording.owner?.id.toString()])}">
 					<meta itemprop="familyName" content="${recording.owner?.firstName}"/>
 					<meta itemprop="givenName" content="${recording.owner?.lastName}"/>
 					<meta itemprop="email" content="${recording.owner?.email}"/>
-					<span class="owner-info">by <g:link controller="user" action="show" id="${recording.owner?.id}" elementId="recording_owner_a" itemprop="name" params="[lang: params.lang]">
+					<span class="owner-info"><g:message code="by" /> <g:link controller="user" action="show" id="${recording.owner?.id}" elementId="recording_owner_a" itemprop="name" params="[lang: params.lang]">
 						${recording.owner?.userName}</g:link> |</span>
-	  				<span class="datetime-info" itemprop="dateCreated">Created at <syn:printSQLTime datetime="${recording.dateCreated}"/> |</span>
-	  				<span class="datetime-info">${views} Views</span>
+	  				<span class="datetime-info" itemprop="dateCreated"><g:message code="Created.At" /> <syn:printSQLTime datetime="${recording.dateCreated}"/> |</span>
+	  				<span class="datetime-info">${views} <g:message code="Views" /></span>
 	  				<span class="pull-right">
-	  					<g:link class="btn btn-warning" action="handlePrint" id="${recording.id}" target="_blank" params="[lang: params.lang]"><i class="icon-print icon-white"></i>Print Friendly</g:link>
+	  					<g:link class="btn btn-warning" action="handlePrint" id="${recording.id}" target="_blank" params="[lang: params.lang]"><i class="icon-print icon-white"></i><g:message code="Print.Friendly.Version" /></g:link>
 	  				</span>
 				</div>
 			</div>
 		</div>
 		<!-- Player and Description-->
 		<div class="row">
+		<div class="col-md-6">
 			<div id="col_left_div" class="player-fixed-width">
 				<div id="mf_info_div" class="mf-info-video">
-					<div class="pull-left">
+					<div >
 						<button class="btn btn-success" id="control_mf" title="Play this fragment" style="display:none;"><i class="icon-play-circle icon-white"></i>Play from</button>
 					</div>
 					<div id="control_time_div" class="pull-right">
@@ -436,29 +478,29 @@
 			</div><!-- end player -->
 			<div id="recording_control_div" class="hidden-phone">
 				<div style="display:inline;">
-					<button id="control_play" title="Play" class="btn"><i class="icon-play"></i></button>
-					<button id="control_pause" title="Pause" class="btn"><i class="icon-pause"></i></button>
-					<button id="control_rewind" title="Rewind" class="btn"><i class="icon-backward"></i></button>
-					<button id="control_forward" title="Forward" class="btn"><i class="icon-forward"></i></button>
+					<button id="control_play" title="Play" class="btn"><i class="fa fa-play"></i></button>
+					<button id="control_pause" title="Pause" class="btn"><i class="fa fa-pause"></i></button>
+					<button id="control_rewind" title="Rewind" class="btn"><i class="fa fa-backward"></i></button>
+					<button id="control_forward" title="Forward" class="btn"><i class="fa fa-forward"></i></button>
 				</div>
 				<div id="control_pace_div" style="display:inline;">
-					Pace:
+					<g:message code="Pace" />:
 					<select name="control_pace_select" class="span1" style="margin-top:9px;" id="control_pace_select">
-						<option value="1">1s</option>
-						<option value="5">5s</option>
-						<option value="10" selected="selected">10s</option>
-						<option value="20">20s</option>
+						<option value="1">1 <g:message code="second" /></option>
+						<option value="5">5 <g:message code="second" /></option>
+						<option value="10" selected="selected">10 <g:message code="second" /></option>
+						<option value="20">20 <g:message code="second" /></option>
 					</select>
 				</div>
 				<div class="input-append pull-right" style="display:inline;margin-top:9px;">
 					<input type="text" size="10" class="span1" name="control_goto_tb" id="control_goto_tb" value="00:00:00"/>
-					<button id="control_goto" class="btn" title="Go to a certain time"><i class="icon-arrow-right"></i></button>
+					<button id="control_goto" class="btn" title="Go to a certain time"><i class="icon-arrow"></i></button>
 				</div>
 			</div>
 			<!-- Transcript -->
 			<div id="transcripts_div" class="tab-pane span-left">
 				<div>
-					<h3 class="heading-inline">Subtitle</h3>
+					<h3><g:message code="Subtitle" /></h3>
 					<div class="pull-right btn-toolbar" style="display:inline">
 						<g:if test="${canEdit}">
 						<div class="btn-group" id="transcript_edit_enter_div">
@@ -474,13 +516,13 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<g:link controller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"text"]' target="_blank" title="download transcript as plain text format" params="[lang: params.lang]">Plain text</g:link>
+									<g:link controller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"text"]' target="_blank" title="download transcript as plain text format" params="[lang: params.lang]"><g:message code="Plain.text" /></g:link>
 								</li>
 								<li>
-									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"srt"]' target="_blank" title="download transcript as srt format" params="[lang: params.lang]">SRT Format</g:link>
+									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"srt"]' target="_blank" title="download transcript as srt format" params="[lang: params.lang]"> <g:message code="SRT.Format" /></g:link>
 								</li>
 								<li>
-									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"webvtt"]' target="_blank" title="download transcript as webvtt format" params="[lang: params.lang]">WebVTT Format</g:link>
+									<g:link ontroller="recording" action="downloadTranscript" params='[multimediaId:"${recording.id}",type:"webvtt"]' target="_blank" title="download transcript as webvtt format" params="[lang: params.lang]"> <g:message code="WebVTT.Format" /></g:link>
 								</li>
 							</ul>
 						</div>
@@ -494,11 +536,11 @@
 						<fieldset>
 							<input type="hidden" name="transcript_id" id="transcript_id"/> <!-- The id of srt.index -->
 							<div class="control-group">
-								<label for="transcript_st" class="control-label"><b><em>*</em>Start:</b></label>
+								<label for="transcript_st" class="control-label"><b><em>*</em><g:message code="Start" />:</b></label>
 								<div class="input-append">
 									<input type='text' size="10" class="required" name='transcript_st' id='transcript_st'/>
 									<button class="btn" id="transcript_st_time" title="Get current time" type="button"><i class="icon-time"></i></button>
-									<button class="btn" id="transcript_st_add" title="add one second" type="button"><i class="icon-plus"></i></button>
+									<button class="btn" id="transcript_st_add" title="add one second" type="button"><i class="fa fa-plus"></i></button>
 									<button class="btn" id="transcript_st_remove" title="minus one second" type="button"><i class="icon-minus"></i></button>
 								</div>
 							</div>
@@ -535,46 +577,47 @@
 				</div>
 			</div><!-- end transcript -->
 		</div>
-
+</div>
 		<!-- synmarks and slide -->
+		<div class="col-md-6">
 		<div id="col_right_div" class="span-fluid-right tabbable">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<!-- description and tags -->
 					<div id="tags_description_div" class="span12 hidden-phone description-brief"><!-- description -->
 						<div>
-							<b>Tags</b><br/>
+							<b><g:message code="Tags" /></b><br/>
 							<g:if test="${recording.tags?.size() >0}">
 					  		<g:each var="tag" in="${recording.tags?.sort()}">
 					  			<span class="badge badge-tag"><i class="icon-tag tag-item icon-white"></i>${tag?.content}</span>
 					  		</g:each>
 					  		</g:if>
 					  		<g:else>
-					  			No tags
+					  			<g:message code="No.tags" />
 					  		</g:else>
 					  	</div>
 					  	<div id="description_div">
-							<b>Description</b>
+							<b><g:message code="Description" /></b>
 							<g:if test="${recording.note?.content?.size() >0}">
 							<p>${recording.note?.content}</p>
 							</g:if>
 							<g:else>
-								<br/>No description
+								<br/><g:message code="No.description" />
 							</g:else>
 						</div>
 					</div><!-- end description -->
 					<div id="description_show_div" class="span12 hidden-phone">
-						<button id="description_show_btn" class="btn btn-mini">more</button>
+						<button id="description_show_btn" class="btn btn-mini"><g:message code="more" /></button>
 					</div>
 					<!-- Synmarks -->
 					<ul class="nav nav-tabs" id="tab_right">
-						<li class="active dropdown"><a href="#synmarks_div" data-toggle="tab">Synmarks <span id="synmark_count_span"></span></a></li>
-						<li><a href="#slides_div" data-toggle="tab">Slides <span id="slides_count_span"></span></a></li>
-						<li class="visible-phone"><a href="#transcripts_div" data-toggle="tab">Transcripts</a></li>
+						<li class="active dropdown"><a href="#synmarks_div" data-toggle="tab"><g:message code="Synmarks" /> <span id="synmark_count_span"></span></a></li>
+						<li><a href="#slides_div" data-toggle="tab"><g:message code="Slides" /> <span id="slides_count_span"></span></a></li>
+						<li class="visible-phone"><a href="#transcripts_div" data-toggle="tab"><g:message code="Transcripts" /></a></li>
 					</ul>
 					<div class="tab-content" id="tab_content_div">
 						<div id="synmarks_div" class="tab-pane active span-middle">
-							<h3 class="hiding">Synmarks</h3>
+							<h3><g:message code="Synmarks" /></h3>
 							<div class="pull-right btn-toolbar" style="display:inline">
 								<g:if test="${canCreateSynmark}">
 								<div class="btn-group" id="synmark_edit_enter_div">
@@ -591,15 +634,15 @@
 									<ul class="dropdown-menu">
 										<g:if test="${canCreateSynmark}">
 										<li>
-											<a href="#">All Synmarks</a>
+											<a href="#"><g:message code="All.Synmarks" /></a>
 										</li>
 										<li>
-											<a href="#">My Synmarks</a>
+											<a href="#"><g:message code="My.Synmarks" /></a>
 										</li>
 										<li class="divider"></li>
 										</g:if>
 										<li>
-											<g:link controller="recording" action="exportSynmarks" params="[lang: params.lang]">Export Synmarks</g:link>
+											<g:link controller="recording" action="exportSynmarks" params="[lang: params.lang]"><g:message code="Export.Synmarks" /></g:link>
 										</li>
 									</ul>
 								</div>
@@ -613,13 +656,13 @@
 										<input type="hidden" name="synmark_id" id="synmark_id"/>
 										<input type="hidden" name="synmark_thumbnail" id="synmark_thumbnail"/>
 										<div class="control-group">
-											<label for="synmark_st" class="control-label"><b><em>*</em>Start:</b></label>
+											<label for="synmark_st" class="control-label"><b><em>*</em><g:message code="Start" />:</b></label>
 											<div class="controls">
 												<div class="input-append">
 													<input type='text' size="10" class="required span6" name='synmark_st' id='synmark_st' style="display:inline;"/>
-													<button class="btn" id="synmark_st_time" title="Get current time" type="button"><i class="icon-time"></i></button>
-													<button class="btn" id="synmark_st_add" title="add one second" type="button"><i class="icon-plus"></i></button>
-													<button class="btn" id="synmark_st_remove" title="minus one second" type="button"><i class="icon-minus"></i></button>
+													<button class="btn" id="synmark_st_time" title="Get current time" type="button"><i class="fa fa-clock-o"></i></button>
+													<button class="btn" id="synmark_st_add" title="add one second" type="button"><i class="fa fa-plus"></i></button>
+													<button class="btn" id="synmark_st_remove" title="minus one second" type="button"><i class="fa fa-minus"></i></button>
 												</div>
 											</div>
 										</div>
@@ -727,6 +770,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 
