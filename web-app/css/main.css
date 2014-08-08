@@ -214,3 +214,8 @@ body{
 }
 
 
+.logo-img{
+background: url('synote_logo_small.png') no-repeat;
+height: 58px;
+padding-top: 5px;
+}

@@ -32,6 +32,7 @@ import org.synote.exception.SynoteException
 import org.synote.api.APIStatusCode
 import org.synote.config.ConfigurationService
 
+
 import groovy.xml.MarkupBuilder
 
 
@@ -110,7 +111,7 @@ class MultimediaResourceController {
 			def multimediaList = resourceService.getMultimediaAsJSON(params) as Map
 			def viewList = resourceService.getMostViewedMultimedia(5) as Map
 			// println multimediaList.total
-			//println resourceService.getMultimediaAsJSON(params) as JSON
+			// println resourceService.getMultimediaAsJSON(params) as JSON
 			return [multimediaList:multimediaList, viewList:viewList, params:params]
 		}
 		catch(org.hibernate.QueryException qex) //In case the query params not found

@@ -79,7 +79,7 @@
 
 %{-- 	  		<span class="datetime-info"><g:message code="Created.At" /> <g:formatDate date="${row.date_created}" style="LONG" type="date"/>
 </span> --}%
-	  		<span class="datetime-info"><g:message code="Created.At" /><g:formatDate date="${row.dateCreated}" format="dd-MMMMM-yyyy hh:mm aaa"/> </span>
+	  		<span class="datetime-info"><g:message code="Created.At" />${row.date_created}</span>
 
 
 	  	</div>

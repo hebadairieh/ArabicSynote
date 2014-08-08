@@ -22,7 +22,14 @@
 				<!-- <g:link class="user" action="changePassword" title="Change password"><img src="${resource(dir: 'images/mysynote', file: 'edit-rename.png')}" /><br />Change password</g:link>
 				-->
 			</syn:allowRegistering>
-			<g:link class="user" action="listGroups" title="My Groups" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'user-group-properties.png')}" /><br />My Groups</g:link>
+			<g:link class="" action="listGroups" title="My Groups" params="[lang: params.lang]">
+			  <g:if test="${params.lang == 'en'}">
+				 <asset:image src="user-group-properties.png"  />
+			  </g:if>
+  			<g:if test="${params.lang == 'ar'}">
+				 <asset:image src="user-group-properties-arabic.png"  />
+				</g:if>
+			<br/>My Groups</g:link>
 
 
 			<g:link class="user" action="listRecordings" title="My Recordings" params="[lang: params.lang]"><img src="${resource(dir: 'images/mysynote', file: 'recording_64.png')}" /><br />My Recordings</g:link>

@@ -667,27 +667,27 @@
 											</div>
 										</div>
 										<div class="control-group">
-											<label for="synmark_et" class="control-label"><b><em>*</em>End:</b></label>
+											<label for="synmark_et" class="control-label"><b><em>*</em><g:message code="End" />:</b></label>
 											<div class="controls">
 												<div class="input-append">
 													<input type='text' size="10" class="required span6" name='synmark_et' id='synmark_et' style="display:inline;"/>
-													<button class="btn" id="synmark_et_time" title="Get current time" type="button"><i class="icon-time"></i></button>
-													<button class="btn" id="synmark_et_add" title="add one second" type="button"><i class="icon-plus"></i></button>
-													<button class="btn" id="synmark_et_remove" title="minus one second" type="button"><i class="icon-minus"></i></button>
+													<button class="btn" id="synmark_et_time" title="Get current time" type="button"><i class="fa fa-clock-o"></i></button>
+													<button class="btn" id="synmark_et_add" title="add one second" type="button"><i class="fa fa-plus"></i></button>
+													<button class="btn" id="synmark_et_remove" title="minus one second" type="button"><i class="fa fa-minus"></i></button>
 												</div>
 											</div>
 										</div>
 										<div class="control-group">
-										    <label for="synmark_title">Title</label>
+										    <label for="synmark_title"><g:message code="Title" /></label>
 											<input type='text' class="span6" autocomplete="off" name='synmark_title' id='synmark_title' value='' />
 										</div>
 										<div class="control-group">
-										    <label for="synmark_tags">Tags:</label>
+										    <label for="synmark_tags"><g:message code="Tags" />:</label>
 											<input type='text' autocomplete="off" placeholder="tags" class="tm-input tm-input-success" data-provide="typeahead" data-items="10" data-source="${typeaheadStr}" name='synmark_tags_visible' id='synmark_tags_visible' value='' />
-											<p class="help-block">Please separate tags by comma ','</p>
+											<p class="help-block"><g:message code="Please.separate.tags.by.comma" /> ','</p>
 										</div>
 										<div class="control-group">
-											<label for="synmark_note" class="control-label"><b>Note:</b></label>
+											<label for="synmark_note" class="control-label"><b><g:message code="Note" />:</b></label>
 											<textarea class="tinymce" name='synmark_note' id='synmark_note' value='' rows="10" style="width:100%"></textarea>
 										</div>
 										<div class="form-actions">
@@ -705,7 +705,7 @@
 						</div>
 						<!-- Slides  -->
 						<div id="slides_div" class="tab-pane span-right">
-							<h3 class="hiding">Slides</h3>
+							<h3 class="hiding"><g:message code="Slides" /></h3>
 							<div class="pull-right btn-toolbar" style="display:inline">
 								<g:if test="${canEdit}">
 								<div class="btn-group" id="slides_edit_div">
@@ -730,21 +730,21 @@
 										<input type="hidden" name="slide_id" id="slide_id"/>
 										<input type="hidden" name="old_index" id="old_index"/>
 										<div class="control-group">
-											<label for="slide_st" class="control-label"><b><em>*</em>Start:</b></label>
+											<label for="slide_st" class="control-label"><b><em>*</em><g:message code="Start" />:</b></label>
 											<div class="input-append">
 												<input type='text' size="10" class="required span6" name='slide_st' id='slide_st' style="display:inline;"/>
-												<button class="btn" id="slide_st_time" title="Get current time" type="button"><i class="icon-time"></i></button>
-												<button class="btn" id="slide_st_add" title="add one second" type="button"><i class="icon-plus"></i></button>
-												<button class="btn" id="slide_st_remove" title="minus one second" type="button"><i class="icon-minus"></i></button>
+												<button class="btn" id="slide_st_time" title="Get current time" type="button"><i class="fa fa-clock-o"></i></button>
+												<button class="btn" id="slide_st_add" title="add one second" type="button"><i class="fa fa-plus"></i></button>
+												<button class="btn" id="slide_st_remove" title="minus one second" type="button"><i class="fa fa-minus"></i></button>
 											</div>
 										</div>
 										<div class="control-group">
-											<label for="slide_et" class="control-label"><b><em>*</em>End:</b></label>
+											<label for="slide_et" class="control-label"><b><em>*</em><g:message code="End" />:</b></label>
 											<div class="input-append">
 												<input type='text' size="10" class="required span6" name='slide_et' id='slide_et' style="display:inline;"/>
-												<button class="btn" id="slide_et_time" title="Get current time" type="button"><i class="icon-time"></i></button>
-												<button class="btn" id="slide_et_add" title="add one second" type="button"><i class="icon-plus"></i></button>
-												<button class="btn" id="slide_et_remove" title="minus one second" type="button"><i class="icon-minus"></i></button>
+												<button class="btn" id="slide_et_time" title="Get current time" type="button"><i class="fa fa-clock-o"></i></button>
+												<button class="btn" id="slide_et_add" title="add one second" type="button"><i class="fa fa-plus"></i></button>
+												<button class="btn" id="slide_et_remove" title="minus one second" type="button"><i class="fa fa-minus"></i></button>
 											</div>
 										</div>
 										<div class="control-group">

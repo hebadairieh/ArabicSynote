@@ -187,8 +187,8 @@
  <div id="search_bar_div">
   <div class="container">
    <div class="row">
-    <div class="col-md-2 align-lang" style="text-align:center;">
-     <img itemprop="primaryImageOfPage" src="${resource(dir: 'images', file: 'synote_logo_small.png')}" alt="Synote"/>
+    <div class="col-md-2 align-lang logo-img">
+     %{-- <img itemprop="primaryImageOfPage"  alt="Synote"/> --}%
     </div>
     <div class="col-md-10">
      <g:render template="/common/search" />

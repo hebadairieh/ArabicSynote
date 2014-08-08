@@ -117,11 +117,6 @@ footer {
 
 }
 
-footer > .navbar>.container>.nav>li > a, img {
-
-    float: right;
-
-}
 
 footer > .navbar>.container>.nav>li > a > img {
 
@@ -179,6 +174,11 @@ footer > .navbar>.container>.nav>li > a > img {
   margin: 2%;
   text-decoration:none;
 }
+#my_synote_content #mysynote_filter {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 dl dt {
     background:#5f9be3;
@@ -196,7 +196,7 @@ dl dd {
 }
 
 .icon-group-small {
-    content: url('../images/skin/user_group_16.png');
+    content: url('../images/skin/user_group_16-arabic.png');
     background-position: center center;
     margin-right:2px;
 
@@ -259,3 +259,10 @@ background-position: center center;
  margin-right:2px;
 
 }
+
+.logo-img{
+background: url('synote-arabic-logo.png') no-repeat;
+height: 58px;
+padding-top: 5px;
+}
+

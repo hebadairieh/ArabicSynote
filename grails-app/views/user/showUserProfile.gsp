@@ -31,7 +31,7 @@
 				<dt><g:message code="user.enabled.label" default="Enabled" /></dt>
 				<dd><g:formatBoolean boolean="${userInstance?.enabled}" /></dd>
 				<dt><g:message code="user.dateCreated.label" default="Date Created" /></dt>
-				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" style="LONG" type="date"/></dd>
+				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" format="dd-MMMMM-yyyy"/></dd>
 				<dt><g:message code="user.groups.label" default="Groups" /></dt>
 				<dd valign="top"  class="value">
 					<g:if test="${userInstance?.groups?.size() > 0 }">
@@ -46,11 +46,10 @@
 						No groups
 					</g:else>
 				</dd>
-
 				<dt><g:message code="user.lastUpdated.label" default="Last Updated" /></dd>
-				<dd><g:formatDate date="${userInstance?.lastUpdated}" /></dt>
+				<dd><g:formatDate date="${userInstance?.lastUpdated}" format="dd-MMMMM-yyyy" /></dt>
 				<dt><g:message code="user.lastLogin.label" default="Last Login" /></dd>
-				<dd><g:formatDate date="${userInstance?.lastLogin}" /></dt>
+				<dd><g:formatDate date="${userInstance?.lastLogin}" format="dd-MMMMM-yyyy"/></dt>
 			</dl>
 			<div class="row">
 				<div class="span6 offset1">

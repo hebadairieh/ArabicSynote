@@ -16,8 +16,7 @@
     	<li>
     </g:else><g:link controller="user" action="listGroups" params="[lang: params.lang]">
     	<i class="icon-group-small">
-%{--          <img src="${resource(dir:'images',file:'skin/user_group_16.png')}">
- --}%        </i>My Groups</g:link></li>
+     </i>My Groups</g:link></li>
     <g:if test="${active == 'recordings'}">
     	<li class="active">
     </g:if>
