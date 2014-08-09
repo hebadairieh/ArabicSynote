@@ -43,19 +43,22 @@
 			<h3><g:message code="Login" /></h3>
 			<hr/>
 			<g:render template="/common/message"/>
-			<form action='${postUrl}' method='POST' name='loginForm' params="[lang: params.lang]">
+			%{-- <form action='${postUrl}' method='POST' name='loginForm'> --}%
+			<g:form name="loginForm" url="[controller:'j_spring_security_check']" params="[lang: params.lang]">
 			  <fieldset>
 			    <div class="form-group">
 			     	<label for="j_username" class="control-label"><b><em>*</em><g:message code="user.name" /></b></label>
 			      	<div class="controls">
-			        	<input type='text' autocomplete="off" class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}'
-			        		placeholder="Synote user name"/>
+			        	%{-- <input type='text' autocomplete="off" class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}'
+			        		placeholder="Synote user name"/> --}%
+			        		<g:textField class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}' placeholder="Synote user name" />
 			      	</div>
 			    </div>
 			    <div class="form-group">
 			     	<label for="j_password" class="control-label"><b><em>*</em><g:message code="password" /></b></label>
 			      	<div class="controls">
-						<input type='password' name='j_password' class="form-control required" id='j_password' placeholder="password"/>
+						%{-- <input type='password' name='j_password' class="form-control required" id='j_password' placeholder="password"/> --}%
+						<g:passwordField name='j_password' class="form-control required" id='j_password' placeholder="password"/>
 			      	</div>
 			    </div>
 			    <div class="form-group">
@@ -70,12 +73,14 @@
 				</syn:forgetPasswordEnabled>
 
 			    <div class="form-actions">
-		            <input class="btn btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>" />
-		       %{--   <button class="btn btn-large btn-primary" id="loginForm_submit" type="submit"><g:message code="Login"/></button> --}%
+		            %{-- <input class="btn btn-large btn-primary" id="loginForm_submit" type="submit" value="<g:message code="Login"/>"  /> --}%
+
+		          <g:actionSubmit value="${message(code: 'Login')}" class="btn btn-large btn-primary" id="loginForm_submit" />
 
 		        </div>
 			  </fieldset>
-			</form>
+			%{-- </form> --}%
+			</g:form>
 		</div>
 	</div>
 </div>

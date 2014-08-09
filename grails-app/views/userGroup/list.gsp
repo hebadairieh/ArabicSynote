@@ -9,7 +9,7 @@
 	<div class="row">
 		<div class="col-md-12" id="user_content_div">
 			<h2 class="heading-inline"><g:message code="org.synote.user.group.list.title" /></h2>
-			<span id="recording_count_span" style="padding:5px" class="pull-right label label-info">${groupList.records} groups</span>
+			<span id="recording_count_span" style="padding:5px" class="pull-right label label-info">${groupList.records} <g:message code="Groups" /></span>
 			<hr/>
 			<g:render template="/common/message" />
 			<g:if test="${groupList.records>0}">

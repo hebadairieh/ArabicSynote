@@ -43,7 +43,8 @@
 
 	<!-- Player settings -->
 	    <asset:javascript src="jquery/microdataHelper.js"/>
-      <asset:javascript src="tiny_mce/jquery.tinymce.js"/>
+      %{-- <asset:javascript src="tinymce/tinymce.min.js"/> --}%
+			<script type="text/javascript" src="${resource(dir:'js/tiny_mce',file:"jquery.tinymce.js")}"></script>
       <asset:javascript src="player/webvtt.parser.js"/>
       <asset:javascript src="util.js"/>
 
@@ -58,7 +59,6 @@
      <asset:javascript src="player/player.presentation.js"/>
 
 
-%{-- 	// <script type="text/javascript" src="${resource(dir:'js/player',file:"player.textselector.js")}"></script> --}%
 
 
 %{-- 	If conditionss************************************************
@@ -688,7 +688,12 @@
 										</div>
 										<div class="control-group">
 											<label for="synmark_note" class="control-label"><b><g:message code="Note" />:</b></label>
-											<textarea class="tinymce" name='synmark_note' id='synmark_note' value='' rows="10" style="width:100%"></textarea>
+											<g:if test="${params.lang == 'ar'}">
+												<textarea class="tinymce" name='synmark_note' id='synmark_note-ar' value='' rows="10" style="width:100%"></textarea>
+											</g:if>
+											<g:if test="${params.lang == 'en'}">
+												<textarea class="tinymce" name='synmark_note' id='synmark_note' value='' rows="10" style="width:100%"></textarea>
+											</g:if>
 										</div>
 										<div class="form-actions">
 											<input class="btn btn-primary" id="synmark_submit" type="submit" value="Submit"/><!-- This is not a submit button, because nothing will be submitted to the server -->
@@ -788,6 +793,68 @@
 		    <a href='#' class='btn btn-primary'>Copy to Clipboard</a>-->
 		</div>
 	</div> <!-- /share url dialog -->
-	<g:render template="/common/footer"/>
+<footer>
+	<div itemscope="itemscope" itemtype="WPFooter">
+			<span>
+				<a href="http://www.soton.ac.uk" target="_blank"
+					title="University of Southampton">&copy; <span itemprop="copyrightYear">2013</span> <span itemprop="copyrightHolder">University of Southampton</span></a>
+			</span>|
+			<span>
+				<g:link controller="user" action="contact"
+					target="_blank" title="Contact Us" params="[lang: params.lang]">Contact Us</g:link>
+			</span>|
+			<span>
+				<g:link
+			action="termsAndConditions" controller="user" title="Legal"
+			target="_blank" params="[lang: params.lang]">Legal</g:link>
+			</span>|
+			<span>
+				<g:link
+			action="accessibility" controller="user" title="Accessibility"
+			target="_blank" params="[lang: params.lang]">Accessibility</g:link>
+			</span>|
+			<span>
+				<a href="http://www.synote.ecs.soton.ac.uk" target="_blank"
+			title="About synote" >About Synote</a>
+			</span>|
+			<span>
+				<a href="http://blog.lsl.ecs.soton.ac.uk/synote/" target="_blank"
+			title="Synote News">Synote News</a>
+			</span>|
+			<span>
+				<img src="${resource(dir: 'images', file: 'licenses-bsd-88x31.png')}" alt="BSD license"/>
+			</span>|
+			<span>
+				Funded by: <a href="http://www.jisc.ac.uk" target="_blank"><img src="${resource(dir: 'images', file: 'jisc-small.jpg')}" alt="JISC"/></a>
+			</span>|
+			<span>
+				<g:meta name="app.version"/>-Build<g:meta name="app.build"/>
+			</span>
+%{-- 			<g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
+				<g:if test="${params.lang == 'ar'}">
+					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'en']" class="menuButton" >English</g:link>
+				</g:if>
+				<g:if test="${params.lang == 'en'}">
+					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'ar']" class="menuButton">Arabic</g:link>
+				</g:if>
+				<g:if test="${params.lang == null }">
+					<g:link controller="${params.controller}" action="${params.action}" params="[lang:'en']" class="menuButton">English</g:link>
+				</g:if>
+			</g:if> --}%
+
+			<g:if test="${java.util.Locale.getDefault().getLanguage() == 'en'}">
+				<g:if test="${params.lang == 'ar'}">
+					<g:link controller="${params.controller}" action="${params.action}" id="${params.id}" params="[lang:'en']" class="menuButton">English</g:link>
+				</g:if>
+				<g:if test="${params.lang == 'en'}">
+					<g:link controller="${params.controller}" action="${params.action}" id="${params.id}" params="[lang:'ar']" class="menuButton">Arabic</g:link>
+				</g:if>
+				<g:if test="${params.lang == null }">
+					<g:link controller="${params.controller}" action="${params.action}" id="${params.id}" params="[lang:'ar']" class="menuButton">Arabic</g:link>
+				</g:if>
+			</g:if>
+
+	</div>
+</footer>
 </body>
 </html>

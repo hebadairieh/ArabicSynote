@@ -22,30 +22,30 @@ $(document).ready(function(){
 			<div class="well">
 				<g:form method="post" class="form-horizontal" controller="user" action="handleChangePassword">
 			      	<div class="control-group">
-			      		<label class="control-label" for="oldPassword"><em>*</em>Your old password:</label>
+			      		<label class="control-label" for="oldPassword"><em>*</em><g:message code="Your.old.password" />:</label>
 				      	<div class="controls">
 							<input type="password" id="oldPassword" class="required" name="oldPassword"/>
-							<span class="help-block">Please enter your old password</span>
+							<span class="help-block"><g:message code="Please.enter.your.old.password" /></span>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="newPassword"><em>*</em>New password:</label>
+						<label class="control-label" for="newPassword"><em>*</em><g:message code="New.password" />:</label>
 						<div class="controls">
 							<input type="password" id="newPassword" class="textInput medium required" name="newPassword"/>
-							<span class="help-block">Please enter your new password</span>
+							<span class="help-block"><g:message code="Please.enter.your.new.password" /></span>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="confirmNewPassword"><em>*</em>Confirm password:</label>
+						<label class="control-label" for="confirmNewPassword"><em>*</em><g:message code="Confirm.password" />:</label>
 						<div class="controls">
 							<input type="password" id="confirmNewPassword" class="textInput medium required" name="confirmNewPassword"/>
-							<span class="help-block">Please enter your new password again</span>
+							<span class="help-block"><g:message code="Please.enter.your.new.password.again" /></span>
 						</div>
 					</div>
 					<div class="form-actions">
-						<div class="pull-left">
-							<input class="btn btn-primary" type="submit" value="Save" />
-							<g:link class="btn" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel" params="[lang: params.lang]">Cancel</g:link>
+						<div class="">
+							<input class="btn btn-primary" type="submit" value="${message(code: "Save")}" />
+							<g:link class="btn btn-default" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel" params="[lang: params.lang]"><g:message code="Cancel" /></g:link>
 						</div>
 					</div>
 				</g:form>

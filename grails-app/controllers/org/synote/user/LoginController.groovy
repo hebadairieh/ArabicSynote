@@ -124,19 +124,21 @@ class LoginController {
 	* login success
 	*/
     def authSuccess = {
-	   
+
 	   //Get authorities for the login user
-	   
+
 	   if(session.requestedController && session.requestedAction)
 	   {
+	   	 session.requestedParams.setAttribute("lang", params.lang)
 		   redirect(controller:session.requestedController, action: session.requestedAction, params:session.requestedParams)
-		   
+
 		   session.requestedcontroller = null
 		   session.requestedAction = null
 		   session.requestedParams = null
 	   }
 	   else
-		   redirect (uri:'/')
+	   	println params.lang
+		   redirect (uri:"/?lang=ar")
 	   return
     }
 	/**

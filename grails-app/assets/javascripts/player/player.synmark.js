@@ -122,14 +122,36 @@ var Synmark = Base.extend({
 				theme_advanced_buttons2 : "",
         theme_advanced_buttons3 : "",
         theme_advanced_toolbar_location : "top",
-        theme_advanced_toolbar_align : "left",
         theme_advanced_statusbar_location : "bottom",
+				theme_advanced_toolbar_align : "left",
         theme_advanced_resizing : true,
         theme_advanced_path : false,
         force_p_newlines : false,
         force_br_newlines : true,
-        forced_root_block : ''
+        directionality: "ltr"
+        // forced_root_block : ''
 			});
+			$('#synmark_note-ar').tinymce({
+				script_url:g.resource({dir:'js/tiny_mce',file:'tiny_mce.js'}),
+				mode : "textareas",
+				width:"100%",
+				plugins: "xhtmlxtras,directionality",
+				// plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,rdfa",
+				valid_elements : "*[*]",
+				theme:"advanced",
+				theme_advanced_buttons1 : "bold,italic,underline,forecolor,backcolor,|,ltr,rtl",//,|,namespace,about,property,rdfGraph,rdfEnrich,stat,setting",
+				theme_advanced_buttons2 : "",
+        theme_advanced_buttons3 : "",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_statusbar_location : "bottom",
+				theme_advanced_toolbar_align : "right",
+        theme_advanced_resizing : true,
+        theme_advanced_path : false,
+        force_p_newlines : false,
+        force_br_newlines : true,
+        directionality: "rtl"
+        // forced_root_block : ''
+        });
 
 			//Init the ajax submitting of forms
 			$('#synmark_form').submit(function(){

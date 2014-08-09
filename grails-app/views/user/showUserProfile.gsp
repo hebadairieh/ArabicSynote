@@ -15,24 +15,30 @@
 			</syn:isLoggedIn>
 		</div>
 		<div class="col-md-10" itemscope="itemscope" itemtype="http://schema.org/Table">
-			<h1>${userInstance.userName}'s Profile</h1>
+			<g:if test="${params.lang == 'ar'}">
+				 <h1><g:message code="Profile" /> ${userInstance.userName}</h1>
+			</g:if>
+			<g:if test="${params.lang == 'en'}">
+						<h1>${userInstance.userName}'s Profile</h1>
+			</g:if>
+
 			<g:render template="/common/message" model="[bean: userInstance]" />
 
 			<dl class="dl-horizontal well" itemscope="itemscope" itemtype="http://schema.org/Person">
-				<dt><g:message code="user.userName.label" default="User Name" /></dt>
+				<dt><g:message code="user.name"  /></dt>
 				<dd>${fieldValue(bean: userInstance, field: "userName")}</dd>
-				<dt><g:message code="user.firstName.label" default="First Name" /></dt>
+				<dt><g:message code="First.Name" /></dt>
 				<dd itemprop="givenname">${fieldValue(bean: userInstance, field: "firstName")}</dd>
-				<dt><g:message code="user.lastName.label" default="Last Name" /></td>
+				<dt><g:message code="Last.Name"/></td>
 				<dd itemprop="familyName">${fieldValue(bean: userInstance, field: "lastName")}</dd>
-				<dt><g:message code="user.email.label" default="Email" /></dt>
+				<dt><g:message code="Email" /></dt>
 				<dd itemprop="email">${fieldValue(bean: userInstance, field: "email")}</dd>
 
-				<dt><g:message code="user.enabled.label" default="Enabled" /></dt>
+				<dt><g:message code="enabled"  /></dt>
 				<dd><g:formatBoolean boolean="${userInstance?.enabled}" /></dd>
-				<dt><g:message code="user.dateCreated.label" default="Date Created" /></dt>
+				<dt><g:message code="Date.Created"  /></dt>
 				<dd valign="top" class="value"><g:formatDate date="${userInstance?.dateCreated}" format="dd-MMMMM-yyyy"/></dd>
-				<dt><g:message code="user.groups.label" default="Groups" /></dt>
+				<dt><g:message code="Groups"  /></dt>
 				<dd valign="top"  class="value">
 					<g:if test="${userInstance?.groups?.size() > 0 }">
 						<g:each in="${userInstance?.groups}" var="g">
@@ -43,21 +49,21 @@
 						</g:each>
 					</g:if>
 					<g:else>
-						No groups
+						<g:message code="No.groups" />
 					</g:else>
 				</dd>
-				<dt><g:message code="user.lastUpdated.label" default="Last Updated" /></dd>
+				<dt><g:message code="last.updated" /></dd>
 				<dd><g:formatDate date="${userInstance?.lastUpdated}" format="dd-MMMMM-yyyy" /></dt>
-				<dt><g:message code="user.lastLogin.label" default="Last Login" /></dd>
+				<dt><g:message code="last.login"  /></dd>
 				<dd><g:formatDate date="${userInstance?.lastLogin}" format="dd-MMMMM-yyyy"/></dt>
 			</dl>
 			<div class="row">
-				<div class="span6 offset1">
+				<div class="col-md-6 offset1">
 					<g:link class="btn" controller='user' action='editUserProfile' elementId="user_profile_edit" params="[lang: params.lang]">
-					Edit your profile</g:link>
+					<g:message code="Edit.your.profile" /></g:link>
 					<syn:allowRegistering>
 						<g:link class="btn btn-warning" controller='user' action='changePassword' elementId="user_profile_change_password" params="[lang: params.lang]">
-						Change password</g:link>
+						<g:message code="Change.password" /></g:link>
 					</syn:allowRegistering>
 				</div>
 			</div>

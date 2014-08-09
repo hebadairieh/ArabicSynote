@@ -29,33 +29,33 @@
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="userName">User Name:</label>
+						<label class="control-label" for="userName"><g:message code="user.name" />:</label>
 						<div class="controls">
 							${fieldValue(bean: user, field: 'userName')}
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="firstName"><em>*</em>First Name:</label>
+						<label class="control-label" for="firstName"><em>*</em><g:message code="First.Name" />:</label>
 						<div class="controls">
 							<input type="text" id="firstName" class="required" name="firstName" value="${fieldValue(bean: user, field: 'firstName')}" />
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="lastName"><em>*</em>Last Name:</label>
+						<label class="control-label" for="lastName"><em>*</em><g:message code="Last.Name" />:</label>
 						<div class="controls">
 							<input type="text" class="required" id="lastName" name="lastName" value="${fieldValue(bean: user, field: 'lastName')}" />
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="email"><em>*</em>Email:</label>
+						<label class="control-label" for="email"><em>*</em><g:message code="Email" />:</label>
 						<div class="controls">
 							<input type="text" class="required" id="email" name="email" value="${fieldValue(bean: user, field: 'email')}" />
 						</div>
 					</div>
-					<div class="form-actions">
-						<div class="pull-left">
+					<div class="form-actions" style="margin-top:10px;">
+						<div class="">
 							<input class="btn btn-primary" id="userProfileEditForm_submit" type="submit" value="Save" />
-							<g:link class="btn" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel" params="[lang: params.lang]">Cancel</g:link>
+							<g:link class="btn btn-default" controller='user' action='showUserProfile' elementId="userProfileEditForm_cancel" params="[lang: params.lang]"><g:message code="Cancel" /></g:link>
 						</div>
 					</div>
 				</g:form>

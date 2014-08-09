@@ -15,27 +15,27 @@
 			<hr/>
 			<g:render template="/common/message"/>
 			<ul class="nav nav-tabs" id="grouplist_tab">
-				<li class="active"><a href="#group_owner" data-toggle="tab">I am the Owner</a></li>
-				<li><a href="#group_joined" data-toggle="tab">I joined</a></li>
+				<li class="active"><a href="#group_owner" data-toggle="tab"><g:message code="I.am.the.Owner" /></a></li>
+				<li><a href="#group_joined" data-toggle="tab"><g:message code="I.joined" /></a></li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active" id="group_owner">
 					<div>
-						<g:link class="btn btn-primary btn-large" action="createGroup" title="Create a new group" params="[lang: params.lang]"><i class="icon-plus icon-white"></i>Create a new group</g:link>
+						<g:link class="btn btn-primary btn-large" action="createGroup" title="Create a new group" params="[lang: params.lang]"><i class="fa fa-plus"></i><g:message code="Create.a.new.group" /></g:link>
 					</div>
 					<div>
-						<span id="group_owned_count_span" style="padding:5px" class="pull-right label label-info">${groupListOwner.records} Groups</span>
+						<span id="group_owned_count_span" style="padding:5px" class="pull-right label label-info">${groupListOwner.records} <g:message code="Groups" /></span>
 					</div>
 					<br/><br/>
 					<g:if test="${groupListOwner.rows?.size()>0}">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Members</th>
-								<th>Recordings</th>
-								<th>Created At</th>
-								<th>Public</th>
+								<th><g:message code="Name" /></th>
+								<th><g:message code="Members"/></th>
+								<th><g:message code="Recordings" /></th>
+								<th><g:message code="Created.At" /></th>
+								<th><g:message code="Public" /></th>
 								<th></th>
 							</tr>
 						</thead>
@@ -46,14 +46,14 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]">Detail</g:link></td>
+								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]"><g:message code="Detail" /></g:link></td>
 							</tr>
 						</g:each>
 					</table>
 					</g:if>
 					<g:else>
 						<div style="font-size:120%">
-							You haven't created any group yet.
+							<g:message code="You.haven't.created.any.group.yet"/>.
 						</div>
 					</g:else>
 					<div class="row" id="group_owned_pagination">
@@ -64,18 +64,18 @@
 				</div> <!-- /group_owner -->
 				<div class="tab-pane" id="group_joined">
 					<div>
-						<span id="group_joined_count_span" style="padding:5px" class="pull-right label label-info">${groupListJoined.records} Groups</span>
+						<span id="group_joined_count_span" style="padding:5px" class="pull-right label label-info">${groupListJoined.records} <g:message code="Groups" /></span>
 					</div>
 					<br/><br/>
 					<g:if test="${groupListJoined.rows?.size()>0}">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Members</th>
-								<th>Recordings</th>
-								<th>Created At</th>
-								<th>Public</th>
+							  <th><g:message code="Name" /></th>
+								<th><g:message code="Members"/></th>
+								<th><g:message code="Recordings" /></th>
+								<th><g:message code="Created.At" /></th>
+								<th><g:message code="Public" /></th>
 								<th></th>
 							</tr>
 						</thead>
@@ -86,14 +86,14 @@
 								<td>${group.recording_count}</td>
 								<td>${group.date_created.format("dd-mm-yyyy")}</td>
 								<td>${group.shared}</td>
-								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]">Detail</g:link></td>
+								<td><g:link controller="userGroup" action="show" id="${group.id}" title="detail" params="[lang: params.lang]"><g:message code="Detail" /></g:link></td>
 							</tr>
 						</g:each>
 					</table>
 					</g:if>
 					<g:else>
 						<div style="font-size:120%">
-							You haven't joined any group yet.
+						<g:message code="You.haven't.joined.any.group.yet" />
 						</div>
 					</g:else>
 					<div class="row" id="group_joined_pagination">
