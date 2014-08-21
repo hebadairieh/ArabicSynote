@@ -17,18 +17,18 @@
 			<div id="my_synote_content">
 
 			<g:link class="user" action="createinet" title="internet" params="[lang: params.lang]">
-				<img src="${resource(dir: 'images/skin', file: 'network_64.png')}" alt="internet"/><br />Internet
+				<img src="${resource(dir: 'images/skin', file: 'network_64.png')}" alt="internet"/><br /><g:message code="Internet" />
 			</g:link>
 
 			<g:link class="user" action="createyt" title="Youtube" params="[lang: params.lang]">
-				<img src="${resource(dir: 'images/skin', file: 'youtube_64.png')}" alt="youtube"/><br />YouTube
+				<img src="${resource(dir: 'images/skin', file: 'youtube_64.png')}" alt="youtube"/><br /><g:message code="Youtube" />
 			</g:link>
 			<g:link class="user" action="createdm" title="DailyMotion" params="[lang: params.lang]">
-				<img src="${resource(dir: 'images/skin', file: 'dailymotion_64.png')}" alt="dailymotion"/><br />DailyMotion
+				<img src="${resource(dir: 'images/skin', file: 'dailymotion_64.png')}" alt="dailymotion"/><br /><g:message code="DailyMotion" />
 			</g:link>
 			<syn:fileUploadEnabled>
 			<g:link class="user" action="createlocal" title="Upload from local disk" params="[lang: params.lang]">
-				<img src="${resource(dir: 'images/skin', file: 'harddisk_64.png')}" alt="upload"/><br />Local Disk</g:link>
+				<img src="${resource(dir: 'images/skin', file: 'harddisk_64.png')}" alt="upload"/><br /><g:message code="Local.Disk" /></g:link>
 			</syn:fileUploadEnabled>
 			<syn:viascribeXmlUploadEnabled>
 			<g:link class="user" action="createxml" title="Synchronised XML" params="[lang: params.lang]">

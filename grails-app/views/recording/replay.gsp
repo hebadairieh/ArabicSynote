@@ -17,7 +17,8 @@
 
 
 		 <asset:stylesheet src="main.css"/>
-	   <asset:stylesheet src="mediaelementplayer.min.css"/>
+	   %{-- <asset:stylesheet src="mediaelementplayer.min.css"/> --}%
+	   <asset:stylesheet src="mediaelementplayer.css"/>
      <asset:stylesheet src="smfplayer.css"/>
      <asset:stylesheet src="bootstrap-tagmanager.css"/>
 
@@ -136,6 +137,9 @@
 		         console.log = function() {};
 		     }
 		};
+		jQuery(function() {
+  		return $("[data-toggle='tooltip']").tooltip();
+		});
 	</script>
 	<script type="text/javascript">
 	var recording = null;
@@ -361,7 +365,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="navbar-brand" href="#"><g:message code="org.synote.player.server.recording.replay.title" /></a>
+          <a class="navbar-brand col-md-2" href="#"><g:message code="org.synote.player.server.recording.replay.title" /></a>
 				<syn:isLoggedIn>
 				<div class="btn-group pull-right">
 					<g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
@@ -403,10 +407,20 @@
 				</div>
 				</syn:isNotLoggedIn>
 				<div class="btn-group nav pull-right">
-					<button id="nav_play_btn" class="btn" title="play"><i class="fa fa-play"></i></button>
-					<button id="nav_pause_btn" class="btn" title="pause"><i class="fa fa-pause"></i></button>
-					<button id="nav_rewind_btn" class="btn" title="rewind"><i class="fa fa-backward"></i></button>
-					<button id="nav_forward_btn" class="btn" title="forward"><i class="fa fa-forward"></i></button>
+					<button id="nav_play_btn" class="btn btn-default" title="play"><i class="fa fa-play"></i></button>
+					<button id="nav_pause_btn" class="btn btn-default" title="pause"><i class="fa fa-pause"></i></button>
+
+					<g:if test="${params.lang == 'ar'}">
+					  <button id="nav_forward_btn" title="Forward" class="btn btn-default"><i class="fa fa-forward"></i></button>
+					  <button id="nav_rewind_btn" title="Rewind" class="btn btn-default"><i class="fa fa-backward"></i></button>
+					  </g:if>
+					  <g:if test="${params.lang == 'en'}">
+					 <button id="nav_rewind_btn" title="Rewind" class="btn btn-default"><i class="fa fa-backward"></i></button>
+					<button id="nav_forward_btn" title="Forward" class="btn btn-default"><i class="fa fa-forward"></i></button>
+					  </g:if>
+%{--
+					<button id="nav_rewind_btn" class="btn btn-default" title="rewind"><i class="fa fa-backward"></i></button>
+					<button id="nav_forward_btn" class="btn btn-default" title="forward"><i class="fa fa-forward"></i></button> --}%
 				</div>
 				<div class="nav-collapse pull-left">
 				   <ul class="nav navbar-nav">
@@ -478,10 +492,17 @@
 			</div><!-- end player -->
 			<div id="recording_control_div" class="hidden-phone">
 				<div style="display:inline;">
-					<button id="control_play" title="Play" class="btn"><i class="fa fa-play"></i></button>
-					<button id="control_pause" title="Pause" class="btn"><i class="fa fa-pause"></i></button>
-					<button id="control_rewind" title="Rewind" class="btn"><i class="fa fa-backward"></i></button>
-					<button id="control_forward" title="Forward" class="btn"><i class="fa fa-forward"></i></button>
+					<button id="control_play" title="Play" class="btn btn-default" data-toggle="tooltip"><i class="fa fa-play"></i></button>
+					<button id="control_pause" title="Pause" class="btn btn-default"><i class="fa fa-pause"></i></button>
+
+					<g:if test="${params.lang == 'ar'}">
+					  <button id="control_forward" title="Forward" class="btn btn-default"><i class="fa fa-forward"></i></button>
+					  <button id="control_rewind" title="Rewind" class="btn btn-default"><i class="fa fa-backward"></i></button>
+					  </g:if>
+					  <g:if test="${params.lang == 'en'}">
+					 <button id="control_rewind" title="Rewind" class="btn btn-default"><i class="fa fa-backward"></i></button>
+					<button id="control_forward" title="Forward" class="btn btn-default"><i class="fa fa-forward"></i></button>
+					  </g:if>
 				</div>
 				<div id="control_pace_div" style="display:inline;">
 					<g:message code="Pace" />:
@@ -494,7 +515,7 @@
 				</div>
 				<div class="input-append pull-right" style="display:inline;margin-top:9px;">
 					<input type="text" size="10" class="span1" name="control_goto_tb" id="control_goto_tb" value="00:00:00"/>
-					<button id="control_goto" class="btn" title="Go to a certain time"><i class="icon-arrow"></i></button>
+					<button id="control_goto" class="btn btn-default" title="Go to a certain time" data-toggle="tooltip"><i class="icon-arrow"></i></button>
 				</div>
 			</div>
 			<!-- Transcript -->
@@ -580,7 +601,7 @@
 </div>
 		<!-- synmarks and slide -->
 		<div class="col-md-6">
-		<div id="col_right_div" class="span-fluid-right tabbable">
+		<div id="col_right_div" class="col-md-12 tabbable">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<!-- description and tags -->
@@ -607,7 +628,7 @@
 						</div>
 					</div><!-- end description -->
 					<div id="description_show_div" class="span12 hidden-phone">
-						<button id="description_show_btn" class="btn btn-mini"><g:message code="more" /></button>
+						<button id="description_show_btn" class="btn btn-default btn-xs"><g:message code="more" /></button>
 					</div>
 					<!-- Synmarks -->
 					<ul class="nav nav-tabs" id="tab_right">
@@ -620,14 +641,14 @@
 							<h3><g:message code="Synmarks" /></h3>
 							<div class="pull-right btn-toolbar" style="display:inline">
 								<g:if test="${canCreateSynmark}">
-								<div class="btn-group" id="synmark_edit_enter_div">
-									<button class="btn" title="Add a new synmark block" id="add_synmark_btn">
+								<div class="btn-group" id="synmark_edit_enter_div" title="Add a new synmark block" data-toggle="tooltip">
+									<button class="btn btn-default"  id="add_synmark_btn">
 										<img src="${resource(dir:'images/player',file:"bookmark_add_22.png")}"  id="add_synmark_img" title="Add a new synmark"/>
 									</button>
 								</div>
 								</g:if>
-								<div class="btn-group">
-									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" >
+								<div class="btn-group" title="Synmarks Actions" data-toggle="tooltip">
+									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" >
 										<img src="${resource(dir:'images/player',file:"bookmark_show_22.png")}"  id="show_synmark_img" title="Synmark menu"/>
 										<span class="caret"></span>
 									</a>
@@ -696,8 +717,8 @@
 											</g:if>
 										</div>
 										<div class="form-actions">
-											<input class="btn btn-primary" id="synmark_submit" type="submit" value="Submit"/><!-- This is not a submit button, because nothing will be submitted to the server -->
-											<input class="btn" id="synmark_cancel" type="reset" value="Cancel" />
+											<input class="btn btn-primary" id="synmark_submit" type="submit" value="${message(code: "Save")}"/><!-- This is not a submit button, because nothing will be submitted to the server -->
+											<input class="btn" id="synmark_cancel" type="reset" value="${message(code: "Cancel")}" />
 										</div>
 									</fieldset>
 								</form>

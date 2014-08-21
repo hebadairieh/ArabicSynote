@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="span12" id="user_content_div">
+		<div class="col-md-12" id="user_content_div">
 			<h2 class="heading-inline"><g:message code="org.synote.user.group.show.title" /></h2>
 			<hr/>
 			<g:render template="/common/message" />

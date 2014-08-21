@@ -62,20 +62,28 @@
 
  <g:layoutHead />
 </head>
-<body itemscope="itemscope" itemtype="http://schema.org/WebPage" itemref="bottomMainFooter">
+<body itemscope="itemscope" class="container" itemtype="http://schema.org/WebPage" itemref="bottomMainFooter">
 <meta itemprop="author" content="Yunjia Li"/>
  <!-- Top Navigation bar -->
- <nav id="navbar_div" class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px !important;" itemscope="itemscope" itemtype="WPHeader">
+ <div id="navbar_div" class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px !important;" itemscope="itemscope" itemtype="WPHeader">
    <div class="container">
+   <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+    </div>
     <!-- top menu -->
-    <div class="nav-collapse">
+    <div class="nav-collapse " style="margin-top:10px;margin-bottom:-10px;">
      <syn:isLoggedIn>
      <div class="btn-group pull-right">
-      <g:link class="btn btn-success" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
+      <g:link class="btn btn-success btn-sm" controller="user" action="showUserProfile" title="Show user profile" params="[lang: params.lang]">
        <i class="fa fa-user"></i>
        <syn:loggedInUsername />
       </g:link>
-      <a href="#" class="btn dropdown-toggle btn-success" data-toggle="dropdown">
+      <a href="#" class="btn dropdown-toggle btn-sm btn-success" data-toggle="dropdown">
        <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
@@ -88,11 +96,11 @@
                </ul>
      </div>
      <div class="btn-group pull-right">
-      <g:link class="btn" controller="multimediaResource" action="create" title="create a recording" params="[lang: params.lang]">
-       <i class="icon-plus-sign"></i>
+      <g:link class="btn btn-sm btn-default" controller="multimediaResource" action="create" title="create a recording" params="[lang: params.lang]">
+       <i class="fa fa-plus"></i>
        <g:message code="Create" />
       </g:link>
-      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+      <a href="#" class="btn btn-sm dropdown-toggle btn-default" data-toggle="dropdown">
        <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
@@ -107,8 +115,8 @@
                </ul>
      </div>
      <div class="btn-group pull-right">
-      <g:link controller="user" action="index" title="Edit my profile" class="btn" params="[lang: params.lang]">
-      <i class="icon-briefcase"></i>
+      <g:link controller="user" action="index" title="Edit my profile" class="btn btn-sm btn-default" params="[lang: params.lang]">
+      <i class="fa fa-briefcase"></i>
       <g:message code="org.synote.user.index.title" /></g:link>
      </div>
      </syn:isLoggedIn>
@@ -127,27 +135,27 @@
          <li>
 %{--           <a href="${resource(dir: '/',params:"[lang: params.lang]")}" title="home" >
  --}%          <g:link url="/synote/?lang=${params.lang}" title="home" params="[lang: params.lang]">
-          <i class="icon-home icon-white"></i><g:message code="Home"/>
+          <i class="fa fa-home icon-white" style="color:white;"></i><g:message code="Home"/>
           </g:link>
 %{--            </a>
  --}%         </li>
       <!-- Recordings -->
          <li><g:link controller="multimediaResource" action="list" title="Multimedia recordings" params="[lang: params.lang]">
-          <i class="icon-film icon-white"></i><g:message code="Browse"/></g:link>
+          <i class="fa fa-film icon-white" style="color:white;"></i><g:message code="Browse"/></g:link>
          </li>
 
       <!-- Groups -->
          <li><g:link controller="userGroup" action="list" title="Groups list" params="[lang: params.lang]">
-       <i class="icon-user icon-white"/></i><g:message code="Groups"/></g:link>
+       <i class="fa fa-user icon-white" style="color:white;"/></i><g:message code="Groups"/></g:link>
       </li>
       <li><g:link controller="user" action="help" target="_blank" title="help" params="[lang: params.lang]">
-       <i class="icon-info-sign icon-white"/></i><g:message code="Help"/></g:link>
+       <i class="fa fa-info-circle icon-white" style="color:white;"/></i><g:message code="Help"/></g:link>
       </li>
      </ul>
      </div>
     </div>
    </div>
- </nav>
+ </div>
 %{--      <nav class="navbar navbar-inverse navbar-fixed-top">
          <div class="container-fluid">
              <div class="navbar-header">
@@ -184,8 +192,8 @@
          </div>
      </nav> --}%
  <!-- The search bar -->
- <div id="search_bar_div">
-  <div class="container">
+ <div id="search_bar_div" class="container-fluid">
+
    <div class="row">
     <div class="col-md-2 align-lang logo-img">
      %{-- <img itemprop="primaryImageOfPage"  alt="Synote"/> --}%
@@ -194,7 +202,6 @@
      <g:render template="/common/search" />
     </div>
    </div>
-  </div>
  </div>
  <div id="main_content" class="container" itemprop="maincontentOfPage" itemscope="itemscope" itemtype="http://schema.org/WebPageElement">
   <g:layoutBody />

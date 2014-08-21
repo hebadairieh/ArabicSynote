@@ -31,7 +31,7 @@ label.error {
 /*narbar_div*/
 #navbar_div
 {
-	min-width:940px;
+	/*min-width:940px;*/
 }
 
 /* Search form */
@@ -41,7 +41,6 @@ label.error {
 	background: none repeat scroll 0 0 #F5F5F5;
 	border-bottom: 1px solid #DDDDDD;
 	width:100%;
-	min-width:940px;
 }
 
 /*footer*/

@@ -482,8 +482,8 @@ var Synmark = Base.extend({
 					   var synmark_btn_span = $("<span/>").insertAfter(synmark_time_span);
 					   //Get synmark link button
 					   var link_synmark_btn = $("<button/>",{
-							  html: "<i class='icon-share'></i>"
-						   }).attr("title","Share the URL of this synmark").attr("type","button").addClass("btn btn-mini");
+							  html: "<i class='fa fa-share-square-o'></i>"
+						   }).attr("title","Share the URL of this synmark").attr("type","button").addClass("btn btn-default btn-xs");
 					   link_synmark_btn.bind("click",{synmark_id:s.id},function(event){
 					   	   $("#share_url_title_h4").text("Share Synmark");
 						   $("#share_url_dialog .modal-body").html("<p>"+synmark.getURI(event.data.synmark_id)+"</p>");
@@ -495,8 +495,8 @@ var Synmark = Base.extend({
 					   if(isMySynmark == true)
 					   {
 						   var edit_synmark_btn = $("<button/>",{
-							  html: "<i class='icon-edit'></i>"
-						   }).attr("title","Edit this synmark").attr("type","button").addClass("btn btn-mini");
+							  html: "<i class='fa fa-edit'></i>"
+						   }).attr("title","Edit this synmark").attr("type","button").addClass("btn btn-default btn-xs");
 						   edit_synmark_btn.bind("click",{synmark_id:s.id},function(event){
 							   var synmark_id = event.data.synmark_id;
 							   var synmarkData = null;
@@ -532,8 +532,8 @@ var Synmark = Base.extend({
 						   edit_synmark_btn.appendTo(synmark_btn_span);
 
 						   var delete_synmark_btn = $("<button/>",{
-								  html: "<i class='icon-trash'></i>"
-						   }).attr("title","Delete this synmark").attr("type","button").addClass("btn btn-mini");
+								  html: "<i class='fa fa-trash-o'></i>"
+						   }).attr("title","Delete this synmark").attr("type","button").addClass("btn btn-default btn-xs");
 						   delete_synmark_btn.bind("click",{synmark_id:s.id},function(event){
 							   var synmark_id = event.data.synmark_id;
 							   if(confirm("Do you want to delete this synmark?"))

@@ -224,8 +224,7 @@ grails.plugins.springsecurity.successHandler.alwaysUseDefaultTargetUrl=true
 grails.plugins.springsecurity.logout.afterLogoutUrl='/login/index'
 grails.assets.bundle=true
 grails.assets.less.compiler = 'standard'
-grails.plugins.localeConfiguration.supportedLocales = [Locale.ENGLISH, new Locale("ar")]
-grails.plugins.localeConfiguration.defaultLocale = Locale.ENGLISH
+
 
 
 

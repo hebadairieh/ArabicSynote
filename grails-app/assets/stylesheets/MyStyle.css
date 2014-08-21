@@ -85,6 +85,7 @@ body {
     direction: rtl;
 
     padding-top: 50px;
+    padding-bottom:100px;
 
 }
 
@@ -198,7 +199,7 @@ dl dd {
 .icon-group-small {
     content: url('../images/skin/user_group_16-arabic.png');
     background-position: center center;
-    margin-right:2px;
+    margin-left:5px;
 
 
 }
@@ -206,19 +207,19 @@ dl dd {
 .icon-user-profile-small {
   content: url('../images/skin/user_profile_16.png');
     background-position: center center;
-     margin-right:2px;
+    margin-left:5px;
 }
 
 .icon-recordings-small {
    background-position: center center;
-    margin-right:2px;
+    margin-left:5px;
       content: url('../images/skin/recording_16.png');
 
 }
 
 .icon-synmarks-small {
   background-position: center center;
-    margin-right:2px;
+    margin-left:5px;
           content: url('../images/skin/synmark_16.png');
 
 }
@@ -226,7 +227,7 @@ dl dd {
 .icon-tag-c-small {
 /*  background-image: url('../images/skin/tag_16.png');
 */    background-position: center center;
-    margin-right:2px;
+    margin-left:5px;
           content: url('../images/skin/tag_16.png');
 
 }
@@ -235,7 +236,7 @@ dl dd {
 {
 /*  background-image: url('../images/skin/transcript_16.png');
 */    background-position: center center;
-    margin-right:2px;
+    margin-left:5px;
               content: url('../images/skin/transcript_16.png');
 
 }

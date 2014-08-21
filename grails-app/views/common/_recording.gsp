@@ -84,11 +84,24 @@
 
 	  	</div>
 	  	<div class="row" style="padding: 5px 0px;">
-	  		<div class="col-md-1">
-	  			<span title="number of views"><i class="fa fa-signal metrics-item"></i>${row.views}</span></div>
-	  		<div class="col-md-1">
-	  			<span title="number of synmarks"><i class="fa fa-comment metrics-item"></i>${row.synmarks_count}</span></div>
+	  		<div class="col-md-2">
+	  			<span title="number of views"><i class="fa fa-signal metrics-item"></i>${row.views}</span>
+	  			<g:if test="${params.lang == 'ar'}">
+	  			<br/>
+	  			  <label>عدد المشاهدات</label>
+	  			  </g:if>
+	  			  </div>
+	  		<div class="col-md-2">
+	  			<span title="number of synmarks"><i class="fa fa-comment metrics-item"></i>${row.synmarks_count}</span>
+	  			<g:if test="${params.lang == 'ar'}">
+	  			  <label>عدد العلامات المتزامنة</label>
+	  			  </g:if>
+	  			</div>
 	  		<div class="col-md-2"><span title="number of slides"><i class="fa fa-image metrics-item"></i>${row.slides_count}</span>
+	  		<g:if test="${params.lang == 'ar'}">
+	  			  			<br/>
+	  		  <label>عدد الشرائح</label>
+	  		  </g:if>
 	  		</div>
 	  	</div>
 	  	<g:if test="${actionEnabled}">

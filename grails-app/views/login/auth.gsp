@@ -51,14 +51,14 @@
 			      	<div class="controls">
 			        	%{-- <input type='text' autocomplete="off" class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}'
 			        		placeholder="Synote user name"/> --}%
-			        		<g:textField class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}' placeholder="Synote user name" />
+			        		<g:textField class="form-control required" name='j_username' id='j_username' value='${request.remoteUser}' placeholder="${message(code: "user.name")}"/>
 			      	</div>
 			    </div>
 			    <div class="form-group">
 			     	<label for="j_password" class="control-label"><b><em>*</em><g:message code="password" /></b></label>
 			      	<div class="controls">
 						%{-- <input type='password' name='j_password' class="form-control required" id='j_password' placeholder="password"/> --}%
-						<g:passwordField name='j_password' class="form-control required" id='j_password' placeholder="password"/>
+						<g:passwordField name='j_password' class="form-control required" id='j_password' placeholder="${message(code: "password")}"/>
 			      	</div>
 			    </div>
 			    <div class="form-group">

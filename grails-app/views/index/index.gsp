@@ -5,14 +5,13 @@
 <meta name="layout" content="main" />
 </head>
 <body>
- <h1 class="hiding"><g:message code="org.synote.home.title" /></h1>
+%{--  <h1 class="hiding"><g:message code="org.synote.home.title" /></h1>
+ --}%
  <!-- Synote introduction and slide show -->
  <div class="row">
   <div class="col-md-6 align-lang">
    <h2><g:message code="What.is.Synote"/></h2>
-   <h2>
-     <label>${params.lang}</label>
-   </h2>
+
    %{-- <h2>
     <g:if test="${java.util.Locale.getDefault().getLanguage() == 'ar'}">
      <g:if test="${params.lang == 'ar'}">
@@ -89,13 +88,20 @@
 
                    <div class="carousel-inner">
                        <div class="item active">
+
                            <img src="${resource(dir:'images',file:'test/web_design.jpg')}" alt="seo" style="margin:0 auto;display: block;">
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Share.your.annotations.on.the.Web" /></h4>
                            </div>
                        </div>
                        <div class="item">
-                           <img src="${resource(dir:'images',file:'test/varioggetti.jpg')}" alt="seo" style="margin:0 auto;display: block;">
+                       <g:if test="${params.lang == 'ar'}">
+                         <img src="${resource(dir:'images',file:'test/slider-arabic1.png')}" alt="seo" style="margin:0 auto;display: block;">
+                         </g:if>
+                         <g:if test="${params.lang == 'en'}">
+                       <img src="${resource(dir:'images',file:'test/varioggetti.jpg')}" alt="seo" style="margin:0 auto;display: block;">
+                         </g:if>
+
                            <div class="carousel-caption slider-caption">
                                <h4><g:message code="Working.on.desktop.and.mobile.devices" /></h4>
                            </div>
@@ -166,7 +172,7 @@
     <div class="col-md-8">
      <h3><g:message code="Linked.Data" /></h3>
      <p><g:message code="Linked.Data.desc" />
-     <g:link controller="user" action="help" fragment="linkeddata" params="[lang: params.lang]"><g:message code="Learn.more" />...</g:link></p>
+     <g:link controller="user" action="help" fragment="linkeddata" params="[lang: params.lang]"><g:message code="Learn.More" />...</g:link></p>
     </div>
     </div>
     <div class="col-md-4">

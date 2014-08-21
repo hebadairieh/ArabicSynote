@@ -1,6 +1,6 @@
 /*
  * Define Transcript class
- * 
+ *
  * transcript_id is the index of cue in webvtt
  * TranscriptLineDiv.id = "transcript_"+cue.index
  * TranscriptLineDiv.transcript_id = cue.index
@@ -13,7 +13,7 @@
 			</li>
 		</ol>
 	</div>
-	
+
 	cueSettings are not implemented yet
  */
 var Transcript = Base.extend({
@@ -27,10 +27,10 @@ var Transcript = Base.extend({
 	autoScroll:true,
 	scrollOffset:-100,
 	editingEnabled:false, //If editing is enabled, the resource should not be synchronised displayed
-	newId:0,//Store the largest index number of webvtt transcript, which will be the new id of the next created transcript. 
+	newId:0,//Store the largest index number of webvtt transcript, which will be the new id of the next created transcript.
 			//It is used when creating new transcript in synote player
 	selectionImage:null,//The selection image to create a synmark
-	
+
 	constructor:function(recording, outer_container, inner_container)
 	{
 		this.recording = recording;
@@ -45,9 +45,9 @@ var Transcript = Base.extend({
 			transcript.initEditing();
 		}
 		$(document.body).mousedown(function() {
-		    if(transcript.selectionImage) { 
+		    if(transcript.selectionImage) {
 		    	//transcript.selectionImage.unbind("click");
-		    	transcript.selectionImage.fadeOut(); 
+		    	transcript.selectionImage.fadeOut();
 		    }
 		});
 	},
@@ -59,10 +59,10 @@ var Transcript = Base.extend({
 		{
 			var currentTranscript = this.getTranscript(currentPosition);
 			//console.log("selectedTranscript:"+this.selectedTranscript);
-			
+
 			if(currentTranscript == null)
 				return;
-			
+
 			else if(this.selectedTranscript == null || currentTranscript.attr('id') != this.selectedTranscript.attr('id'))
 			{
 				this.setTranscriptSelected(currentTranscript);
@@ -73,7 +73,7 @@ var Transcript = Base.extend({
 	{
 		//This is the actual URI, but we need to write some code to redirect it to the player
 		//return getHostLocation()+"/"+appPath+"/resource/synmark/"+synmark_id;
-		
+
 		//This is the playing URI, which could be shared easily.
 		//console.log("getURI:"+resourceBaseURI+synmark_id);
 		return resourceBaseURI+cue_id;
@@ -81,12 +81,12 @@ var Transcript = Base.extend({
 	//Get the transcript div from the current position
 	getTranscript:function(currentPosition)
 	{
-		
+
 		if(this.transcripts == null)
 		{
 			return null;
 		}
-		
+
 		var ct = null;
 		for(var i=0;i<this.transcripts.length;i++)
 		{
@@ -140,7 +140,7 @@ var Transcript = Base.extend({
 		{
 			if(this.selectedTranscript != null)
 				this.selectedTranscript.removeClass("transcript-selected");
-				
+
 			if(this.selectedTranscript == null || this.selectedTranscript.attr('id') != currentTranscript.attr('id'))
 			{
 				this.selectedTranscript = currentTranscript;
@@ -180,15 +180,15 @@ var Transcript = Base.extend({
 	   	}).attr("data-time-st", cue.start)
 	   	.attr("data-time-et",cue.end)
 	   	.attr("transcript_id", cue.index).addClass("transcript-line").appendTo(transcript_line_li);
-	   	
+
    		//MicroData: add Video or AudioObject to this transcript first and make the text as the http://schema.org/transcript
    		mdHelper.setMediaObject(transcript_line,recording.isVideo == 'true'?true:false);
    		mdHelper.setItemid(transcript_line,attachFragmentToURI(resourceBaseURI+recording.id,getFragmentString(cue.start,cue.end)));
-   		
+
    		var transcript_line_time = $("<div/>",{
 	   		text:milisecToString(cue.start)+" to "+milisecToString(cue.end)
 	   	}).addClass("transcript-line-time").appendTo(transcript_line);
-	   	
+
    		//find the speaker from cue, use name=v, type=object
 	   	if(cue.cueText)
 	   	{
@@ -210,22 +210,22 @@ var Transcript = Base.extend({
    		}).addClass("transcript_line_content").appendTo(transcript_line);
 	   	//MicroData: add cueText as microdata transcript
 	   	mdHelper.setItemprop(transcript_line_content,"transcript");
-	   	
+
 	   	//---- add action buttons
 	   	var transcript_btn_span = $("<span/>").insertAfter(transcript_line_content);
 		//Get synmark link button
 		var link_transcript_btn = $("<button/>",{
 				html: "<i class='icon-share'></i>"
 			}).attr("title","Share the URL of this transcript block").attr("type","button").addClass("btn btn-mini");
-			
+
 		link_transcript_btn.bind("click",{cue_id:cue.id},function(event){
-			   $("#share_url_title_h4").text("Share Transcript Block");	
+			   $("#share_url_title_h4").text("Share Transcript Block");
 			   $("#share_url_dialog .modal-body").html("<p>"+transcript.getURI(event.data.cue_id)+"</p>");
 			   $("#share_url_dialog").modal('show');
 		});
 		link_transcript_btn.appendTo(transcript_btn_span);
 	   	//---- /add action buttons ----
-	    
+
 	    if(recording.canEdit === "true")
 	    {
 	    	var edit_transcript_btn = $("<button/>",{
@@ -241,27 +241,27 @@ var Transcript = Base.extend({
 						return;
 					}
 				})
-				
+
 				//Open the edit widget
 				if(transcriptData!=null)
 				{
 					$("#transcript_st").val(milisecToString(transcriptData.start));
 					$("#transcript_et").val(milisecToString(transcriptData.end));
-					
+
 					var speaker = transcript.getSpeakerFromCue(transcriptData);
 					if(speaker)
 						$("#transcript_speaker").val(speaker);
-					
+
 					$("#transcript_content").val(transcript.getAnnotatedTextFromCue(transcriptData.cueText));
 					$("#transcript_id").val(transcriptData.index); //This is the id of srt index, not the id of transcript div
-					
+
 					$("#transcript_edit_errorMsg").hide();
 					$("html,body").animate({scrollTop:$("#transcripts_div").offset().top},200);
-					$("#transcript_edit_div").show(200);	
+					$("#transcript_edit_div").show(200);
 				}
 		   });
 		   edit_transcript_btn.appendTo(transcript_btn_span);
-		   
+
 		   var delete_transcript_btn = $("<button/>",{
 				  html: "<i class='icon-trash'></i>"
 		   }).attr("title","Delete this transcript").attr("type","button").addClass("btn btn-mini");
@@ -269,7 +269,7 @@ var Transcript = Base.extend({
 			   var cue_id = event.data.cue_id;
 			   if(confirm("Do you want to delete this transcript block?"))
 			   {
-				   transcript.deleteTranscript(transcript.selectedTranscript.attr("transcript_id"),function(msg,error){	
+				   transcript.deleteTranscript(transcript.selectedTranscript.attr("transcript_id"),function(msg,error){
 						if(error != null)
 						{
 							transcript.showMsg(msg,error);
@@ -283,7 +283,7 @@ var Transcript = Base.extend({
 		   });
 		   delete_transcript_btn.appendTo(transcript_btn_span);
 	    }
-	    
+
 	   	if(recording.canCreateSynmark === "true")
 	   	{
 	   		//Select a text block, users can create a synmark based on the selected text
@@ -292,7 +292,7 @@ var Transcript = Base.extend({
 	   			//console.log("selected:"+selection);
 	   			if(selection && (selection = new String(selection).replace(/^\s+|\s+$/g,'')))
 	   			{
-	   				if(!transcript.selectionImage) 
+	   				if(!transcript.selectionImage)
 	   				{
 	   	                //console.log("create image");
 	   					transcript.selectionImage = $('<img/>',
@@ -303,7 +303,7 @@ var Transcript = Base.extend({
 	   	                }).css({"cursor":"pointer","z-index":"9999999","opacity":"0.9"}).addClass("right").hide();
 	   	                $(document.body).append(transcript.selectionImage);
 	   				}
-	   				
+
 	   				//console.log("show image");
 	   				transcript.selectionImage.insertBefore($(this));
 	   				transcript.selectionImage.bind("click",{cue:e.data.cue,selection:selection},function(event){
@@ -320,25 +320,25 @@ var Transcript = Base.extend({
 	   			}
 	   		});
 	   	}
-	   	
+
 	   	return transcript_line_li;
 	},
 	//Init editing forms and buttons for transcript. The settings such as transcript.editingEnabled will be set in startEditing()
 	initEditing:function()
-	{	
+	{
 		$("#edit_transcript_add_btn").click(function(){
-			
+
 			var newTime = player.getPosition();
 			$("#transcript_st").val(milisecToString(newTime));
 			$("#transcript_edit_div").show(400);
 			$("#transcript_id").val("");
 		});
 		//init transcript editing and creating form
-		
-		
+
+
 		$("#transcript_st").mask("?99:99:99");
 		$("#transcript_et").mask("?99:99:99");
-		
+
 		$("#transcript_st_time").click(function(){
 			var currentPosition = player.getPosition();
 			//console.log("curpo:"+currentPosition);
@@ -348,7 +348,7 @@ var Transcript = Base.extend({
 			var oldTime = stringToMilisec($("#transcript_st").val());
 			var newTime = oldTime+1000;
 			$("#transcript_st").val(milisecToString(newTime));
-			
+
 		});
 		$("#transcript_st_remove").click(function(){
 			var oldTime = stringToMilisec($("#transcript_st").val());
@@ -369,16 +369,16 @@ var Transcript = Base.extend({
 			var newTime = oldTime-1000>0?oldTime-1000:0;
 			$("#transcript_et").val(milisecToString(newTime));
 		});
-		
+
 		$("#transcript_submit").click(function(){
 			//Yunjia: valid transcript form first
-			
+
 			if(!$("#transcript_edit_form").valid())
 			{
 				transcript.showMsg("There are errors in the form","error");
 				return;
 			}
-			
+
 			if($("#transcript_et").val() == null || $.trim($("#transcript_et").val()).length == 0)
 			{
 				//console.log("abc");
@@ -428,7 +428,7 @@ var Transcript = Base.extend({
 			$("#transcript_edit_form").resetForm();
 			$("#transcript_edit_div").hide(400);
 		});
-		
+
 		//validation for transcript_edit_form
 		$("#transcript_edit_form").validate(
 		{
@@ -468,19 +468,19 @@ var Transcript = Base.extend({
 	empty:function()
 	{
 		//empty the data
-		this.transcripts = null; 
+		this.transcripts = null;
 		this.transcriptsData = null;
-		this.selectedTranscript = null; 
+		this.selectedTranscript = null;
 		//empty the inner container
 		$("#transcript_ol").empty();
-		
+
 	},
 	exitEditing:function() //execute code when exit editing mode
 	{
 		$("#transcript_edit_form").resetForm();
 		$("#transcript_edit_div").hide(400);
 	},
-	//Create a new transcript block according to the values in transcript_edit_form. 
+	//Create a new transcript block according to the values in transcript_edit_form.
 	//Both transcript.transcripts and transcript.transcriptData will be updated
 	createTranscript:function(callback)
 	{
@@ -515,7 +515,7 @@ var Transcript = Base.extend({
 					{
 						cue.id = parseInt(data.success.cueId);
 					}
-						
+
 					if(transcript.transcriptsData == null)
 					{
 						//console.log("create new trans");
@@ -548,7 +548,7 @@ var Transcript = Base.extend({
 					//console.log("error save transcript");
 					callback(data.error.description,"error");
 					return;
-				}	
+				}
 			},
 			error:function(jqXHR,textStatus,errorThrown)
 			{
@@ -582,9 +582,9 @@ var Transcript = Base.extend({
 		newCue.cueText += "</v>";
 		//if the time has changed a lot, we need a new thumbnail picture
 		var oldMiddle = (cue.start+cue.end)/2;
-		
+
 		//TODO: update thumbnail picture if needed.
-		
+
 		$.ajax({
 			url:url,
 			type:"post",
@@ -606,7 +606,7 @@ var Transcript = Base.extend({
 					}
 					else //find the right place to insert
 					{
-						
+
 						var previous_div = transcript.getTranscript(newCue.start);
 						if(previous_div != null) //the newly created transcript can be inserted into somewhere
 						{
@@ -621,7 +621,7 @@ var Transcript = Base.extend({
 						transcript.setTranscriptEdited(transcript_line_li_new.children(":first"));
 						transcript_line_li_old.remove();
 					}
-					
+
 					cue=newCue;
 					//renew the transcripts divs
 					transcript.transcripts = $(".transcript-line");
@@ -633,7 +633,7 @@ var Transcript = Base.extend({
 					//console.log("error save transcript");
 					callback(data.error.description,"error");
 					return;
-				}	
+				}
 			},
 			error:function(jqXHR,textStatus,errorThrown)
 			{
@@ -678,18 +678,18 @@ var Transcript = Base.extend({
 				return;
 			}
 		});
-		
-		
+
+
 	},
 	//fill the transcript widget with data
 	refreshTranscripts:function(data)
 	{
 		this.empty();//empty all the data and divs first
 		this.newId = 0;
-		
+
 		if(!data || data.length == 0)
 		{
-			$("#transcript_ol").html("No transcript");
+			$("#transcript_ol").html("<g:message code=\"No.transcript\"/>");
 			return;
 		}
 		transcript.transcriptsData = data;
@@ -708,9 +708,9 @@ var Transcript = Base.extend({
 					transcript.newId = parseInt(cue.index);
 			}
 		});
-		
+
 		transcript.newId++;
-		transcript.transcripts = $(".transcript-line");	
+		transcript.transcripts = $(".transcript-line");
 	},
 	refresh:function(callback) //Add a callback function
 	{
@@ -719,7 +719,7 @@ var Transcript = Base.extend({
 		var transcripts_content_div = this.inner_container;
 		var multimediaId = this.recording.id;
 		//transcripts_content_div.empty();
-		
+
 		$.ajax({
 			   type: "GET",
 			   url: getTranscriptsURL,
@@ -764,7 +764,7 @@ var Transcript = Base.extend({
 	   			speaker = child.value;
 	   			return false;
 	   		}
-	   	});	
+	   	});
 	   	return speaker;
 	}
 });
